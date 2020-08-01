@@ -40,7 +40,7 @@
 		<hibernate.version>5.2.11.Final</hibernate.version>
 		
 		<!-- version pilote jdbc de mysql-->
-		<mysql.driver.version>5.1.47</mysql.driver.version>
+		<mysql.driver.version>8.0.16</mysql.driver.version>
 		
 		<!-- Version de srping security -->
 		<spring.security.version>5.0.2.RELEASE</spring.security.version>
