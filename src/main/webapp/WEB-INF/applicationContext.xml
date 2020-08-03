@@ -1,7 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- ++++++++++++++++++++++++++++++++++++ Configuration des annotations ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	
+	<!-- 1. activation de la détection des annotations ex: @Autowired -->
+	<context:annotation-config/>
+	
+	<!-- 2. activation de la détection des beans de spring : ex: @Component/Repository/@Service/.etc -->
+	<context:component-scan base-package="com.intiformation.gestionecole"/>
+	
+	<!-- 3.  activation de la détection des transaction ex: @Transactional -->
+	<!-- 
+
+			>annotation-driven = gestion des transactions pilotées par les annotations via un gestionnaire des transactions (transaction-manager)
+			 proposé par spring
+	 -->
+	
+	<tx:annotation-driven transaction-manager="transactionManagerBean"/>
+	
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- ++++++++++++++++++++++++++++++++++++ Emplacement des fichiers de propriétés +++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+		
+	<context:property-placeholder location="classpath:db.properties"/>
+	
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- ++++++++++++++++++++++++++++++++++++ Déclaration du bean de la dataSource +++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	
+	<bean id="dataSourceBean" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${db.driverClassName}"/>
+		<property name="url" value="${db.url}"/>
+		<property name="username" value="${db.user}"/>
+		<property name="password" value="${db.password}"/>
+	</bean>
+	
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- ++++++++++++++++++++++++++++++++++ Déclaration du bean de la sessionFactory +++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<bean id="sessionFactoryBean" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		
+		<!-- 1. injection du bean de la dataSource "dataSourceBean" dans le bean de la sessionFactory -->
+		<property name="dataSource" ref="dataSourceBean"/>
+		
+		<!-- 2. définition des propriétés d'hibernate -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${db.hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${db.hibernate.showsql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${db.hibernate.hbm2ddl.auto}</prop>
+			</props>
+		</property>
+		
+			<!-- 3. déclaration des classes entités annotées avec @Entity -->
+		<property name="annotatedClasses">
+			<list>
+				<value>com.intiformation.gestionecole.modele.Personne</value>
+				<value>com.intiformation.gestionecole.modele.Administrateur</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- ++++++++++++++++++++++++++++ Déclaration du bean du Gestionnaire des transactions +++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- 
+		> HibernateTransactionManager : va gérer pour nous les transactions
+	 -->
+	
+	<bean id="transactionManagerBean" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<!-- injection du bean de la session Factory "sessionFactoryBean" dans le gestionnaire des tx  -->
+		<property name="sessionFactory" ref="sessionFactoryBean"/>
+	</bean>
 
 </beans>
