@@ -1,5 +1,6 @@
 package com.intiformation.gestionecole.modele;
 
+
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -42,8 +43,8 @@ public class Administrateur extends Personne{
 
 	
 
-	
 
+	
 	
 	/*_____________________________________________________ Getters/Setters _______________________________________________________*/
 	
