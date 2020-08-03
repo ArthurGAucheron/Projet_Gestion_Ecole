@@ -8,6 +8,10 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>src/main/webapp/WEB-INF/applicationContext.xml</config>
+		<config>src/main/webapp/WEB-INF/gestionecole-servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/gestionecole-datasource.xml</config>
+		<config>src/main/webapp/WEB-INF/gestionecole-service.xml</config>
+		<config>src/main/webapp/WEB-INF/gestionecole-security.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

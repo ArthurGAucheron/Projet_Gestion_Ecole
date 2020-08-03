@@ -1,0 +1,15 @@
+com\intiformation\gestionecole\modele\Promotion.class
+com\intiformation\gestionecole\service\IGeneriqueService.class
+com\intiformation\gestionecole\controller\MatiereListController.class
+com\intiformation\gestionecole\modele\Enseigne.class
+com\intiformation\gestionecole\modele\Etudiant.class
+com\intiformation\gestionecole\modele\Matiere.class
+com\intiformation\gestionecole\dao\PromotionDAOImpl.class
+com\intiformation\gestionecole\service\MatiereServiceImpl.class
+com\intiformation\gestionecole\modele\Personne.class
+com\intiformation\gestionecole\dao\IGeneriqueDAO.class
+com\intiformation\gestionecole\modele\Enseignant.class
+com\intiformation\gestionecole\service\PromotionServiceImpl.class
+com\intiformation\gestionecole\modele\Administrateur.class
+com\intiformation\gestionecole\dao\MatiereDAOImpl.class
+com\intiformation\gestionecole\modele\Cours.class

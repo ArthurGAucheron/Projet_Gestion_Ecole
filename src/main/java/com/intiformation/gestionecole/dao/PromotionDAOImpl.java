@@ -11,7 +11,6 @@ import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.intiformation.gestionecole.modele.Matiere;
 import com.intiformation.gestionecole.modele.Promotion;
 
 @Repository

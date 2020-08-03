@@ -9,6 +9,7 @@ import javax.persistence.Id;
 
 /**
  * modele de données pour une Promotion
+ * 
  * @author cam
  *
  */
@@ -17,27 +18,30 @@ public class Promotion {
 	/* ______Propriétés________ */
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_promotion")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_promotion")
 	private Long idPromotion;
-	
-	@Column(name="libelle")
+
+	@Column(name = "libelle")
 	private String libelle;
-	
-	@Column(name="liste_cours")
+
+	@Column(name = "liste_cours")
 	private List<Cours> listeCours;
+
+	@Column(name = "liste_etudiants")
+	private List<Etudiant> listeEtudiants;
 
 	/* ______Constructeurs________ */
 
 	public Promotion() {
 	}
-	
-	public Promotion(String libelle, List<Cours> listeCours) {
+
+	public Promotion(String libelle, List<Cours> listeCours, List<Etudiant> listeEtudiants) {
 		super();
 		this.libelle = libelle;
 		this.listeCours = listeCours;
+		this.listeEtudiants = listeEtudiants;
 	}
-
 
 	/* ______Getters/Setters________ */
 
@@ -57,7 +61,6 @@ public class Promotion {
 		this.libelle = libelle;
 	}
 
-
 	public List<Cours> getListeCours() {
 		return listeCours;
 	}
@@ -65,12 +68,20 @@ public class Promotion {
 	public void setListeCours(List<Cours> listeCours) {
 		this.listeCours = listeCours;
 	}
-	
+
+	public List<Etudiant> getListeEtudiants() {
+		return listeEtudiants;
+	}
+
+	public void setListeEtudiants(List<Etudiant> listeEtudiants) {
+		this.listeEtudiants = listeEtudiants;
+	}
+
 	/* ______toString()________ */
 	@Override
 	public String toString() {
-		return "Promotion [idPromotion=" + idPromotion + ", libelle=" + libelle + "]";
+		return "Promotion [idPromotion=" + idPromotion + ", libelle=" + libelle + ", listeCours=" + listeCours
+				+ ", listeEtudiants=" + listeEtudiants + "]";
 	}
-
 
 }// end class

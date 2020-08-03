@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name="enseignants")
 public class Enseignant extends Personne  {
 
-	public Enseignant() {
-	}
+public Enseignant() {
+}
 	
 }//end class
