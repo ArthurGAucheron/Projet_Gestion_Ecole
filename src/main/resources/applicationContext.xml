@@ -80,4 +80,5 @@
 		<!-- injection du bean de la session Factory "sessionFactoryBean" dans le gestionnaire des tx  -->
 		<property name="sessionFactory" ref="sessionFactoryBean"/>
 	</bean>
+
 </beans>
