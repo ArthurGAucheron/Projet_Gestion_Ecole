@@ -12,10 +12,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.intiformation.gestionecole.modele.Matiere;
+import com.intiformation.gestionecole.modele.Promotion;
 
 @Repository
 @Transactional
-public class MatiereDAOImpl implements IGeneriqueDAO<Matiere> {
+public class PromotionDAOImpl implements IGeneriqueDAO<Promotion> {
 
 	// déclaration de la session factory (hibernate)
 	@Autowired
@@ -26,16 +27,15 @@ public class MatiereDAOImpl implements IGeneriqueDAO<Matiere> {
 	}
 
 	@Override
-	public void add(Matiere pMatiere) {
-
+	public void add(Promotion pPromotion) {
 		Session session = this.sessionFactory.getCurrentSession();
 
 		try {
-			session.save(pMatiere);
+			session.save(pPromotion);
 
 		} catch (HibernateException e) {
 
-			System.out.println("(MatiereDAOImpl) Erreur lors de l'ajout ...........;");
+			System.out.println("(PromotionDAOImpl) Erreur lors de l'ajout ...........;");
 			throw e;
 
 		} // end catch
@@ -43,15 +43,15 @@ public class MatiereDAOImpl implements IGeneriqueDAO<Matiere> {
 	}// end add()
 
 	@Override
-	public void update(Matiere pMatiere) {
+	public void update(Promotion pPromotion) {
 		Session session = this.sessionFactory.getCurrentSession();
 
 		try {
-			session.update(pMatiere);
+			session.update(pPromotion);
 
 		} catch (HibernateException e) {
 
-			System.out.println("(MatiereDAOImpl) Erreur lors de la modif ...........;");
+			System.out.println("(PromotionDAOImpl) Erreur lors de la modif ...........;");
 
 			throw e;
 
@@ -60,50 +60,50 @@ public class MatiereDAOImpl implements IGeneriqueDAO<Matiere> {
 	}// end update
 
 	@Override
-	public void delete(Long pIdMatiere) {
+	public void delete(Long pIdPromotion) {
 		Session session = this.sessionFactory.getCurrentSession();
 
 		try {
-			Matiere matiereToDelete = getById(pIdMatiere);
-			session.delete(matiereToDelete);
+			Promotion promotionToDelete = getById(pIdPromotion);
+			session.delete(promotionToDelete);
 
 		} catch (HibernateException e) {
 
-			System.out.println("(MatiereDAOImpl) Erreur lors de la suppression ...........;");
+			System.out.println("(PromotionDAOImpl) Erreur lors de la suppression ...........;");
 
 			throw e;
 
 		} // end catch
 
-	}//end delete()
+	}// end delete()
 
 	@Override
 	@ReadOnlyProperty
-	public Matiere getById(Long pIdMatiere) {
+	public Promotion getById(Long pIdPromotion) {
 		try {
 			Session session = this.sessionFactory.openSession();
-			Matiere mat = session.find(Matiere.class, pIdMatiere);
-			return mat;
+			Promotion promo = session.find(Promotion.class, pIdPromotion);
+			return promo;
 		} catch (Exception e) {
 
-			System.out.println("(MatiereDAOImpl) Erreur lors de la recupération  by Id ...........;");
+			System.out.println("(PromotionDAOImpl) Erreur lors de la recupération  by Id ...........;");
 			throw e;
 		} // end catch
-	}//end getById()
+	}// end getById()
 
 	@Override
 	@ReadOnlyProperty
-	public List<Matiere> getAll() {
+	public List<Promotion> getAll() {
 		try {
 			Session session = this.sessionFactory.openSession();
-			Query query = session.createQuery("FROM Matiere");
-			List<Matiere> listeMatieresBDD = query.list();
-			return listeMatieresBDD;
+			Query query = session.createQuery("FROM Promotion");
+			List<Promotion> listePromotionsBDD = query.list();
+			return listePromotionsBDD;
 		} catch (Exception e) {
 
-			System.out.println("(MatiereDAOImpl) Erreur lors de la recupération de la liste dans la BDD  ...........;");
+			System.out.println("(PromotionDAOImpl) Erreur lors de la recupération de la liste dans la BDD  ...........;");
 			throw e;
 		} // end catch
-	}//end getAll()
+	}// end getAll()
 
-}//end class
+}// end class
