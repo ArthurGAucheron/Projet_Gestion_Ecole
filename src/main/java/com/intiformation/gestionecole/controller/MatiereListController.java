@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.intiformation.gestionecole.modele.Matiere;
+import com.intiformation.gestionecole.service.IGeneriqueService;
 import com.intiformation.gestionecole.service.MatiereServiceImpl;
 
 @Controller 
-@Qualifier("matiereControllerBean")
 @RequestMapping("/matiereList*")
 public class MatiereListController {
 
 	// declaration du service (dao)
-	private MatiereServiceImpl matiereService;
+	private IGeneriqueService<Matiere> matiereService;
 
 	@Autowired
-	public MatiereListController(@Qualifier("matiereServiceBean")MatiereServiceImpl matiereService) {
+	public MatiereListController(@Qualifier("matiereServiceBean")IGeneriqueService<Matiere> matiereService) {
 		this.matiereService = matiereService;
 	}// end ctor
 	

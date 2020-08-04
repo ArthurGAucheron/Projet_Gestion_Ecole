@@ -13,16 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.intiformation.gestionecole.modele.Matiere;
 
-@Repository
-@Qualifier("matiereDAOBean")
+@Repository ("matiereDAOBean")
 public class MatiereDAOImpl implements IGeneriqueDAO<Matiere> {
 
 	// déclaration de la session factory (hibernate)
-	@Qualifier("a")
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void setSessionFactory(@Qualifier("a")SessionFactory sessionFactory) {
+	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 

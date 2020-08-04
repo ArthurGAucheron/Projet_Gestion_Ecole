@@ -10,8 +10,9 @@
 	<bean id="matiereServiceBean"
 		class="com.intiformation.gestionecole.service.MatiereServiceImpl" />
 
-	<bean id="promotionServiceBean"
-		class="com.intiformation.gestionecole.service.PromotionServiceImpl" />
+	<bean id="matiereDAOBean"
+		class="com.intiformation.gestionecole.dao.MatiereDAOImpl" />
+
 
 
 </beans>

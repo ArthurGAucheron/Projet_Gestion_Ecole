@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.intiformation.gestionecole.dao.IGeneriqueDAO;
 import com.intiformation.gestionecole.dao.MatiereDAOImpl;
 import com.intiformation.gestionecole.modele.Matiere;
 
@@ -15,9 +16,10 @@ public class MatiereServiceImpl implements IGeneriqueService<Matiere> {
 
 	//déclaration de la couche DAO
 	@Autowired
-	private MatiereDAOImpl matiereDAO ;
+	@Qualifier("matiereDAOBean")
+	private IGeneriqueDAO<Matiere> matiereDAO ;
 	
-	public void setMatiereDAO (@Qualifier("matiereDAOBean") MatiereDAOImpl matiereDAO) {
+	public void setMatiereDAO (@Qualifier("matiereDAOBean")IGeneriqueDAO<Matiere> matiereDAO) {
 		this.matiereDAO = matiereDAO ;
 	}
 	

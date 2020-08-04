@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import com.intiformation.gestionecole.modele.Cours;
 
 
 /**
@@ -29,8 +30,8 @@ public class Matiere {
 	@Column(name="libelle")
 	private String libelle;
 	
-	@Column(name="liste_cours")
-	private List<Cours> listeCours;
+	//@Column(name="liste_cours")
+	//private List<Cours> listeCours;
 
 	/* ______Constructeurs________ */
 
@@ -40,7 +41,7 @@ public class Matiere {
 	public Matiere(String libelle, List<Cours> listeCours) {
 		super();
 		this.libelle = libelle;
-		this.listeCours = listeCours;
+	//	this.listeCours = listeCours;
 	}
 
 	/* ______Getters/Setters________ */
@@ -61,13 +62,13 @@ public class Matiere {
 		this.libelle = libelle;
 	}
 
-	public List<Cours> getListeCours() {
-		return listeCours;
-	}
+	//public List<Cours> getListeCours() {
+	//	return listeCours;
+	//}
 
-	public void setListeCours(List<Cours> listeCours) {
-		this.listeCours = listeCours;
-	}
+	//public void setListeCours(List<Cours> listeCours) {
+	//	this.listeCours = listeCours;
+	//}
 	/* ______toString()________ */
 
 	@Override

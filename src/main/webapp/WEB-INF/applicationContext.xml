@@ -70,7 +70,6 @@
 				<value>com.intiformation.gestionecole.modele.Personne</value>
 				<value>com.intiformation.gestionecole.modele.Administrateur</value>
 				<value>com.intiformation.gestionecole.modele.Matiere</value>
-				<value>com.intiformation.gestionecole.modele.Promotion</value>
 			</list>
 		</property>
 	</bean>
@@ -86,5 +85,8 @@
 		<!-- injection du bean de la session Factory "sessionFactoryBean" dans le gestionnaire des tx  -->
 		<property name="sessionFactory" ref="sessionFactoryBean"/>
 	</bean>
+	
+	<tx:annotation-driven proxy-target-class="true"
+        transaction-manager="transactionManager" />
 
 </beans>
