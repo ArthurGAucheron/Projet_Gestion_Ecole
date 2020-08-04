@@ -1,26 +1,29 @@
 package com.intiformation.gestionecole.modele;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="etudiants")
+@DiscriminatorValue("etu")
+@Table(name = "etudiants")
 public class Etudiant extends Personne {
-	
-	/*__________________________ props __________________________*/
-	@Column(name="photo")
+
+	/* __________________________ props __________________________ */
+	@Column(name = "photo")
 	private byte[] photo;
-	
-	@Column(name="date_de_naissance")
+
+	@Column(name = "date_de_naissance")
 	private Date dateNaissance;
-	
-	@Column(name="promotion")
+
+	@Column(name = "promotion")
 	private Long idPromo;
-	
-	/*__________________________ ctors __________________________*/
+
+	/* __________________________ ctors __________________________ */
 	/**
 	 * ctor vide
 	 */
@@ -29,6 +32,7 @@ public class Etudiant extends Personne {
 
 	/**
 	 * ctor chargé avec toutes les props
+	 * 
 	 * @param idPersonne
 	 * @param identifiant
 	 * @param motdePasse
@@ -39,7 +43,8 @@ public class Etudiant extends Personne {
 	 * @param dateNaissance
 	 * @param idPromo
 	 */
-	public Etudiant(long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email, byte[] photo, Date dateNaissance, Long idPromo) {
+	public Etudiant(long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email,
+			byte[] photo, Date dateNaissance, Long idPromo) {
 		super(idPersonne, identifiant, motdePasse, nom, prenom, email);
 		this.photo = photo;
 		this.dateNaissance = dateNaissance;
@@ -48,6 +53,7 @@ public class Etudiant extends Personne {
 
 	/**
 	 * ctor chargé sans l'id de l'étudiant
+	 * 
 	 * @param identifiant
 	 * @param motdePasse
 	 * @param nom
@@ -57,14 +63,15 @@ public class Etudiant extends Personne {
 	 * @param dateNaissance
 	 * @param idPromo
 	 */
-	public Etudiant(String identifiant, String motdePasse, String nom, String prenom, String email, byte[] photo, Date dateNaissance, Long idPromo) {
+	public Etudiant(String identifiant, String motdePasse, String nom, String prenom, String email, byte[] photo,
+			Date dateNaissance, Long idPromo) {
 		super(identifiant, motdePasse, nom, prenom, email);
 		this.photo = photo;
 		this.dateNaissance = dateNaissance;
 		this.idPromo = idPromo;
 	}
 
-	/*_____________________ getters/setters _____________________*/
+	/* _____________________ getters/setters _____________________ */
 	public byte[] getPhoto() {
 		return photo;
 	}
@@ -88,5 +95,13 @@ public class Etudiant extends Personne {
 	public void setIdPromo(Long idPromo) {
 		this.idPromo = idPromo;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Etudiant [Photo=" + Arrays.toString(photo) + ", DateNaissance=" + dateNaissance + ", idPromo=" + idPromo
+				+ ", IdPromo=" + getIdPromo() + ", Identifiant=" + getIdentifiant() + ", MotdePasse=" + getMotdePasse()
+				+ ", Nom=" + getNom() + ", Prenom=" + getPrenom() + ", Email=" + getEmail() + ", IdPersonne="
+				+ getIdPersonne() + "]";
+	}
+
 }

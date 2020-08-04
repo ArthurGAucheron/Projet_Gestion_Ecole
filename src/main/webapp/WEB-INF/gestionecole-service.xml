@@ -12,6 +12,9 @@
 
 	<bean id="promotionServiceBean"
 		class="com.intiformation.gestionecole.service.PromotionServiceImpl" />
+		
+	<bean id="coursServiceBean"
+		class="com.intiformation.gestionecole.service.CoursServiceImpl"/>
 
 
 </beans>
