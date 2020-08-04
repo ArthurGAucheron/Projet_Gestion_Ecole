@@ -65,11 +65,15 @@
 			<list>
 				<value>com.intiformation.gestionecole.modele.Personne</value>
 				<value>com.intiformation.gestionecole.modele.Administrateur</value>
+<<<<<<< HEAD
 				<value>com.intiformation.gestionecole.modele.Adresse</value>
 				<value>com.intiformation.gestionecole.modele.Aide</value>
 				<value>com.intiformation.gestionecole.modele.Enseignant</value>
 				<value>com.intiformation.gestionecole.modele.Matiere</value>
 				<value>com.intiformation.gestionecole.modele.Promotion</value>
+=======
+				<value>com.intiformation.gestionecole.modele.Etudiant</value>
+>>>>>>> 539f7f840ba0369c304f17d8a8cf0be1e6137847
 			</list>
 		</property>
 	</bean>

@@ -12,7 +12,7 @@
 
 <a href="matiereList">lien vers la page 'matiereList.jsp'</a>
 
-
+<a href="coursliste">lien vers la page test des cours</a>
 
 
 </body>
