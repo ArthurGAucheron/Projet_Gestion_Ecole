@@ -2,7 +2,6 @@ com\intiformation\gestionecole\dao\IAdministrateurDAO.class
 com\intiformation\gestionecole\service\IGeneriqueService.class
 com\intiformation\gestionecole\dao\EnseignantDAOImpl.class
 com\intiformation\gestionecole\service\EnseignantServiceImpl.class
-com\intiformation\gestionecole\controller\MatiereListController.class
 com\intiformation\gestionecole\modele\Etudiant.class
 com\intiformation\gestionecole\service\IAdresseService.class
 com\intiformation\gestionecole\dao\AideDAOImpl.class
@@ -16,6 +15,7 @@ com\intiformation\gestionecole\dao\IGeneriqueDAO.class
 com\intiformation\gestionecole\service\PromotionServiceImpl.class
 com\intiformation\gestionecole\service\IEnseignantService.class
 com\intiformation\gestionecole\modele\Cours.class
+com\intiformation\gestionecole\controller\GestionAdministrateurController.class
 com\intiformation\gestionecole\modele\Promotion.class
 com\intiformation\gestionecole\dao\IAdresseDAO.class
 com\intiformation\gestionecole\modele\Enseigne.class
@@ -24,7 +24,6 @@ com\intiformation\gestionecole\service\IAideService.class
 com\intiformation\gestionecole\dao\AdministrateurDAOImpl.class
 com\intiformation\gestionecole\modele\Matiere.class
 com\intiformation\gestionecole\service\AdresseServiceImpl.class
-com\intiformation\gestionecole\controller\CoursListController.class
 com\intiformation\gestionecole\service\AdministrateurServiceImpl.class
 com\intiformation\gestionecole\dao\AdresseDAOImpl.class
 com\intiformation\gestionecole\service\MatiereServiceImpl.class

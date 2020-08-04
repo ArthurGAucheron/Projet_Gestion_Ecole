@@ -10,10 +10,5 @@
 
 <h1>Hello ! Ceci est la page d'accueil (index.jsp) !</h1>
 
-<a href="matiereList">lien vers la page 'matiereList.jsp'</a>
-
-<a href="coursliste">lien vers la page test des cours</a>
-
-
 </body>
 </html>

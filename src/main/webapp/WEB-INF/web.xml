@@ -20,10 +20,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-				/WEB-INF/gestionecole-servlet.xml
-				/WEB-INF/gestionecole-service.xml
-				/WEB-INF/gestionecole-security.xml
-				/WEB-INF/gestionecole-datasource.xml
+			/WEB-INF/applicationContext.xml 
 		</param-value>
 	</context-param>
 
