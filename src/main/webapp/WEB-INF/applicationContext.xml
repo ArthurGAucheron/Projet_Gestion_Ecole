@@ -67,6 +67,9 @@
 				<value>com.intiformation.gestionecole.modele.Administrateur</value>
 				<value>com.intiformation.gestionecole.modele.Adresse</value>
 				<value>com.intiformation.gestionecole.modele.Aide</value>
+				<value>com.intiformation.gestionecole.modele.Enseignant</value>
+				<value>com.intiformation.gestionecole.modele.Matiere</value>
+				<value>com.intiformation.gestionecole.modele.Promotion</value>
 			</list>
 		</property>
 	</bean>
