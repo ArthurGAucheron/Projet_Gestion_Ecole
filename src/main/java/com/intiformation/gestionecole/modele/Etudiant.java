@@ -27,7 +27,14 @@ public class Etudiant extends Personne {
 	/**
 	 * ctor vide
 	 */
+	
+	
 	public Etudiant() {
+	}
+
+	public Etudiant(byte[] photo, Date dateNaissance, Long idPromo) {
+		super();
+		
 	}
 
 	/**
@@ -43,13 +50,14 @@ public class Etudiant extends Personne {
 	 * @param dateNaissance
 	 * @param idPromo
 	 */
-	public Etudiant(long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email,
-			byte[] photo, Date dateNaissance, Long idPromo) {
-		super(idPersonne, identifiant, motdePasse, nom, prenom, email);
+	public Etudiant(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email,
+			Adresse adresse, byte[] photo, Date dateNaissance, Long idPromo) {
+		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresse);
 		this.photo = photo;
 		this.dateNaissance = dateNaissance;
 		this.idPromo = idPromo;
 	}
+	
 
 	/**
 	 * ctor chargé sans l'id de l'étudiant
@@ -63,9 +71,8 @@ public class Etudiant extends Personne {
 	 * @param dateNaissance
 	 * @param idPromo
 	 */
-	public Etudiant(String identifiant, String motdePasse, String nom, String prenom, String email, byte[] photo,
-			Date dateNaissance, Long idPromo) {
-		super(identifiant, motdePasse, nom, prenom, email);
+	public Etudiant(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse, byte[] photo, Date dateNaissance, Long idPromo) {
+		super(identifiant, motdePasse, nom, prenom, email, adresse);
 		this.photo = photo;
 		this.dateNaissance = dateNaissance;
 		this.idPromo = idPromo;

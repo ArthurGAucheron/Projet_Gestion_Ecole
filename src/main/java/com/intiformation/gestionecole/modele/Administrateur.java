@@ -32,7 +32,7 @@ public class Administrateur extends Personne{
 		super(identifiant, motdePasse, nom, prenom, email, adresse);
 	}
 
-
+}
 	
 	
 	/*_____________________________________________________ Getters/Setters _______________________________________________________*/
