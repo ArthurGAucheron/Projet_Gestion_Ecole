@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="app_gestion_ecole">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
@@ -8,3 +9,6 @@
         <property name="java-output-path" value="/Projet_Gestion_Ecole/target/classes"/>
     </wb-module>
 </project-modules>
+=======
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId"/>
+>>>>>>> 642f7b4... implémentation du modele Aide et de sa couche service et DAO

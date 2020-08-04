@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\controller\MatiereListController.java
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\modele\Promotion.java
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\modele\Enseignant.java
@@ -13,3 +14,29 @@ C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\modele\Etudiant.java
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\service\PromotionServiceImpl.java
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\modele\Matiere.java
+=======
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Personne.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\IAdministrateurService.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\IGeneriqueDAO.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Cours.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\test\AppTestDAOArthur.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\AdresseDAOImpl.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Enseigne.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\IAdresseDAO.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\AideServiceImpl.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\IGeneriqueService.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Enseignant.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Matiere.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\IAdministrateurDAO.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Aide.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Promotion.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\AdresseServiceImpl.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\IAdresseService.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\AdministrateurDAOImpl.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\AdministrateurServiceImpl.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Administrateur.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\IAideService.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\AideDAOImpl.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Adresse.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\IAideDAO.java
+>>>>>>> 642f7b4... implémentation du modele Aide et de sa couche service et DAO

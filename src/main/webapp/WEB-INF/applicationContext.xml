@@ -65,6 +65,8 @@
 			<list>
 				<value>com.intiformation.gestionecole.modele.Personne</value>
 				<value>com.intiformation.gestionecole.modele.Administrateur</value>
+				<value>com.intiformation.gestionecole.modele.Adresse</value>
+				<value>com.intiformation.gestionecole.modele.Aide</value>
 			</list>
 		</property>
 	</bean>

@@ -8,7 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 642f7b4... implémentation du modele Aide et de sa couche service et DAO
 /**
  * <pre>
  * 
