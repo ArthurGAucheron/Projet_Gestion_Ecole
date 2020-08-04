@@ -14,7 +14,22 @@ import javax.persistence.Table;
 @DiscriminatorValue("ens")
 public class Enseignant extends Personne  {
 
-public Enseignant() {
-}
+	public Enseignant() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Enseignant(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email,
+			Long adresseId) {
+		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresseId);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Enseignant(String identifiant, String motdePasse, String nom, String prenom, String email, Long adresseId) {
+		super(identifiant, motdePasse, nom, prenom, email, adresseId);
+		// TODO Auto-generated constructor stub
+	}
+
+
 	
 }//end class

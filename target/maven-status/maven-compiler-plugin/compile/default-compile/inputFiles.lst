@@ -1,6 +1,8 @@
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\controller\MatiereListController.java
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\presentation\AppTestDAO.java
+C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\modele\Promotion.java
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\modele\Enseignant.java
+C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\dao\PromotionDAOImpl.java
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\modele\Cours.java
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\service\IGeneriqueService.java
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\modele\Enseigne.java
@@ -10,4 +12,6 @@ C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\dao\MatiereDAOImpl.java
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\dao\IGeneriqueDAO.java
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\modele\Etudiant.java
+C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\service\PromotionServiceImpl.java
+C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\controller\MatiereController.java
 C:\Users\IN-ST-028\Documents\INTI Cours JAVA\Cours MEHDI_YOUNES\Devoirs\PROJET G3\Projet_Gestion_Ecole\src\main\java\com\intiformation\gestionecole\modele\Matiere.java

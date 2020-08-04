@@ -16,7 +16,7 @@ import com.intiformation.gestionecole.service.IGeneriqueService;
 import com.intiformation.gestionecole.service.MatiereServiceImpl;
 
 @Controller 
-@RequestMapping("/matiereList*")
+@RequestMapping("/matiereList")
 public class MatiereListController {
 
 	// declaration du service (dao)
