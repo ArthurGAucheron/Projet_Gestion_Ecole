@@ -1,5 +1,6 @@
 package com.intiformation.gestionecole.modele;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
 import javax.persistence.DiscriminatorColumn;
@@ -11,8 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 import org.hibernate.annotations.Tables;
 
@@ -59,8 +62,11 @@ public abstract class Personne {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "adresse_id")
-	private Long adresseId;
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="adresse_id", referencedColumnName="id_adresse")
+	private Adresse adresse;
+	
+	
 
 	/*
 	 * _____________________________________________________ Constructeurs
@@ -70,8 +76,10 @@ public abstract class Personne {
 	public Personne() {
 	}
 
+	
+
 	public Personne(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email,
-			Long adresseId) {
+			Adresse adresse) {
 		super();
 		this.idPersonne = idPersonne;
 		this.identifiant = identifiant;
@@ -79,19 +87,20 @@ public abstract class Personne {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
-		this.adresseId = adresseId;
+		this.adresse = adresse;
 	}
 
-	public Personne(String identifiant, String motdePasse, String nom, String prenom, String email, Long adresseId) {
-
+	public Personne(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse) {
 		super();
 		this.identifiant = identifiant;
 		this.motdePasse = motdePasse;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
-		this.adresseId = adresseId;
+		this.adresse = adresse;
 	}
+
+
 
 	/*
 	 * _____________________________________________________ Getters/Setters
@@ -145,18 +154,19 @@ public abstract class Personne {
 		this.idPersonne = idPersonne;
 	}
 
-	public Long getAdresseId() {
-		return adresseId;
+
+
+	public Adresse getAdresse() {
+		return adresse;
 	}
 
-	public void setAdresseId(Long adresseId) {
-		this.adresseId = adresseId;
+
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 
-	@Override
-	public String toString() {
-		return "Personne [idPersonne=" + idPersonne + ", identifiant=" + identifiant + ", motdePasse=" + motdePasse
-				+ ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", adresseId=" + adresseId + "]";
-	}
+
+	
 
 }// end class

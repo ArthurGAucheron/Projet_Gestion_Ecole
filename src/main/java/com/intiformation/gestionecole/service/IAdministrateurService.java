@@ -1,6 +1,5 @@
 package com.intiformation.gestionecole.service;
 
-import java.util.List;
 
 import com.intiformation.gestionecole.modele.Administrateur;
 /**

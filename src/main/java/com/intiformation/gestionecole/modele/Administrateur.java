@@ -23,25 +23,14 @@ public class Administrateur extends Personne{
 	}
 
 	public Administrateur(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom,
-			String email, Long adresseId) {
-		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresseId);
-		// TODO Auto-generated constructor stub
+			String email, Adresse adresse) {
+		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresse);
 	}
 
 	public Administrateur(String identifiant, String motdePasse, String nom, String prenom, String email,
-			Long adresseId) {
-		super(identifiant, motdePasse, nom, prenom, email, adresseId);
-		// TODO Auto-generated constructor stub
+			Adresse adresse) {
+		super(identifiant, motdePasse, nom, prenom, email, adresse);
 	}
-
-	@Override
-	public String toString() {
-		return "Administrateur => Identifiant = " + getIdentifiant() + " | MotdePasse = " + getMotdePasse()
-				+ " | Nom=" + getNom() + " | Prenom=" + getPrenom() + " | Email=" + getEmail()
-				+ " | Id Personne()=" + getIdPersonne() + " | Adresse id =" + getAdresseId() + "]";
-	}
-
-	
 
 
 	
