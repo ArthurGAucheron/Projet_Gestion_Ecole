@@ -1,6 +1,5 @@
 com\intiformation\gestionecole\modele\Promotion.class
 com\intiformation\gestionecole\service\IGeneriqueService.class
-com\intiformation\gestionecole\controller\MatiereListController.class
 com\intiformation\gestionecole\modele\Enseigne.class
 com\intiformation\gestionecole\modele\Etudiant.class
 com\intiformation\gestionecole\controller\MatiereController.class

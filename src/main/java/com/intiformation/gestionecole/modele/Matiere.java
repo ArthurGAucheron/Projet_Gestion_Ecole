@@ -30,8 +30,8 @@ public class Matiere {
 	@Column(name="libelle")
 	private String libelle;
 	
-	//@Column(name="liste_cours")
-	//private List<Cours> listeCours;
+//	@Column(name="liste_cours")
+//	private List<Cours> listeCours;
 
 	/* ______Constructeurs________ */
 
@@ -62,19 +62,21 @@ public class Matiere {
 		this.libelle = libelle;
 	}
 
-	//public List<Cours> getListeCours() {
-	//	return listeCours;
-	//}
+//	public List<Cours> getListeCours() {
+//		return listeCours;
+//	}
+//
+//	public void setListeCours(List<Cours> listeCours) {
+//		this.listeCours = listeCours;
+//	}
 
-	//public void setListeCours(List<Cours> listeCours) {
-	//	this.listeCours = listeCours;
-	//}
 	/* ______toString()________ */
-
 	@Override
 	public String toString() {
-		return "Matiere [idMatiere=" + idMatiere + ", libelle=" + libelle + "]";
+		return "Matiere [idMatiere=" + idMatiere + ", libelle=" + libelle +"]";
 	}
+
+
 
 	
 
