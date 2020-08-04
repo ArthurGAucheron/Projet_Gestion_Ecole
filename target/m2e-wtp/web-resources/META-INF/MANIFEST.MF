@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: arthu
 Build-Jdk: 1.8.0_251
+=======
+Built-By: IN-ST-028
+Build-Jdk: 1.8.0_241
+>>>>>>> f3765ab58575e71b874ab67d32d1eace73217326
 Created-By: Maven Integration for Eclipse
 
