@@ -13,3 +13,4 @@ com\intiformation\gestionecole\service\PromotionServiceImpl.class
 com\intiformation\gestionecole\modele\Administrateur.class
 com\intiformation\gestionecole\dao\MatiereDAOImpl.class
 com\intiformation\gestionecole\modele\Cours.class
+com\intiformation\gestionecole\presentation\AppTestDAO.class

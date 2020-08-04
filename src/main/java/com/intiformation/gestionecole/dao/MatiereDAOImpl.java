@@ -7,25 +7,27 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.ReadOnlyProperty;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.intiformation.gestionecole.modele.Matiere;
 
 @Repository
-@Transactional
+@Qualifier("matiereDAOBean")
 public class MatiereDAOImpl implements IGeneriqueDAO<Matiere> {
 
 	// déclaration de la session factory (hibernate)
+	@Qualifier("a")
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
+	public void setSessionFactory(@Qualifier("a")SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 
 	@Override
+	@Transactional
 	public void add(Matiere pMatiere) {
 
 		Session session = this.sessionFactory.getCurrentSession();
@@ -43,6 +45,7 @@ public class MatiereDAOImpl implements IGeneriqueDAO<Matiere> {
 	}// end add()
 
 	@Override
+	@Transactional
 	public void update(Matiere pMatiere) {
 		Session session = this.sessionFactory.getCurrentSession();
 
@@ -60,6 +63,7 @@ public class MatiereDAOImpl implements IGeneriqueDAO<Matiere> {
 	}// end update
 
 	@Override
+	@Transactional
 	public void delete(Long pIdMatiere) {
 		Session session = this.sessionFactory.getCurrentSession();
 
@@ -78,7 +82,7 @@ public class MatiereDAOImpl implements IGeneriqueDAO<Matiere> {
 	}//end delete()
 
 	@Override
-	@ReadOnlyProperty
+	@Transactional (readOnly=true)
 	public Matiere getById(Long pIdMatiere) {
 		try {
 			Session session = this.sessionFactory.openSession();
@@ -92,7 +96,7 @@ public class MatiereDAOImpl implements IGeneriqueDAO<Matiere> {
 	}//end getById()
 
 	@Override
-	@ReadOnlyProperty
+	@Transactional (readOnly=true)
 	public List<Matiere> getAll() {
 		try {
 			Session session = this.sessionFactory.openSession();

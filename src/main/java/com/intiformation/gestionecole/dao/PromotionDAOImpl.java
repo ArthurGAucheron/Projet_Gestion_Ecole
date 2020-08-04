@@ -7,22 +7,25 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.intiformation.gestionecole.modele.Promotion;
 
+@Qualifier("promotionDAOBean")
 @Repository
 @Transactional
 public class PromotionDAOImpl implements IGeneriqueDAO<Promotion> {
 
 	// déclaration de la session factory (hibernate)
 	@Autowired
+	@Qualifier("b")
 	private SessionFactory sessionFactory;
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	public void setSessionFactory(@Qualifier("b")SessionFactory sessionFactoryb) {
+		this.sessionFactory = sessionFactoryb;
 	}
 
 	@Override

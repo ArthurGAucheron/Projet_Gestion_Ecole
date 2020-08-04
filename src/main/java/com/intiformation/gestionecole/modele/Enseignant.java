@@ -1,5 +1,6 @@
 package com.intiformation.gestionecole.modele;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -10,6 +11,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="enseignants")
+@DiscriminatorValue("ens")
 public class Enseignant extends Personne  {
 
 public Enseignant() {

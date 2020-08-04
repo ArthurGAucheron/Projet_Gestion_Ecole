@@ -2,20 +2,23 @@ package com.intiformation.gestionecole.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.intiformation.gestionecole.dao.MatiereDAOImpl;
 import com.intiformation.gestionecole.modele.Matiere;
 
+
 @Service("matiereServiceBean")
 public class MatiereServiceImpl implements IGeneriqueService<Matiere> {
 
 	//déclaration de la couche DAO
-	
+	@Autowired
 	private MatiereDAOImpl matiereDAO ;
 	
-	public void setMatiereDAO (MatiereDAOImpl matiereDAOImpl) {
-		this.matiereDAO = matiereDAOImpl ;
+	public void setMatiereDAO (@Qualifier("matiereDAOBean") MatiereDAOImpl matiereDAO) {
+		this.matiereDAO = matiereDAO ;
 	}
 	
 	@Override
