@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: IN-ST-028
-Build-Jdk: 1.8.0_241
-=======
 Built-By: arthu
 Build-Jdk: 1.8.0_251
->>>>>>> 642f7b4... implémentation du modele Aide et de sa couche service et DAO
 Created-By: Maven Integration for Eclipse
 
