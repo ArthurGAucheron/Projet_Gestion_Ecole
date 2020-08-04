@@ -1,17 +1,22 @@
 package com.intiformation.gestionecole.modele;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 642f7b4... implémentation du modele Aide et de sa couche service et DAO
 /**
  * <pre>
  * 
@@ -20,39 +25,59 @@ import javax.persistence.InheritanceType;
  * Stratégie : une table par classe
  * 
  * </pre>
+ * 
  * @author Arthur.GA
  *
  */
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Table(name = "personnes")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type_personne", discriminatorType = DiscriminatorType.STRING)
 public abstract class Personne {
-	
-	/*________________________________________________________ Propriétés _______________________________________________________*/
+
+	/*
+	 * ________________________________________________________ Propriétés
+	 * _______________________________________________________
+	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_personne")
-	private long   idPersonne;
-	
-	@Column(name="identifiant")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_personne")
+
+	private Long idPersonne;
+
+	@Column(name = "identifiant")
 	private String identifiant;
-	
-	@Column(name="mote_de_passe")
+
+	@Column(name = "mote_de_passe")
 	private String motdePasse;
-	
-	@Column(name="nom")
+
+	@Column(name = "nom")
 	private String nom;
-	
-	@Column(name="prenom")
+
+	@Column(name = "prenom")
 	private String prenom;
-	
-	@Column(name="email")
+
+	@Column(name = "email")
 	private String email;
+
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="adresse_id", referencedColumnName="id_adresse")
+	private Adresse adresse;
 	
-	/*_____________________________________________________ Constructeurs _______________________________________________________*/
 	
+
+	/*
+	 * _____________________________________________________ Constructeurs
+	 * _______________________________________________________
+	 */
+
 	public Personne() {
 	}
-	public Personne(long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email) {
+
+	
+
+	public Personne(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email,
+			Adresse adresse) {
 		super();
 		this.idPersonne = idPersonne;
 		this.identifiant = identifiant;
@@ -60,18 +85,25 @@ public abstract class Personne {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
+		this.adresse = adresse;
 	}
-	
-	public Personne(String identifiant, String motdePasse, String nom, String prenom, String email) {
+
+	public Personne(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse) {
 		super();
 		this.identifiant = identifiant;
 		this.motdePasse = motdePasse;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
+		this.adresse = adresse;
 	}
 
-	/*_____________________________________________________ Getters/Setters _______________________________________________________*/
+
+
+	/*
+	 * _____________________________________________________ Getters/Setters
+	 * _______________________________________________________
+	 */
 	public String getIdentifiant() {
 		return identifiant;
 	}
@@ -112,17 +144,27 @@ public abstract class Personne {
 		this.email = email;
 	}
 
-
-
-	public long getIdPersonne() {
+	public Long getIdPersonne() {
 		return idPersonne;
 	}
 
-	public void setIdPersonne(long idPersonne) {
+	public void setIdPersonne(Long idPersonne) {
 		this.idPersonne = idPersonne;
 	}
+
+
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
 
 	
 
 }// end class
-
