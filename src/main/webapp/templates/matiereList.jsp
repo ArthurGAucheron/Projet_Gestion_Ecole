@@ -29,7 +29,7 @@
 			</tr>
 			<tr>
 				<td>Liste des cours :</td>
-				<td>${matiere.listeCours}</td>
+				<td>${matiere.date}</td>
 			</tr>
 		</table>
 	</c:forEach>
