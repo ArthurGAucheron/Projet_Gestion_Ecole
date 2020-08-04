@@ -72,10 +72,11 @@ public class CoursController {
 	 * @return
 	 */
 	@GetMapping(value = "/cours/add-cours-form")
-	public ModelAndView afficherFormulaireAjout() {
+	public ModelAndView afficherFormulaireAjout(ModelMap model) {
 
 		// définition d'un objet de commande qui va permettre la liaison avec les champs
 		// du formulaire
+		model.addAttribute("attribut_liste_matieres", matiereService.findAll());
 
 		// objet vide
 		Cours cours = new Cours();
@@ -114,6 +115,7 @@ public class CoursController {
 			// redirection vers la page liste-matieres.jsp
 			// recup de la nouvelle liste
 			model.addAttribute("attribut_liste_cours", coursService.findAll());
+			model.addAttribute("attribut_liste_matieres", matiereService.findAll());
 
 			// => redirection vers la page d'accueil
 			return "redirect:/cours/liste";
