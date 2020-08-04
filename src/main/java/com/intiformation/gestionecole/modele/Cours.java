@@ -1,17 +1,21 @@
 package com.intiformation.gestionecole.modele;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="cours")
-public class Cours {
+public class Cours implements Serializable{
 	
 	/*__________________________ props __________________________*/
 	@Id
@@ -34,8 +38,8 @@ public class Cours {
 	@Column(name="id_promo")
 	private Long idPromo;
 	
-	@Column(name="id_matiere")
-	private Long idMatiere;
+	@ManyToOne(cascade = {CascadeType.ALL})
+	private Matiere matiere;
 	
 	/*__________________________ ctors __________________________*/
 	/**
@@ -43,6 +47,16 @@ public class Cours {
 	 */
 	public Cours() {
 	}
+	
+	
+
+	public Cours(String libelle, Matiere matiere) {
+		super();
+		this.libelle = libelle;
+		this.matiere = matiere;
+	}
+
+
 
 	/**
 	 * ctor chargé avec toutes les props
@@ -55,7 +69,7 @@ public class Cours {
 	 * @param idMatiere
 	 */
 	public Cours(long idCours, String libelle, Date date, Date duree, String description, Long idPromo,
-			Long idMatiere) {
+			Matiere matiere) {
 		super();
 		this.idCours = idCours;
 		this.libelle = libelle;
@@ -63,7 +77,7 @@ public class Cours {
 		this.duree = duree;
 		this.description = description;
 		this.idPromo = idPromo;
-		this.idMatiere = idMatiere;
+		this.matiere = matiere;
 	}
 
 	/**
@@ -75,14 +89,14 @@ public class Cours {
 	 * @param idPromo
 	 * @param idMatiere
 	 */
-	public Cours(String libelle, Date date, Date duree, String description, Long idPromo, Long idMatiere) {
+	public Cours(String libelle, Date date, Date duree, String description, Long idPromo, Matiere matiere) {
 		super();
 		this.libelle = libelle;
 		this.date = date;
 		this.duree = duree;
 		this.description = description;
 		this.idPromo = idPromo;
-		this.idMatiere = idMatiere;
+		this.matiere = matiere;
 	}
 
 	/*_____________________ getters/setters _____________________*/
@@ -134,12 +148,15 @@ public class Cours {
 		this.idPromo = idPromo;
 	}
 
-	public Long getIdMatiere() {
-		return idMatiere;
+	public Matiere getMatiere() {
+		return matiere;
 	}
 
-	public void setIdMatiere(Long idMatiere) {
-		this.idMatiere = idMatiere;
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
 	}
+
+	
+	
 	
 }

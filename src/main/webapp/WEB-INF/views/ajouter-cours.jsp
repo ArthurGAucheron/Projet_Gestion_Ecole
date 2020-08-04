@@ -13,7 +13,7 @@
 	<br />
 	<br />
 	<div>
-		<h1>Formulaire d'ajout d'une matiere</h1>
+		<h1>Formulaire d'ajout d'un cours</h1>
 	</div>
 	<br />
 	<br />
@@ -22,25 +22,21 @@
 
 
 		<%-- à la soumission du formulaire : invocation de la methode "ajouterMatiereBDD()" --%>
-		<form:form modelAttribute="matiereCommand" method="POST"
-			action="${pageContext.request.contextPath}/matieres/add">
+		<form:form modelAttribute="coursCommand" method="POST"
+			action="${pageContext.request.contextPath}/cours/add">
 
 
 			<table width="60%">
-				<tr>
-					<td><form:label path="id">id :</form:label></td>
-					<td><form:input path="id" /></td>
-					
-				</tr>
+
 				<tr>
 					<td><form:label path="libelle">libelle :</form:label></td>
 					<td><form:input path="libelle" /></td>
-					
+
 				</tr>
 				<tr>
-					<td><form:label path="liste_cours">Liste des cours :</form:label></td>
-					<td><form:input path="liste_cours" /></td>
-					
+					<td><form:label path="matiere">matiere :</form:label></td>
+					<td><form:input path="matiere" /></td>
+
 				</tr>
 
 				<tr>

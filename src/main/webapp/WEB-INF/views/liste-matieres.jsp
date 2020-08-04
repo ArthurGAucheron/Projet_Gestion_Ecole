@@ -32,6 +32,7 @@
 		<tr>
 			<th>ID matière</th>
 			<th>Libellé matière</th>
+			<th>liste des cours</th>
 			<th>Modifier</th>
 			<th>Supprimer</th>
 		</tr>
@@ -41,7 +42,12 @@
 			<tr>
 				<td>${matiere.idMatiere}</td>
 				<td>${matiere.libelle}</td>
-
+				<td><ul>
+					<c:forEach items="${matiere.listeCours}" var="cours">
+						<li>${cours.libelle}</li>
+					</c:forEach>
+				</ul>
+				</td>
 
 				<!-- colonne pr la modif -->
 				<td>

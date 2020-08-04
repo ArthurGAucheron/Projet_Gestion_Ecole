@@ -27,18 +27,18 @@
 
 
 			<table width="60%">
-				
+
 				<tr>
 					<td><form:label path="libelle">libelle :</form:label></td>
 					<td><form:input path="libelle" /></td>
-					
+
 				</tr>
-			<%--	<tr>
-					<td><form:label path="liste_cours">Liste des cours :</form:label></td>
-					<td><form:input path="liste_cours" /></td>
-					
+				<tr>
+					<td><form:label path="listeCours">Liste des cours :</form:label></td>
+					<td><form:select path="listeCours" items="${attribut_liste_cours}"
+							itemValue="cours" itemLabel="nom_cours" multiple="true" /></td>
 				</tr>
-			--%>
+
 				<tr>
 					<td colspan="2"><input type="submit" value="Ajouter" /></td>
 				</tr>

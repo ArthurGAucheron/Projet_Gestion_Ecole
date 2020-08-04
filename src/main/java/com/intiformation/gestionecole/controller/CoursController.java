@@ -20,7 +20,7 @@ import com.intiformation.gestionecole.modele.Matiere;
 import com.intiformation.gestionecole.service.IGeneriqueService;
 
 @Controller
-public class MatiereController {
+public class CoursController {
 
 	// déclaration de la couche service
 	@Autowired // injection du bean de la couche service dans cette prop
@@ -45,13 +45,13 @@ public class MatiereController {
 	 */
 
 	/**
-	 * methode pour récupérer la liste des matières dans la BDD
+	 * methode pour récupérer la liste des cours dans la BDD
 	 * 
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/matieres/liste", method = RequestMethod.GET)
-	public String recupererListeMatieresBdd(ModelMap model) {
+	@RequestMapping(value = "/cours/liste", method = RequestMethod.GET)
+	public String recupererListeCoursBdd(ModelMap model) {
 
 		// recup de la liste des employes dans la bd via le service
 		List<Matiere> listeMatieresBDD = matiereService.findAll();
@@ -62,33 +62,33 @@ public class MatiereController {
 		model.addAttribute("attribut_liste_cours", listeCoursBDD);
 
 		// renvoi du nom logique de la vue
-		return "liste-matieres";
+		return "liste-cours";
 
-	}// end recupererListeEmployesBdd()
+	}// end recupererListeCoursBdd()
 
 	/**
 	 * méthode pour afficher le formulaire d'ajout d'une matière
 	 * 
 	 * @return
 	 */
-	@GetMapping(value = "/matieres/add-matiere-form")
+	@GetMapping(value = "/cours/add-cours-form")
 	public ModelAndView afficherFormulaireAjout() {
 
 		// définition d'un objet de commande qui va permettre la liaison avec les champs
 		// du formulaire
 
 		// objet vide
-		Matiere matiere = new Matiere();
+		Cours cours = new Cours();
 
 		// affectation d'un nom à cet objet
-		String nomObjetCommande = "matiereCommand";
+		String nomObjetCommande = "coursCommand";
 
 		// envoi de l'objet de commande vers la vue (page du formulaire)
 		Map<String, Object> dataCommand = new HashMap<>();
-		dataCommand.put(nomObjetCommande, matiere);
+		dataCommand.put(nomObjetCommande, cours);
 
 		// definition du nom logique de la vue
-		String viewName = "ajouter-matiere";
+		String viewName = "ajouter-cours";
 
 		// envoi de l'objet ModelAndVienw vers la servlet DispatcherServlet
 
@@ -104,19 +104,19 @@ public class MatiereController {
 	 * @param resultatValidation
 	 * @return
 	 */
-	@PostMapping(value = "/matieres/add")
-	public String ajouterMatiereBDD(@ModelAttribute("matiereCommand") Matiere pMatiere, ModelMap model) {
+	@PostMapping(value = "/cours/add")
+	public String ajouterCoursBDD(@ModelAttribute("coursCommand") Cours pCours, ModelMap model) {
 
 
 			// Ajout de l'employé à la bdd via la couche service
-			matiereService.ajouter(pMatiere);
+			coursService.ajouter(pCours);
 
 			// redirection vers la page liste-matieres.jsp
 			// recup de la nouvelle liste
-			model.addAttribute("attribut_liste_matieres", matiereService.findAll());
+			model.addAttribute("attribut_liste_cours", coursService.findAll());
 
 			// => redirection vers la page d'accueil
-			return "redirect:/matieres/liste";
+			return "redirect:/cours/liste";
 
 
 	}// ajouterMatiereBDD

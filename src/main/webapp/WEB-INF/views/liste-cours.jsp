@@ -12,7 +12,7 @@
 	<%--Traitement des données envoyées par le controleur 'MatiereController" et sa methode "recupererListeMatieresBdd" --%>
 
 	<h1>
-		<u>Liste des matières</u>
+		<u>Liste des cours</u>
 	</h1>
 
 	<table border="1" width="60%">
@@ -23,25 +23,27 @@
 			<td colspan="5" align="right">
 				<%--envoi d'une rq HTTP GET vers la methode "afficherFormulaireAjout()" du controleur mappee vers l'url '/employes/add-employe-form'  --%>
 				<a style="background-color: lightBlue;"
-				href="${pageContext.request.contextPath}/matieres/add-matiere-form">
-					Ajout d'une matière </a>
+				href="${pageContext.request.contextPath}/cours/add-cours-form">
+					Ajout d'un cours </a>
 			</td>
 		</tr>
 
 
 		<tr>
-			<th>ID matière</th>
-			<th>Libellé matière</th>
+			<th>ID cours</th>
+			<th>Libellé cours</th>
+			<th>liste des matières</th>
 			<th>Modifier</th>
 			<th>Supprimer</th>
 		</tr>
 
 		<%-- données de la table --%>
-		<c:forEach items="${attribut_liste_matieres}" var="matiere">
+		<c:forEach items="${attribut_liste_cours}" var="cours">
 			<tr>
-				<td>${matiere.idMatiere}</td>
-				<td>${matiere.libelle}</td>
-
+				<td>${cours.idCours}</td>
+				<td>${cours.libelle}</td>
+				<td>${cours.matiere}</td>
+				
 
 				<!-- colonne pr la modif -->
 				<td>
