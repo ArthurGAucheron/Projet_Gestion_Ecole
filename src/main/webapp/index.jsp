@@ -10,7 +10,7 @@
 
 <h1>Hello ! Ceci est la page d'accueil (index.jsp) !</h1>
 	
-	<a href="#">Gestion du personnel</a>
+	<a href="${pageContext.request.contextPath}/gestionpersonnel">Gestion du personnel</a>
 	
 	<a href="${pageContext.request.contextPath}/matieres/liste">lien
 		vers la page 'liste-matieres.jsp'</a>

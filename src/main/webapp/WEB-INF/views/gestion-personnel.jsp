@@ -7,10 +7,10 @@
 <title>Gestion du personnel</title>
 </head>
 <body>
-	<table cellspacing="20" border="1" align="center">
-		<tr><a href="#">Gestion des administrateurs</a></tr>
-		<tr><a href="#">Gestion des enseignants</a></tr>
-		<tr><a href="#">Gestion des étudiants </a>
+	<table cellspacing="10" border="1" cellpadding="10">
+		<tr><td><a href="#">Gestion des administrateurs</a></td></tr>
+		<tr><td><a href="#">Gestion des enseignants</a></td</tr>
+		<tr><td><a href="#">Gestion des étudiants </a></td</tr>
 	</table>
 </body>
 </html>
