@@ -7,13 +7,15 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.intiformation.gestionecole.modele.Administrateur;
 import com.intiformation.gestionecole.modele.Cours;
 import com.intiformation.gestionecole.modele.Etudiant;
 
-public class EtudiantDAOImpl implements IGeneriqueDAO<Etudiant> {
+@Repository("EtudiantDAOBean")
+public class EtudiantDAOImpl implements IEtudiantDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;

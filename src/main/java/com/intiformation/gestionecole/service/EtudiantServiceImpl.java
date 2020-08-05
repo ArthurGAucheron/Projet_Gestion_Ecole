@@ -2,10 +2,13 @@ package com.intiformation.gestionecole.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.intiformation.gestionecole.dao.EtudiantDAOImpl;
 import com.intiformation.gestionecole.modele.Etudiant;
 
-public class EtudiantServiceImpl implements IGeneriqueService<Etudiant> {
+@Service("EtudiantServiceDAO")
+public class EtudiantServiceImpl implements IEtudiantService {
 
 	private EtudiantDAOImpl etudiantDAO;
 
