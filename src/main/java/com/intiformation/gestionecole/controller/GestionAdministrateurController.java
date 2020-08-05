@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -72,9 +73,14 @@ public class GestionAdministrateurController {
 		
 		adresseService.ajouter(pAdresse);
 		adminService.ajouter(pAdmin);
-		
-		
 		return "redirect:/admin/listeadmin";
 	}// end ajouteAdmin
 	
+	@RequestMapping(value="/admin/supp/{adminId}", method=RequestMethod.GET)
+	public String supprimerAdmin(@PathVariable("adminId") Long pIdAdmin) {
+		
+		adminService.supprimer(pIdAdmin);
+		
+		return "redirect:/admin/listeadmin";
+	}// end supprimerAdmin() 
 }// end class
