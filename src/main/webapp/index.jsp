@@ -15,10 +15,12 @@
 	<a href="${pageContext.request.contextPath}/matieres/liste">lien
 		vers la page 'liste-matieres.jsp'</a>
 
-	<a href="${pageContext.request.contextPath}/cours/liste">lien
-		vers la page 'liste-cours.jsp'</a>
+	<br />
 
+	<a href="${pageContext.request.contextPath}/cours/liste">lien vers
+		la page 'liste-cours.jsp'</a>
 
+	<br />
 
 
 </body>
