@@ -1,7 +1,6 @@
 package com.intiformation.gestionecole.modele;
 
 
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
