@@ -1,23 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+     <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Modification Administrateur</title>
+<title>Ajouter un Enseignant</title>
 </head>
 <body>
-	<h1>Modification d'un Administrateur</h1>
+<h1>Ajouter un Enseignant</h1>
 	<br></br>
-	<a href="${pageContext.request.contextPath}/admin/listeadmin">Retour à la liste des administrateurs</a>
+
+	<a href="${pageContext.request.contextPath}/admin/listeenseignant">Retour à la liste des enseignants</a>
 	<br></br>
-	<form:form modelAttribute="attrtibutAdminModif" method="POST" action="${pageContext.request.contextPath}/admin/updateadmin">
-	<table>
-			<tr>
-				<td><form:hidden path="idPersonne"/></td>
-			</tr>
-			
+	
+	<form:form modelAttribute="attributEns"  method="POST"  action="${pageContext.request.contextPath}/admin/addens">
+		<table>
 			<tr>
 				<td><form:label path="identifiant">Identifiant</form:label></td>
 				<td><form:input path="identifiant"/></td>
@@ -39,9 +37,6 @@
 				<td><form:input path="email"/></td>
 			</tr>
 			<tr>
-				<td><form:hidden path="adresse.idAdresse"/></td>	
-			<tr>
-			<tr>
 				<td><form:label path="adresse.rue">Rue</form:label></td>
 				<td><form:input path="adresse.rue"/></td>
 			</tr>
@@ -55,11 +50,10 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="Modifier">
+					<input type="submit" value="Ajouter">
 				</td>
 		   </tr>
 		</table>
 	</form:form>
-	
 </body>
 </html>

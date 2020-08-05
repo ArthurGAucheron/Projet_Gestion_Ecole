@@ -35,5 +35,6 @@ C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\EtudiantServiceImpl.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\IAideService.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\AideDAOImpl.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\controller\GestionEnseignantController.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Adresse.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\IAideDAO.java

@@ -9,8 +9,9 @@
 <body>
 	<table cellspacing="10" border="1" cellpadding="10">
 		<tr><td><a href="${pageContext.request.contextPath}/admin/listeadmin">Gestion des administrateurs</a></td></tr>
-		<tr><td><a href="#">Gestion des enseignants</a></td</tr>
+		<tr><td><a href="${pageContext.request.contextPath}/admin/listeenseignant">Gestion des enseignants</a></td</tr>
 		<tr><td><a href="#">Gestion des étudiants </a></td</tr>
+		<tr><td><a href="${pageContext.request.contextPath}/index.jsp">Retour à l'index</a></td</tr>
 	</table>
 </body>
 </html>

@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+     <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Modification Administrateur</title>
+<title>Modification d'un Enseignant</title>
 </head>
 <body>
-	<h1>Modification d'un Administrateur</h1>
+<h1>Modification d'un Enseignant</h1>
 	<br></br>
-	<a href="${pageContext.request.contextPath}/admin/listeadmin">Retour à la liste des administrateurs</a>
+	<a href="${pageContext.request.contextPath}/admin/listeenseignant">Retour à la liste des administrateurs</a>
 	<br></br>
-	<form:form modelAttribute="attrtibutAdminModif" method="POST" action="${pageContext.request.contextPath}/admin/updateadmin">
+	<form:form modelAttribute="attrtibutEnseignantModif" method="POST" action="${pageContext.request.contextPath}/admin/updateens">
 	<table>
 			<tr>
 				<td><form:hidden path="idPersonne"/></td>
@@ -60,6 +60,5 @@
 		   </tr>
 		</table>
 	</form:form>
-	
 </body>
 </html>
