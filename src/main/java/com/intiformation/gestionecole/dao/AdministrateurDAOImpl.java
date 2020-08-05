@@ -9,7 +9,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.intiformation.gestionecole.modele.Administrateur;
@@ -23,6 +25,7 @@ import com.intiformation.gestionecole.modele.Administrateur;
  *
  */
 @Repository
+@EnableTransactionManagement
 public class AdministrateurDAOImpl implements IAdministrateurDAO {
 
 	@Autowired
@@ -62,8 +65,9 @@ public class AdministrateurDAOImpl implements IAdministrateurDAO {
 	 * @param pAdministrateur
 	 *            : Administrateur modifier
 	 */
-	@Transactional
+	
 	@Override
+	@Transactional
 	public void update(Administrateur pAdministrateur) {
 		Session session = this.sessionFactory.getCurrentSession();
 		try {
@@ -84,8 +88,9 @@ public class AdministrateurDAOImpl implements IAdministrateurDAO {
 	 * @param pIdAdministrateur
 	 *            : Administrateur à supprimer
 	 */
-	@Transactional
+	
 	@Override
+	@Transactional
 	public void delete(Long pIdAdministrateur) {
 		Session session = this.sessionFactory.getCurrentSession();
 		try {
@@ -103,8 +108,9 @@ public class AdministrateurDAOImpl implements IAdministrateurDAO {
 	 * 	Récupération d'un administrateur dans la BDD par son id <br/>
 	 * </pre>
 	 */
-	@Transactional(readOnly=true)
+
 	@Override
+	@Transactional(readOnly=true)
 	public Administrateur getById(Long pIdAdministrateur) {
 		Session session = this.sessionFactory.getCurrentSession();
 		try {
@@ -123,8 +129,9 @@ public class AdministrateurDAOImpl implements IAdministrateurDAO {
 	 * 	Récupération des administrateurs dans la BDD <br/>
 	 * </pre>
 	 */
-	@Transactional(readOnly=true)
+	
 	@Override
+	@Transactional(readOnly=true)
 	public List<Administrateur> getAll() {
 		Session session = this.sessionFactory.getCurrentSession();
 		try {
