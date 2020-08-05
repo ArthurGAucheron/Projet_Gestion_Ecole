@@ -11,6 +11,7 @@ com\intiformation\gestionecole\dao\IAideDAO.class
 com\intiformation\gestionecole\dao\PromotionDAOImpl.class
 com\intiformation\gestionecole\modele\Adresse.class
 com\intiformation\gestionecole\service\EtudiantServiceImpl.class
+com\intiformation\gestionecole\controller\GestionEnseignantController.class
 com\intiformation\gestionecole\dao\CoursDAOImpl.class
 com\intiformation\gestionecole\modele\Personne.class
 com\intiformation\gestionecole\service\AideServiceImpl.class

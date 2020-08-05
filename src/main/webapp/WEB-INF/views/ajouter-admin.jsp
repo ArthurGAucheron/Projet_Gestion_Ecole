@@ -10,6 +10,9 @@
 <body>
 	<h1>Ajouter un administrateur</h1>
 	<br></br>
+
+	<a href="${pageContext.request.contextPath}/admin/listeadmin">Retour à la liste des administrateurs</a>
+	<br></br>
 	
 	<form:form modelAttribute="attributAdmin"  method="POST"  action="${pageContext.request.contextPath}/admin/addadmin">
 		<table>

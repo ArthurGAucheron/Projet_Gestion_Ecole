@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class GestionPersonnelController {
 
-	@RequestMapping(value="/gestionpersonnel", method=RequestMethod.GET )
+	@RequestMapping(value="/admin/gestionpersonnel", method=RequestMethod.GET )
 	public String goToGestionPersonnel() {
 	
 		// renvoie du nom Logique
