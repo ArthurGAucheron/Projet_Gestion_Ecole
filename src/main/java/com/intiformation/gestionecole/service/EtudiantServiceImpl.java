@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.intiformation.gestionecole.dao.EtudiantDAOImpl;
 import com.intiformation.gestionecole.modele.Etudiant;
 
-@Service("EtudiantServiceDAO")
+@Service("EtudiantServiceBean")
 public class EtudiantServiceImpl implements IEtudiantService {
 
 	private EtudiantDAOImpl etudiantDAO;

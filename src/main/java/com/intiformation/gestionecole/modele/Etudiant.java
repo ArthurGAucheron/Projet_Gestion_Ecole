@@ -21,7 +21,7 @@ public class Etudiant extends Personne {
 	private Date dateNaissance;
 
 	@Column(name = "promotion")
-	private Long idPromo;
+	private Promotion promo;
 
 	/* __________________________ ctors __________________________ */
 	/**
@@ -51,11 +51,11 @@ public class Etudiant extends Personne {
 	 * @param idPromo
 	 */
 	public Etudiant(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email,
-			Adresse adresse, byte[] photo, Date dateNaissance, Long idPromo) {
+			Adresse adresse, byte[] photo, Date dateNaissance, Promotion promo) {
 		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresse);
 		this.photo = photo;
 		this.dateNaissance = dateNaissance;
-		this.idPromo = idPromo;
+		this.promo = promo;
 	}
 	
 
@@ -71,11 +71,11 @@ public class Etudiant extends Personne {
 	 * @param dateNaissance
 	 * @param idPromo
 	 */
-	public Etudiant(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse, byte[] photo, Date dateNaissance, Long idPromo) {
+	public Etudiant(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse, byte[] photo, Date dateNaissance, Promotion promo) {
 		super(identifiant, motdePasse, nom, prenom, email, adresse);
 		this.photo = photo;
 		this.dateNaissance = dateNaissance;
-		this.idPromo = idPromo;
+		this.promo = promo;
 	}
 
 	/* _____________________ getters/setters _____________________ */
@@ -95,18 +95,18 @@ public class Etudiant extends Personne {
 		this.dateNaissance = dateNaissance;
 	}
 
-	public Long getIdPromo() {
-		return idPromo;
+	public Promotion getPromo() {
+		return promo;
 	}
 
-	public void setIdPromo(Long idPromo) {
-		this.idPromo = idPromo;
+	public void setIdPromo(Promotion promo) {
+		this.promo = promo;
 	}
 
 	@Override
 	public String toString() {
-		return "Etudiant [Photo=" + Arrays.toString(photo) + ", DateNaissance=" + dateNaissance + ", idPromo=" + idPromo
-				+ ", IdPromo=" + getIdPromo() + ", Identifiant=" + getIdentifiant() + ", MotdePasse=" + getMotdePasse()
+		return "Etudiant [Photo=" + Arrays.toString(photo) + ", DateNaissance=" + dateNaissance + ", idPromo=" + promo
+				+ ", Promo=" + getPromo() + ", Identifiant=" + getIdentifiant() + ", MotdePasse=" + getMotdePasse()
 				+ ", Nom=" + getNom() + ", Prenom=" + getPrenom() + ", Email=" + getEmail() + ", IdPersonne="
 				+ getIdPersonne() + "]";
 	}
