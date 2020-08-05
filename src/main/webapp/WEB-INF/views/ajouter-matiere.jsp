@@ -33,11 +33,6 @@
 					<td><form:input path="libelle" /></td>
 
 				</tr>
-				<tr>
-					<td><form:label path="listeCours">Liste des cours :</form:label></td>
-					<td><form:select path="listeCours" items="${attribut_liste_cours}"
-							itemValue="cours" itemLabel="nom_cours" multiple="true" /></td>
-				</tr>
 
 				<tr>
 					<td colspan="2"><input type="submit" value="Ajouter" /></td>

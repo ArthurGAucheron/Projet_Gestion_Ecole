@@ -21,7 +21,7 @@
 	<div align="center">
 
 
-		<%-- à la soumission du formulaire : invocation de la methode "ajouterMatiereBDD()" --%>
+		<%-- à la soumission du formulaire : invocation de la methode "ajoutercoursBDD()" --%>
 		<form:form modelAttribute="coursCommand" method="POST"
 			action="${pageContext.request.contextPath}/cours/add">
 
@@ -31,11 +31,6 @@
 				<tr>
 					<td><form:label path="libelle">libelle :</form:label></td>
 					<td><form:input path="libelle" /></td>
-
-				</tr>
-				<tr>
-					<td><form:label path="matiere">matiere :</form:label></td>
-					<td><form:input path="matiere" /></td>
 
 				</tr>
 				<tr>

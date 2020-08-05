@@ -45,12 +45,7 @@ public class CoursController {
 	 * +++++++++ Méthodes gestionnaires du controleur ++++++++++
 	 */
 
-	/**
-	 * methode pour récupérer la liste des cours dans la BDD
-	 * 
-	 * @param model
-	 * @return
-	 */
+
 	@RequestMapping(value = "/cours/liste", method = RequestMethod.GET)
 	public String recupererListeCoursBdd(ModelMap model) {
 
@@ -67,11 +62,7 @@ public class CoursController {
 
 	}// end recupererListeCoursBdd()
 
-	/**
-	 * méthode pour afficher le formulaire d'ajout d'une matière
-	 * 
-	 * @return
-	 */
+
 	@GetMapping(value = "/cours/add-cours-form")
 	public ModelAndView afficherFormulaireAjout(ModelMap model) {
 
@@ -98,18 +89,11 @@ public class CoursController {
 
 	}// end afficherFormulaireAjout()
 
-	/**
-	 * méthode pour ajouter une matière à la BDD
-	 * 
-	 * @param pEmploye
-	 * @param model
-	 * @param resultatValidation
-	 * @return
-	 */
+
 	@PostMapping(value = "/cours/add")
 	public String ajouterCoursBDD(@ModelAttribute("coursCommand") Cours pCours, ModelMap model) {
 
-		// Ajout de l'employé à la bdd via la couche service
+		// Ajout à la bdd via la couche service
 		coursService.ajouter(pCours);
 
 		// redirection vers la page liste-matieres.jsp

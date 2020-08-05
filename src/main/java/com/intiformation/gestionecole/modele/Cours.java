@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,7 +39,8 @@ public class Cours implements Serializable{
 	@Column(name="id_promo")
 	private Long idPromo;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne(targetEntity=Matiere.class , fetch = FetchType.EAGER)
+	@JoinColumn(name="id_matiere")
 	private Matiere matiere;
 	
 	/*__________________________ ctors __________________________*/
@@ -154,6 +156,13 @@ public class Cours implements Serializable{
 
 	public void setMatiere(Matiere matiere) {
 		this.matiere = matiere;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "[" + idCours + " " + libelle + "]";
 	}
 
 	

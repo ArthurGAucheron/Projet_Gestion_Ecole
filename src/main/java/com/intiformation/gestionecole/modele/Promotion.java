@@ -1,13 +1,16 @@
 package com.intiformation.gestionecole.modele;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * modele de données pour une Promotion
@@ -15,7 +18,9 @@ import javax.persistence.Id;
  * @author cam
  *
  */
-public class Promotion {
+@Entity
+@Table(name="promotions")
+public class Promotion implements Serializable {
 
 	/* ______Propriétés________ */
 
@@ -84,8 +89,7 @@ public class Promotion {
 	/* ______toString()________ */
 	@Override
 	public String toString() {
-		return "Promotion [idPromotion=" + idPromotion + ", libelle=" + libelle + ", listeCours=" + listeCours
-				+ ", listeEtudiants=" + listeEtudiants + "]";
+		return "[ " + idPromotion + " " + libelle + "]";
 	}
 
 }// end class

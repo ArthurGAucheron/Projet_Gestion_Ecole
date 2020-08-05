@@ -34,7 +34,8 @@ public class Matiere implements Serializable {
 	@Column(name="libelle")
 	private String libelle;
 	
-	@OneToMany (mappedBy="matiere",cascade = {CascadeType.ALL} )
+	@OneToMany (mappedBy="matiere",cascade = {CascadeType.ALL} , fetch = FetchType.EAGER)
+	@Column(name="liste_cours")
 	private Collection<Cours> listeCours;
 
 	/* ______Constructeurs________ */
@@ -85,7 +86,7 @@ public class Matiere implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Matiere [idMatiere=" + idMatiere + ", libelle=" + libelle + ", listeCours=" + listeCours + "]";
+		return "[" + idMatiere + " " + libelle + "]";
 	}
 
 

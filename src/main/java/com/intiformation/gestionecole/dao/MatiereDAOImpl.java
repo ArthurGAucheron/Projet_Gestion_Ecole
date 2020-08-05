@@ -28,7 +28,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	@Transactional
 	public void add(Matiere pMatiere) {
 
-		Session session = this.sessionFactory.openSession();
+		Session session = this.sessionFactory.getCurrentSession();
 
 		try {
 			session.save(pMatiere);
@@ -45,7 +45,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	@Override
 	@Transactional
 	public void update(Matiere pMatiere) {
-		Session session = this.sessionFactory.openSession();
+		Session session = this.sessionFactory.getCurrentSession();
 
 		try {
 			session.update(pMatiere);
@@ -63,7 +63,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	@Override
 	@Transactional
 	public void delete(Long pIdMatiere) {
-		Session session = this.sessionFactory.openSession();
+		Session session = this.sessionFactory.getCurrentSession();
 
 		try {
 			Matiere matiereToDelete = getById(pIdMatiere);
@@ -83,7 +83,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	@Transactional (readOnly=true)
 	public Matiere getById(Long pIdMatiere) {
 		try {
-			Session session = this.sessionFactory.openSession();
+			Session session = this.sessionFactory.getCurrentSession();
 			Matiere mat = session.find(Matiere.class, pIdMatiere);
 			return mat;
 		} catch (Exception e) {
@@ -97,7 +97,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	@Transactional (readOnly=true)
 	public List<Matiere> getAll() {
 		try {
-			Session session = this.sessionFactory.openSession();
+			Session session = this.sessionFactory.getCurrentSession();
 			Query query = session.createQuery("FROM Matiere");
 			List<Matiere> listeMatieresBDD = query.list();
 			return listeMatieresBDD;

@@ -34,12 +34,11 @@
 
 				</tr>
 				
-				<tr>
-					<td><form:label path="listeCours">Cours :</form:label></td>
-					<td><form:checkboxes items="${attribut_liste_cours}"
-                        path="listeCours"/></td>
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="listeCours">Cours :</form:label></td> --%>
+<!-- 					<td></td> -->
 
-				</tr>
+<!-- 				</tr> -->
 				
 				<tr>
 					<td><form:label path="listeEtudiants">Etudiants :</form:label></td>

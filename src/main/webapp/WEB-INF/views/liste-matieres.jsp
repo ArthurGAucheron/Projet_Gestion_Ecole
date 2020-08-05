@@ -24,7 +24,7 @@
 				<%--envoi d'une rq HTTP GET vers la methode "afficherFormulaireAjout()" du controleur mappee vers l'url '/employes/add-employe-form'  --%>
 				<a style="background-color: lightBlue;"
 				href="${pageContext.request.contextPath}/matieres/add-matiere-form">
-					Ajout d'une matière </a>
+					Ajouter une matière </a>
 			</td>
 		</tr>
 
