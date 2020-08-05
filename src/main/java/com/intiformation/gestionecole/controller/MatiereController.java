@@ -19,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.intiformation.gestionecole.modele.Cours;
 import com.intiformation.gestionecole.modele.Matiere;
 import com.intiformation.gestionecole.service.ICoursService;
-import com.intiformation.gestionecole.service.IGeneriqueService;
 import com.intiformation.gestionecole.service.IMatiereService;
 
 @Controller
