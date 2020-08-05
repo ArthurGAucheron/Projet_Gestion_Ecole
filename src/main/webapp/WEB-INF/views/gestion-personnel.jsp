@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Gestion du personnel</title>
 </head>
 <body>
-
-<h1>Hello ! Ceci est la page d'accueil (index.jsp) !</h1>
-	
-	<a href="#">Gestion du personnel</a>
-	
+	<table cellspacing="20" border="1" align="center">
+		<tr><a href="#">Gestion des administrateurs</a></tr>
+		<tr><a href="#">Gestion des enseignants</a></tr>
+		<tr><a href="#">Gestion des étudiants </a>
+	</table>
 </body>
 </html>
