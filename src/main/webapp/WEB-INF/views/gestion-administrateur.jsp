@@ -30,7 +30,7 @@
 				<td>${adminBDD.prenom}</td>
 				<td>${adminBDD.email}</td>
 				<td>${adminBDD.adresse.rue} ${adminBDD.adresse.codePostal} ${adminBDD.adresse.ville} </td>
-				<td><a href="#">Supprimer</a></td>
+				<td><a href="${pageContext.request.contextPath}/admin/supp/${adminBDD.idPersonne}">Supprimer</a></td>
 				<td><a href="#">Modifier</a></td>
 			</tr>
 		</c:forEach>
