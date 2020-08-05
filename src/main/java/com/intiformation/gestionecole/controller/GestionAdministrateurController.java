@@ -83,4 +83,28 @@ public class GestionAdministrateurController {
 		
 		return "redirect:/admin/listeadmin";
 	}// end supprimerAdmin() 
+	
+	@RequestMapping(value="/admin/formmodifadmin/{adminId}" , method=RequestMethod.GET)
+	public ModelAndView afficherFormModifAdmin(@PathVariable("adminId") Long pIdAdmin ){
+		
+		Administrateur adminAModifier = adminService.findById(pIdAdmin);
+		Adresse adresseAModifier = adminAModifier.getAdresse();
+		Map<String, Object> donneesCommandeModif = new HashMap<String, Object>();
+		donneesCommandeModif.put("attrtibutAdminModif",adminAModifier);
+		donneesCommandeModif.put("attrtibutAdresseModif", adresseAModifier);
+		
+		return new ModelAndView("modif-admin",donneesCommandeModif);
+	}// end afficherFormModifAdmin()
+	
+	@RequestMapping(value="/admin/updateadmin", method=RequestMethod.POST)
+	public String modifierAdministrateur(@ModelAttribute("attrtibutAdminModif")@Validated Administrateur pAdmin, 
+										 @ModelAttribute("attrtibutAdresseModif")@Validated Adresse pAdresse) {
+		
+		adminService.modifier(pAdmin);
+		
+		
+		return "redirect:/admin/listeadmin";
+	}// end class
+	
+	
 }// end class
