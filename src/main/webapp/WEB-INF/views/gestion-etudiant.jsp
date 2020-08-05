@@ -25,7 +25,7 @@
 			<th>Supprimer</th>
 			<th>Modifier</th>
 		</tr>
-		<c:forEach items="${attribut_liste_etu_bdd}" var="etuBDD">
+		<c:forEach items="${liste_etudiant_attribute}" var="etuBDD">
 			<tr>
 				<th>${etuBDD.identifiant}</th>
 				<th>${etuBDD.motdePasse}</th>

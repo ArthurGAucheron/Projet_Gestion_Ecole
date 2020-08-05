@@ -59,7 +59,7 @@
 				<td>
 					<form:select path="promo">
 						<form:option value="NONE" label="Select" />
-						<form:options items="${attribut_liste_promos}" />
+						<form:options items="${attribut_liste_promotions}" />
 					</form:select>
 				</td>
 			</tr>
