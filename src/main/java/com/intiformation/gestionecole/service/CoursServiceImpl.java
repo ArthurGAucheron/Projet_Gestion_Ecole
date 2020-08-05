@@ -5,7 +5,7 @@ import java.util.List;
 import com.intiformation.gestionecole.dao.CoursDAOImpl;
 import com.intiformation.gestionecole.modele.Cours;
 
-public class CoursServiceImpl implements IGeneriqueService<Cours> {
+public class CoursServiceImpl implements ICoursService {
 
 	private CoursDAOImpl coursDAO;
 	

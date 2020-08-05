@@ -7,11 +7,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.intiformation.gestionecole.modele.Cours;
 
-public class CoursDAOImpl implements IGeneriqueDAO<Cours> {
+
+@Repository ("coursDAOBean")
+public class CoursDAOImpl implements ICoursDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -79,7 +82,7 @@ public class CoursDAOImpl implements IGeneriqueDAO<Cours> {
 	}// end delete() - cours
 
 	@Override
-	@Transactional(readOnly=true)
+	@Transactional (readOnly=true)
 	public Cours getById(Long pIdCours) {
 
 		Session session = this.sessionFactory.openSession();
@@ -112,7 +115,7 @@ public class CoursDAOImpl implements IGeneriqueDAO<Cours> {
 
 		} catch (HibernateException e) {
 
-			System.out.println("... Erreur lors de la récupération des cours (CoursDAOImpl) ...");
+			System.out.println("... Erreur lors de la récupération par id du cours (CoursDAOImpl) ...");
 			throw e;
 
 		}

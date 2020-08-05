@@ -8,7 +8,7 @@ import com.intiformation.gestionecole.dao.MatiereDAOImpl;
 import com.intiformation.gestionecole.modele.Matiere;
 
 @Service("matiereServiceBean")
-public class MatiereServiceImpl implements IGeneriqueService<Matiere> {
+public class MatiereServiceImpl implements IMatiereService {
 
 	//déclaration de la couche DAO
 	

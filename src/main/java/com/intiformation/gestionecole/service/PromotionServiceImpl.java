@@ -8,7 +8,7 @@ import com.intiformation.gestionecole.dao.PromotionDAOImpl;
 import com.intiformation.gestionecole.modele.Promotion;
 
 @Service("promotionServiceBean")
-public class PromotionServiceImpl implements IGeneriqueService<Promotion> {
+public class PromotionServiceImpl implements IPromotionService {
 
 	// déclaration de la couche DAO
 

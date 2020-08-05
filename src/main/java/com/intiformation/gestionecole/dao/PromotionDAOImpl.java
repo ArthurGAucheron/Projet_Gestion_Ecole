@@ -15,7 +15,7 @@ import com.intiformation.gestionecole.modele.Promotion;
 
 @Repository
 @Transactional
-public class PromotionDAOImpl implements IGeneriqueDAO<Promotion> {
+public class PromotionDAOImpl implements IPromotionDAO {
 
 	// déclaration de la session factory (hibernate)
 	@Autowired
