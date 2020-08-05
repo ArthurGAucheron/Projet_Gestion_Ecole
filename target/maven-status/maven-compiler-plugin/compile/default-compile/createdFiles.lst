@@ -1,13 +1,16 @@
 com\intiformation\gestionecole\dao\IAdministrateurDAO.class
 com\intiformation\gestionecole\service\IGeneriqueService.class
+com\intiformation\gestionecole\controller\GestionPersonnelController.class
 com\intiformation\gestionecole\dao\EnseignantDAOImpl.class
 com\intiformation\gestionecole\service\EnseignantServiceImpl.class
 com\intiformation\gestionecole\modele\Etudiant.class
 com\intiformation\gestionecole\service\IAdresseService.class
+com\intiformation\gestionecole\dao\EtudiantDAOImpl.class
 com\intiformation\gestionecole\dao\AideDAOImpl.class
 com\intiformation\gestionecole\dao\IAideDAO.class
 com\intiformation\gestionecole\dao\PromotionDAOImpl.class
 com\intiformation\gestionecole\modele\Adresse.class
+com\intiformation\gestionecole\service\EtudiantServiceImpl.class
 com\intiformation\gestionecole\dao\CoursDAOImpl.class
 com\intiformation\gestionecole\modele\Personne.class
 com\intiformation\gestionecole\service\AideServiceImpl.class
