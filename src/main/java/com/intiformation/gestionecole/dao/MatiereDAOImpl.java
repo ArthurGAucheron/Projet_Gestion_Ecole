@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.intiformation.gestionecole.modele.Matiere;
 
 @Repository ("matiereDAOBean")
+@Transactional
 public class MatiereDAOImpl implements IMatiereDAO {
 
 	// déclaration de la session factory (hibernate)
@@ -27,7 +28,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	@Transactional
 	public void add(Matiere pMatiere) {
 
-		Session session = this.sessionFactory.getCurrentSession();
+		Session session = this.sessionFactory.openSession();
 
 		try {
 			session.save(pMatiere);
@@ -44,7 +45,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	@Override
 	@Transactional
 	public void update(Matiere pMatiere) {
-		Session session = this.sessionFactory.getCurrentSession();
+		Session session = this.sessionFactory.openSession();
 
 		try {
 			session.update(pMatiere);
@@ -62,7 +63,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	@Override
 	@Transactional
 	public void delete(Long pIdMatiere) {
-		Session session = this.sessionFactory.getCurrentSession();
+		Session session = this.sessionFactory.openSession();
 
 		try {
 			Matiere matiereToDelete = getById(pIdMatiere);

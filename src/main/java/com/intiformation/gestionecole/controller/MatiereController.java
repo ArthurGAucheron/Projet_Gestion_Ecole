@@ -20,6 +20,7 @@ import com.intiformation.gestionecole.modele.Cours;
 import com.intiformation.gestionecole.modele.Matiere;
 import com.intiformation.gestionecole.service.ICoursService;
 import com.intiformation.gestionecole.service.IMatiereService;
+import com.intiformation.gestionecole.service.MatiereServiceImpl;
 
 @Controller
 public class MatiereController {
@@ -34,7 +35,7 @@ public class MatiereController {
 	private ICoursService coursService;
 
 	// setter pour injection spring
-	public void setMatiereService(@Qualifier("matiereServiceBean") IMatiereService matiereService) {
+	public void setMatiereService(@Qualifier("matiereServiceBean")IMatiereService matiereService) {
 		this.matiereService = matiereService;
 	}
 	
@@ -57,7 +58,10 @@ public class MatiereController {
 
 		// recup de la liste des employes dans la bd via le service
 		List<Matiere> listeMatieresBDD = matiereService.findAll();
+		
 		List<Cours> listeCoursBDD = coursService.findAll();
+		
+		
 
 		// renvoi de la liste vers la vue via l'objet model
 		model.addAttribute("attribut_liste_matieres", listeMatieresBDD);

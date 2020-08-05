@@ -1,11 +1,18 @@
 package com.intiformation.gestionecole.modele;
 
-import java.util.List;
+import java.io.Serializable;
+import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import com.intiformation.gestionecole.modele.Cours;
 
 
 /**
@@ -13,7 +20,9 @@ import javax.persistence.Id;
  * @author cam
  *
  */
-public class Matiere {
+@Entity
+@Table(name="matieres")
+public class Matiere implements Serializable {
 
 	/* ______Propriétés________ */
 
@@ -25,18 +34,25 @@ public class Matiere {
 	@Column(name="libelle")
 	private String libelle;
 	
-	@Column(name="liste_cours")
-	private List<Cours> listeCours;
+	@OneToMany (mappedBy="matiere",cascade = {CascadeType.ALL} )
+	private Collection<Cours> listeCours;
 
 	/* ______Constructeurs________ */
 
 	public Matiere() {
 	}
 
-	public Matiere(String libelle, List<Cours> listeCours) {
+	public Matiere(String libelle, Collection<Cours> listeCours) {
 		super();
 		this.libelle = libelle;
 		this.listeCours = listeCours;
+	}
+	
+	
+
+	public Matiere(String libelle) {
+		super();
+		this.libelle = libelle;
 	}
 
 	/* ______Getters/Setters________ */
@@ -57,19 +73,25 @@ public class Matiere {
 		this.libelle = libelle;
 	}
 
-	public List<Cours> getListeCours() {
+	public Collection<Cours> getListeCours() {
 		return listeCours;
 	}
 
-	public void setListeCours(List<Cours> listeCours) {
+	public void setListeCours(Collection<Cours> listeCours) {
 		this.listeCours = listeCours;
 	}
-	/* ______toString()________ */
 
+	/* ______toString()________ */
+	
 	@Override
 	public String toString() {
-		return "Matiere [idMatiere=" + idMatiere + ", libelle=" + libelle + "]";
+		return "Matiere [idMatiere=" + idMatiere + ", libelle=" + libelle + ", listeCours=" + listeCours + "]";
 	}
+
+
+	
+
+
 
 	
 

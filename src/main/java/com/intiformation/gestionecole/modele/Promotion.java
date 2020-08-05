@@ -1,8 +1,10 @@
 package com.intiformation.gestionecole.modele;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,10 +28,12 @@ public class Promotion {
 	private String libelle;
 
 	@Column(name = "liste_cours")
-	private List<Cours> listeCours;
+	@ElementCollection
+	private Collection<Cours> listeCours;
 
 	@Column(name = "liste_etudiants")
-	private List<Etudiant> listeEtudiants;
+	@ElementCollection
+	private Collection<Etudiant> listeEtudiants;
 
 	/* ______Constructeurs________ */
 
@@ -61,19 +65,19 @@ public class Promotion {
 		this.libelle = libelle;
 	}
 
-	public List<Cours> getListeCours() {
+	public Collection<Cours> getListeCours() {
 		return listeCours;
 	}
 
-	public void setListeCours(List<Cours> listeCours) {
+	public void setListeCours(Collection<Cours> listeCours) {
 		this.listeCours = listeCours;
 	}
 
-	public List<Etudiant> getListeEtudiants() {
+	public Collection<Etudiant> getListeEtudiants() {
 		return listeEtudiants;
 	}
 
-	public void setListeEtudiants(List<Etudiant> listeEtudiants) {
+	public void setListeEtudiants(Collection<Etudiant> listeEtudiants) {
 		this.listeEtudiants = listeEtudiants;
 	}
 

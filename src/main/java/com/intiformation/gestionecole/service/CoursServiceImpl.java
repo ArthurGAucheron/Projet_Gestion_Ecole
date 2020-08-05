@@ -2,14 +2,19 @@ package com.intiformation.gestionecole.service;
 
 import java.util.List;
 
-import com.intiformation.gestionecole.dao.CoursDAOImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.intiformation.gestionecole.dao.ICoursDAO;
 import com.intiformation.gestionecole.modele.Cours;
 
+@Service("coursServiceBean")
 public class CoursServiceImpl implements ICoursService {
 
-	private CoursDAOImpl coursDAO;
-	
-	public void setCoursDAO(CoursDAOImpl coursDAO) {
+	@Autowired
+	private ICoursDAO coursDAO;
+
+	public void setCoursDAO(ICoursDAO coursDAO) {
 		this.coursDAO = coursDAO;
 	}
 
@@ -37,7 +42,5 @@ public class CoursServiceImpl implements ICoursService {
 	public List<Cours> findAll() {
 		return coursDAO.getAll();
 	}
-	
-	
 
 }

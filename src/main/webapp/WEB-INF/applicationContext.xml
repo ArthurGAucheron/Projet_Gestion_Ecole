@@ -71,6 +71,7 @@
 				<value>com.intiformation.gestionecole.modele.Matiere</value>
 				<value>com.intiformation.gestionecole.modele.Promotion</value>
 				<value>com.intiformation.gestionecole.modele.Etudiant</value>
+				<value>com.intiformation.gestionecole.modele.Cours</value>
 			</list>
 		</property>
 	</bean>
