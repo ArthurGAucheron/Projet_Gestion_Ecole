@@ -147,4 +147,28 @@ public class AdministrateurDAOImpl implements IAdministrateurDAO {
 		
 	}// end getAll
 
+	/**
+	 * Permet de vérifier si un identifiant est libre <br/>
+	 * Retourne vrai si un identifiant correspond <br/>
+	 * 
+	 */
+	@Override
+	@Transactional(readOnly=true)
+	public boolean identifiantIsExist(String pIdentifiantAdmin) {
+		
+		Session session = this.sessionFactory.getCurrentSession();
+		try {
+			
+			Query query = session.createQuery("SELECT count(a.identifiant) FROM Administrateur a WHERE a.identifiant= :pIdentifant");
+			query.setParameter("pIdentifant", pIdentifiantAdmin);
+			Long result = (Long) query.getSingleResult();
+			return result == 1L;
+			
+		} catch (HibernateException e) {
+			System.out.println("....(AdministrateurDAOImpl) Erreurr lors de la recherche d'un identifiant");
+			throw e;
+		}
+
+	}
+
 }// end class

@@ -50,6 +50,12 @@ public class AdministrateurServiceImpl implements IAdministrateurService{
 		return adminDAO.getAll();
 	}
 
+	@Override
+	public boolean identifiantIsExist(String pIdentifiantAdmin) {
+	
+		return adminDAO.identifiantIsExist(pIdentifiantAdmin);
+	}
+
 	
 	
 }// end class

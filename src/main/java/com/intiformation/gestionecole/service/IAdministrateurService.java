@@ -9,4 +9,10 @@ import com.intiformation.gestionecole.modele.Administrateur;
  */
 public interface IAdministrateurService extends IGeneriqueService<Administrateur> {
 	
+	/**
+	 * Retourn true si l'iendifiant existe dans la bdd
+	 * @return
+	 */
+	public boolean identifiantIsExist(String pIdentifiantAdmin);
+	
 }// end interface

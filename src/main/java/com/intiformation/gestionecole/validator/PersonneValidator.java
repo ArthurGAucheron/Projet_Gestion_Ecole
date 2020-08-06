@@ -3,13 +3,16 @@ package com.intiformation.gestionecole.validator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import com.intiformation.gestionecole.dao.AdministrateurDAOImpl;
 import com.intiformation.gestionecole.modele.Administrateur;
 import com.intiformation.gestionecole.modele.Personne;
+import com.intiformation.gestionecole.service.AdministrateurServiceImpl;
 
 /**
  * <pre>
@@ -21,6 +24,12 @@ import com.intiformation.gestionecole.modele.Personne;
  */
 @Component
 public class PersonneValidator implements Validator {
+
+	@Autowired
+	private AdministrateurServiceImpl adminService;
+	public void setAdminService(AdministrateurServiceImpl adminService) {
+		this.adminService = adminService;
+	}
 
 	@Override
 	public boolean supports(Class<?> clazz) {
@@ -48,6 +57,9 @@ public class PersonneValidator implements Validator {
 			}
 		}
 		
+		if (adminService.identifiantIsExist(personne.getIdentifiant())) {
+			errors.rejectValue("identifiant", "isexist.identifiant", "L'identifiant est déjà existant");
+		}
 		
 	}// end validate
 
