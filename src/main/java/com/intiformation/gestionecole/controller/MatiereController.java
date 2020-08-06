@@ -1,4 +1,4 @@
-  
+
 package com.intiformation.gestionecole.controller;
 
 import java.util.HashMap;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.intiformation.gestionecole.modele.Cours;
@@ -29,16 +30,16 @@ public class MatiereController {
 	@Autowired // injection du bean de la couche service dans cette prop
 	@Qualifier("matiereServiceBean")
 	private IMatiereService matiereService;
-	
+
 	@Autowired // injection du bean de la couche service dans cette prop
 	@Qualifier("coursServiceBean")
 	private ICoursService coursService;
 
 	// setter pour injection spring
-	public void setMatiereService(@Qualifier("matiereServiceBean")IMatiereService matiereService) {
+	public void setMatiereService(@Qualifier("matiereServiceBean") IMatiereService matiereService) {
 		this.matiereService = matiereService;
 	}
-	
+
 	public void setCoursService(@Qualifier("coursServiceBean") ICoursService coursService) {
 		this.coursService = coursService;
 	}
@@ -58,10 +59,8 @@ public class MatiereController {
 
 		// recup de la liste des employes dans la bd via le service
 		List<Matiere> listeMatieresBDD = matiereService.findAll();
-		
+
 		List<Cours> listeCoursBDD = coursService.findAll();
-		
-		
 
 		// renvoi de la liste vers la vue via l'objet model
 		model.addAttribute("attribut_liste_matieres", listeMatieresBDD);
@@ -102,9 +101,9 @@ public class MatiereController {
 
 	}// end afficherFormulaireAjout()
 
-	
 	/**
 	 * méthode pour ajouter une matière à la BDD
+	 * 
 	 * @param pEmploye
 	 * @param model
 	 * @param resultatValidation
@@ -113,18 +112,35 @@ public class MatiereController {
 	@PostMapping(value = "/matieres/add")
 	public String ajouterMatiereBDD(@ModelAttribute("matiereCommand") Matiere pMatiere, ModelMap model) {
 
+		// Ajout de l'employé à la bdd via la couche service
+		matiereService.ajouter(pMatiere);
 
-			// Ajout de l'employé à la bdd via la couche service
-			matiereService.ajouter(pMatiere);
+		// redirection vers la page liste-matieres.jsp
+		// recup de la nouvelle liste
+		model.addAttribute("attribut_liste_matieres", matiereService.findAll());
 
-			// redirection vers la page liste-matieres.jsp
-			// recup de la nouvelle liste
-			model.addAttribute("attribut_liste_matieres", matiereService.findAll());
-
-			// => redirection vers la page d'accueil
-			return "redirect:/matieres/liste";
-
+		// => redirection vers la page d'accueil
+		return "redirect:/matieres/liste";
 
 	}// ajouterMatiereBDD
+
+	@RequestMapping(value = "/matieres/update-matiere-form", method = RequestMethod.GET)
+	public ModelAndView afficherFormulaireModification(@RequestParam("idMatiere") Long pMatiereID) {
+
+		Matiere matiereAModifier = matiereService.findById(pMatiereID);
+
+		return new ModelAndView("modifier-matiere", "matiereModifCommand", matiereAModifier);
+
+	}// end afficherFormulaireModification()
+
+	@RequestMapping(value = "/matieres/update", method = RequestMethod.POST)
+	public String modifierMatiereBDD(@ModelAttribute("matiereModifCommand") Matiere pMatiereToUpdate, ModelMap model) {
+
+		matiereService.modifier(pMatiereToUpdate);
+
+		model.addAttribute("attribut_liste_matieres", matiereService.findAll());
+		return "liste-matieres";
+
+	}// end modifierMatiereBDD()
 
 }// end class

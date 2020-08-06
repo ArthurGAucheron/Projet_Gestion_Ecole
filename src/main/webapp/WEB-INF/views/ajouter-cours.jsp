@@ -1,3 +1,4 @@
+<%@page import="com.intiformation.gestionecole.service.MatiereServiceImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -33,11 +34,13 @@
 					<td><form:input path="libelle" /></td>
 
 				</tr>
+					
 				<tr>
+				
 					<td><form:label path="matiere">matiere :</form:label></td>
 					<td><form:select path="matiere">
 							<form:option value="NONE" label="--- Select ---" />
-							<form:options items="${attribut_liste_matieres}" />
+							<form:options items="${attribut_liste_matieres}" /> 
 						</form:select></td>
 
 				</tr>

@@ -2,6 +2,9 @@ package com.intiformation.gestionecole.modele;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -34,22 +37,20 @@ public class Matiere implements Serializable {
 	@Column(name="libelle")
 	private String libelle;
 	
-	@OneToMany (mappedBy="matiere",cascade = {CascadeType.ALL} , fetch = FetchType.EAGER)
+	@OneToMany (mappedBy="matiere", cascade = CascadeType.REMOVE)
 	@Column(name="liste_cours")
-	private Collection<Cours> listeCours;
+	private List<Cours> listeCours;
 
 	/* ______Constructeurs________ */
 
 	public Matiere() {
 	}
 
-	public Matiere(String libelle, Collection<Cours> listeCours) {
+	public Matiere(String libelle,List<Cours> listeCours) {
 		super();
 		this.libelle = libelle;
 		this.listeCours = listeCours;
-	}
-	
-	
+	}	
 
 	public Matiere(String libelle) {
 		super();
@@ -74,11 +75,11 @@ public class Matiere implements Serializable {
 		this.libelle = libelle;
 	}
 
-	public Collection<Cours> getListeCours() {
+	public List<Cours> getListeCours() {
 		return listeCours;
 	}
 
-	public void setListeCours(Collection<Cours> listeCours) {
+	public void setListeCours(List<Cours> listeCours) {
 		this.listeCours = listeCours;
 	}
 

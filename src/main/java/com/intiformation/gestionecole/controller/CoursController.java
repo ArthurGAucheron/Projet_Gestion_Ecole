@@ -1,8 +1,10 @@
 package com.intiformation.gestionecole.controller;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -50,11 +52,9 @@ public class CoursController {
 	public String recupererListeCoursBdd(ModelMap model) {
 
 		// recup de la liste des employes dans la bd via le service
-		List<Matiere> listeMatieresBDD = matiereService.findAll();
 		List<Cours> listeCoursBDD = coursService.findAll();
 
 		// renvoi de la liste vers la vue via l'objet model
-		model.addAttribute("attribut_liste_matieres", listeMatieresBDD);
 		model.addAttribute("attribut_liste_cours", listeCoursBDD);
 
 		// renvoi du nom logique de la vue
@@ -72,13 +72,16 @@ public class CoursController {
 
 		// objet vide
 		Cours cours = new Cours();
+		Matiere matiere = new Matiere() ;
 
 		// affectation d'un nom à cet objet
 		String nomObjetCommande = "coursCommand";
+		String nomMatiereCommande = "matiereCommand";
 
 		// envoi de l'objet de commande vers la vue (page du formulaire)
 		Map<String, Object> dataCommand = new HashMap<>();
 		dataCommand.put(nomObjetCommande, cours);
+		dataCommand.put(nomMatiereCommande, matiere);
 
 		// definition du nom logique de la vue
 		String viewName = "ajouter-cours";
@@ -91,15 +94,19 @@ public class CoursController {
 
 
 	@PostMapping(value = "/cours/add")
-	public String ajouterCoursBDD(@ModelAttribute("coursCommand") Cours pCours, ModelMap model) {
+	public String ajouterCoursBDD(@ModelAttribute("coursCommand") Cours pCours, @ModelAttribute("matiereCommand")Matiere pMatiere, ModelMap model) {
 
 		// Ajout à la bdd via la couche service
+		
+		
+		
+		pCours.setMatiere(pMatiere);
 		coursService.ajouter(pCours);
+		
 
 		// redirection vers la page liste-matieres.jsp
 		// recup de la nouvelle liste
 		model.addAttribute("attribut_liste_cours", coursService.findAll());
-		model.addAttribute("attribut_liste_matieres", matiereService.findAll());
 
 		// => redirection vers la page d'accueil
 		return "redirect:/cours/liste";

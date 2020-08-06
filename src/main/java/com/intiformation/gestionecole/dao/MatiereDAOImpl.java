@@ -1,6 +1,8 @@
 package com.intiformation.gestionecole.dao;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.intiformation.gestionecole.modele.Cours;
 import com.intiformation.gestionecole.modele.Matiere;
 
 @Repository ("matiereDAOBean")
@@ -83,7 +86,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	@Transactional (readOnly=true)
 	public Matiere getById(Long pIdMatiere) {
 		try {
-			Session session = this.sessionFactory.getCurrentSession();
+			Session session = this.sessionFactory.openSession();
 			Matiere mat = session.find(Matiere.class, pIdMatiere);
 			return mat;
 		} catch (Exception e) {
@@ -97,7 +100,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	@Transactional (readOnly=true)
 	public List<Matiere> getAll() {
 		try {
-			Session session = this.sessionFactory.getCurrentSession();
+			Session session = this.sessionFactory.openSession();
 			Query query = session.createQuery("FROM Matiere");
 			List<Matiere> listeMatieresBDD = query.list();
 			return listeMatieresBDD;
@@ -107,5 +110,6 @@ public class MatiereDAOImpl implements IMatiereDAO {
 			throw e;
 		} // end catch
 	}//end getAll()
+
 
 }//end class

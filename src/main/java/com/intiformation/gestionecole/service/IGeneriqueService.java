@@ -1,6 +1,7 @@
 package com.intiformation.gestionecole.service;
 
 import java.util.List;
+import java.util.Set;
 
 public interface IGeneriqueService <T> {
 

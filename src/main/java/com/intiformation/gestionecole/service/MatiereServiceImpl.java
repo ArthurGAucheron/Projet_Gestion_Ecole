@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.intiformation.gestionecole.dao.IMatiereDAO;
+import com.intiformation.gestionecole.modele.Cours;
 import com.intiformation.gestionecole.modele.Matiere;
 
 @Service("matiereServiceBean")
