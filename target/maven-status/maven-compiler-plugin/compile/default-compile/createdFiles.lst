@@ -18,6 +18,7 @@ com\intiformation\gestionecole\service\AideServiceImpl.class
 com\intiformation\gestionecole\dao\IGeneriqueDAO.class
 com\intiformation\gestionecole\service\PromotionServiceImpl.class
 com\intiformation\gestionecole\service\IEnseignantService.class
+com\intiformation\gestionecole\validator\PersonneValidator.class
 com\intiformation\gestionecole\modele\Cours.class
 com\intiformation\gestionecole\controller\GestionAdministrateurController.class
 com\intiformation\gestionecole\modele\Promotion.class

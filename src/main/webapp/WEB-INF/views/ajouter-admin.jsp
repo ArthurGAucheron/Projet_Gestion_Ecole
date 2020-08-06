@@ -6,6 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ajouter un administrateur</title>
+<style type="text/css">
+	.erreurs_validation{
+		color: red;
+		font-style: italic;
+		border: 1px dotted red;
+		margin: 15px
+	}
+</style>
 </head>
 <body>
 	<h1>Ajouter un administrateur</h1>
@@ -14,11 +22,14 @@
 	<a href="${pageContext.request.contextPath}/admin/listeadmin">Retour à la liste des administrateurs</a>
 	<br></br>
 	
+	<div align="center">
 	<form:form modelAttribute="attributAdmin"  method="POST"  action="${pageContext.request.contextPath}/admin/addadmin">
+		<form:errors path="*" cssClass="erreurs_validation" element="div" />
 		<table>
 			<tr>
 				<td><form:label path="identifiant">Identifiant</form:label></td>
 				<td><form:input path="identifiant"/></td>
+				<td><form:errors pahth="identifiant" cssClass="erreurs_validation"/>
 			</tr>
 			<tr>
 				<td><form:label path="motdePasse">Mot de passe</form:label></td>
@@ -55,6 +66,6 @@
 		   </tr>
 		</table>
 	</form:form>
-	
+	</div>
 </body>
 </html>

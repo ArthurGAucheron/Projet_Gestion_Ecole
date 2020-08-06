@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.intiformation.gestionecole.modele.Administrateur;
 import com.intiformation.gestionecole.modele.Adresse;
 import com.intiformation.gestionecole.service.AdministrateurServiceImpl;
 import com.intiformation.gestionecole.service.AdresseServiceImpl;
+import com.intiformation.gestionecole.validator.PersonneValidator;
 /**
  * <pre>
  * 	Controller permettant de gérer les administrateurs
@@ -38,6 +40,12 @@ public class GestionAdministrateurController {
 	private AdresseServiceImpl adresseService;
 	public void setAdresseService(AdresseServiceImpl adresseService) {
 		this.adresseService = adresseService;
+	}
+	
+	@Autowired
+	private PersonneValidator personneValidator;
+	public void setPersonneValidator(PersonneValidator personneValidator) {
+		this.personneValidator = personneValidator;
 	}
 
 	@RequestMapping(value="/admin/listeadmin" , method=RequestMethod.GET)
@@ -67,11 +75,19 @@ public class GestionAdministrateurController {
 	
 	@RequestMapping(value="/admin/addadmin",method=RequestMethod.POST)
 	public String ajouteAdmin(@ModelAttribute("attributAdmin")@Validated Administrateur pAdmin,
-								@ModelAttribute("attributAdresse")@Validated Adresse pAdresse) {
+								BindingResult resultatValidation) {
 		
-		adresseService.ajouter(pAdresse);
-		adminService.ajouter(pAdmin);
-		return "redirect:/admin/listeadmin";
+		personneValidator.validate(pAdmin, resultatValidation);
+		
+		if (resultatValidation.hasErrors()) {
+			
+			return "ajouter-admin";
+			
+		}else {
+			adminService.ajouter(pAdmin);
+			
+			return "redirect:/admin/listeadmin";
+		}
 	}// end ajouteAdmin
 	
 	@RequestMapping(value="/admin/supp/admini/{adminId}", method=RequestMethod.GET)
@@ -95,8 +111,7 @@ public class GestionAdministrateurController {
 	}// end afficherFormModifAdmin()
 	
 	@RequestMapping(value="/admin/updateadmin", method=RequestMethod.POST)
-	public String modifierAdministrateur(@ModelAttribute("attrtibutAdminModif")@Validated Administrateur pAdmin, 
-										 @ModelAttribute("attrtibutAdresseModif")@Validated Adresse pAdresse) {
+	public String modifierAdministrateur(@ModelAttribute("attrtibutAdminModif")@Validated Administrateur pAdmin) {
 		
 		adminService.modifier(pAdmin);
 		
