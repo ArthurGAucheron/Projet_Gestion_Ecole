@@ -15,6 +15,7 @@ C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\IAdresseService.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\AdministrateurDAOImpl.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Administrateur.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\validator\PersonneValidator.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\PromotionDAOImpl.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\CoursServiceImpl.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\EnseignantServiceImpl.java
