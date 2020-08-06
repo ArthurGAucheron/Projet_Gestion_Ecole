@@ -19,8 +19,7 @@
 			</tr>
 			
 			<tr>
-				<td><form:label path="identifiant">Identifiant</form:label></td>
-				<td><form:input path="identifiant"/></td>
+				<td><form:hidden path="identifiant" /></td>
 			</tr>
 			<tr>
 				<td><form:label path="motdePasse">Mot de passe</form:label></td>

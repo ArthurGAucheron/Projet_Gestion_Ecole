@@ -150,6 +150,7 @@ public class AdministrateurDAOImpl implements IAdministrateurDAO {
 	/**
 	 * Permet de vérifier si un identifiant est libre <br/>
 	 * Retourne vrai si un identifiant correspond <br/>
+	 * Recherche pour tout type de personne (etu/ens/admin)
 	 * 
 	 */
 	@Override
@@ -159,7 +160,7 @@ public class AdministrateurDAOImpl implements IAdministrateurDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		try {
 			
-			Query query = session.createQuery("SELECT count(a.identifiant) FROM Administrateur a WHERE a.identifiant= :pIdentifant");
+			Query query = session.createQuery("SELECT count(p.identifiant) FROM Personne p WHERE p.identifiant= :pIdentifant");
 			query.setParameter("pIdentifant", pIdentifiantAdmin);
 			Long result = (Long) query.getSingleResult();
 			return result == 1L;

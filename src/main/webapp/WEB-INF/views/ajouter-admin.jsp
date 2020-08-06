@@ -10,7 +10,6 @@
 	.erreurs_validation{
 		color: red;
 		font-style: italic;
-		border: 1px dotted red;
 		margin: 15px
 	}
 </style>
@@ -22,8 +21,8 @@
 	<a href="${pageContext.request.contextPath}/admin/listeadmin">Retour à la liste des administrateurs</a>
 	<br></br>
 	
-	<div align="center">
-	<form:form modelAttribute="attributAdmin"  method="POST"  action="${pageContext.request.contextPath}/admin/addadmin">
+	<div align="left">
+	<form:form modelAttribute="attributAdmin"  method="POST"  action="${pageContext.request.contextPath}/admin/addadmin" onsubmit="return validate()">
 		<form:errors path="*" cssClass="erreurs_validation" element="div" />
 		<table>
 			<tr>
@@ -33,7 +32,7 @@
 			</tr>
 			<tr>
 				<td><form:label path="motdePasse">Mot de passe</form:label></td>
-				<td><form:input path="motdePasse"/></td>
+				<td><form:password path="motdePasse" id="mdp"/></td>
 				<td><form:errors pahth="motdePasse" cssClass="erreurs_validation"/>
 			</tr>
 			<tr>
