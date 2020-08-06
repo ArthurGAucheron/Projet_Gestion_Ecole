@@ -1,5 +1,8 @@
 package com.intiformation.gestionecole.validator;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -29,8 +32,22 @@ public class PersonneValidator implements Validator {
 	public void validate(Object objetValider, Errors errors) {
 		
 		ValidationUtils.rejectIfEmpty(errors, "identifiant", "required.identifiant", "L'identifiant est obligatoire");
+		ValidationUtils.rejectIfEmpty(errors, "motdePasse", "required.motdePasse", "Le mot de passe est obligatoire");
+		ValidationUtils.rejectIfEmpty(errors, "email", "required.email", "L'email est obligatoire");
 		
 		Personne personne = (Personne) objetValider;
+		
+		if (personne.getEmail().isEmpty() == false) {
+			String regex = "^(.+)@(.+)$";
+			Pattern pattern = Pattern.compile(regex);
+			Matcher matcher = pattern.matcher(personne.getEmail());
+			System.out.println(" le pattern est : " + matcher.matches());
+
+			if (matcher.matches() == false) {
+				errors.rejectValue("email", "pattern.email", "Le format de l'adresse email est incorrecte");
+			}
+		}
+		
 		
 	}// end validate
 
