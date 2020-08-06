@@ -6,6 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ajouter un Enseignant</title>
+<style type="text/css">
+	.erreurs_validation{
+		color: red;
+		font-style: italic;
+		margin: 15px
+	}
+</style>
 </head>
 <body>
 <h1>Ajouter un Enseignant</h1>
@@ -13,16 +20,19 @@
 
 	<a href="${pageContext.request.contextPath}/admin/listeenseignant">Retour à la liste des enseignants</a>
 	<br></br>
-	
+	<div align="left">
 	<form:form modelAttribute="attributEns"  method="POST"  action="${pageContext.request.contextPath}/admin/addens">
+		<form:errors path="*" cssClass="erreurs_validation" element="div" />
 		<table>
 			<tr>
 				<td><form:label path="identifiant">Identifiant</form:label></td>
 				<td><form:input path="identifiant"/></td>
+				<td><form:errors pahth="identifiant" cssClass="erreurs_validation"/>
 			</tr>
 			<tr>
 				<td><form:label path="motdePasse">Mot de passe</form:label></td>
-				<td><form:input path="motdePasse"/></td>
+				<td><form:password path="motdePasse"/></td>
+				<td><form:errors pahth="motdePasse" cssClass="erreurs_validation"/>
 			</tr>
 			<tr>
 				<td><form:label path="nom">Nom</form:label></td>
@@ -35,6 +45,7 @@
 			<tr>
 				<td><form:label path="email">Email</form:label></td>
 				<td><form:input path="email"/></td>
+				<td><form:errors pahth="email" cssClass="erreurs_validation"/>
 			</tr>
 			<tr>
 				<td><form:label path="adresse.rue">Rue</form:label></td>
@@ -55,5 +66,6 @@
 		   </tr>
 		</table>
 	</form:form>
+	 </div>
 </body>
 </html>

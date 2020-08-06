@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.intiformation.gestionecole.modele.Adresse;
 import com.intiformation.gestionecole.modele.Enseignant;
 import com.intiformation.gestionecole.service.AdresseServiceImpl;
 import com.intiformation.gestionecole.service.EnseignantServiceImpl;
+import com.intiformation.gestionecole.validator.PersonneValidator;
 
 /**
  * <pre>
@@ -31,19 +33,26 @@ import com.intiformation.gestionecole.service.EnseignantServiceImpl;
 public class GestionEnseignantController {
 
 	@Autowired
-	EnseignantServiceImpl enseignantService;
+	private EnseignantServiceImpl enseignantService;
 
 	public void setEnseignantService(EnseignantServiceImpl enseignantService) {
 		this.enseignantService = enseignantService;
 	}
 	
 	@Autowired
-	AdresseServiceImpl adresseService;
+	private AdresseServiceImpl adresseService;
 
 	public void setAdresseService(AdresseServiceImpl adresseService) {
 		this.adresseService = adresseService;
 	}
 	
+	@Autowired
+	private PersonneValidator personneValidator; 
+
+	public void setPersonneValidator(PersonneValidator personneValidator) {
+		this.personneValidator = personneValidator;
+	}
+
 	@RequestMapping(value="/admin/listeenseignant" , method=RequestMethod.GET)
 	public String recupererListAdmin(ModelMap model) {
 		
@@ -71,11 +80,18 @@ public class GestionEnseignantController {
 	
 	@RequestMapping(value="/admin/addens",method=RequestMethod.POST)
 	public String ajouteAdmin(@ModelAttribute("attributEns")@Validated Enseignant pEnseignant,
-								@ModelAttribute("attributAdresse")@Validated Adresse pAdresse) {
+								BindingResult resultatValidation) {
 		
-		adresseService.ajouter(pAdresse);
-		enseignantService.ajouter(pEnseignant);
-		return "redirect:/admin/listeenseignant";
+		personneValidator.validate(pEnseignant, resultatValidation);
+		if (resultatValidation.hasErrors()) {
+			return "ajouter-enseignant";
+		} else {
+			enseignantService.ajouter(pEnseignant);
+			return "redirect:/admin/listeenseignant";
+		}
+		
+		
+		
 	}// end ajouteAdmin
 	
 	@RequestMapping(value="/admin/supp/ens/{ensId}", method=RequestMethod.GET)
@@ -101,8 +117,7 @@ public class GestionEnseignantController {
 	}// end afficherFormModifAdmin()
 	
 	@RequestMapping(value="/admin/updateens", method=RequestMethod.POST)
-	public String modifierAdministrateur(@ModelAttribute("attrtibutEnseignantModif")@Validated Enseignant pEnseignant, 
-										 @ModelAttribute("attrtibutAdresseModif")@Validated Adresse pAdresse) {
+	public String modifierAdministrateur(@ModelAttribute("attrtibutEnseignantModif")@Validated Enseignant pEnseignant) {
 		
 		enseignantService.modifier(pEnseignant);
 		

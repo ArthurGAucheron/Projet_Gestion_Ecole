@@ -14,7 +14,6 @@
 	<table cellpadding="10" cellspacing="10" border="1">
 		<tr>
 			<th>Identifiant</th>
-			<th>Mot de passe</th>
 			<th>Nom</th>
 			<th>Prenom</th>
 			<th>Email</th>
@@ -25,7 +24,6 @@
 		<c:forEach items="${attribut_liste_admin_bdd}" var="adminBDD">
 			<tr>
 				<td>${adminBDD.identifiant}</td>
-				<td>${adminBDD.motdePasse}</td>
 				<td>${adminBDD.nom}</td>
 				<td>${adminBDD.prenom}</td>
 				<td>${adminBDD.email}</td>
