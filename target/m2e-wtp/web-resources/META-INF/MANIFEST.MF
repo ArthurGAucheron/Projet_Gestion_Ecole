@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: IN-ST-028
 Build-Jdk: 1.8.0_241
+=======
+Built-By: arthu
+Build-Jdk: 1.8.0_251
+>>>>>>> bf65f1f... commit
 Created-By: Maven Integration for Eclipse
 
