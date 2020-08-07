@@ -2,10 +2,14 @@ package com.intiformation.gestionecole.modele;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 /**
@@ -13,6 +17,8 @@ import javax.persistence.Id;
  * @author cam
  *
  */
+@Entity
+@Table(name="matieres")
 public class Matiere {
 
 	/* ______Propriétés________ */
@@ -26,6 +32,7 @@ public class Matiere {
 	private String libelle;
 	
 	@Column(name="liste_cours")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="matiere")
 	private List<Cours> listeCours;
 
 	/* ______Constructeurs________ */
@@ -64,13 +71,7 @@ public class Matiere {
 	public void setListeCours(List<Cours> listeCours) {
 		this.listeCours = listeCours;
 	}
-	/* ______toString()________ */
-
-	@Override
-	public String toString() {
-		return "Matiere [idMatiere=" + idMatiere + ", libelle=" + libelle + "]";
-	}
-
+	
 	
 
 }// end class

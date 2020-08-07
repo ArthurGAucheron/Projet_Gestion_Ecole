@@ -14,11 +14,11 @@
 	
 	<br />
 	
-	<a href="#">Liste des matières</a>
+	<a href="${pageContext.request.contextPath}/liste/matiere">Liste des matières</a>
 
 	<br />
 
-	<a href="#">Liste des cours</a>
+	<a href="${pageContext.request.contextPath}/liste/cours">Liste des cours</a>
 
 	<br />
 	

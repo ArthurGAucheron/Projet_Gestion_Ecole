@@ -22,27 +22,14 @@
 
 
 		<%-- à la soumission du formulaire : invocation de la methode "ajouterMatiereBDD()" --%>
-		<form:form modelAttribute="matiereCommand" method="POST"
-			action="${pageContext.request.contextPath}/matieres/add">
-
-
-			<table width="60%">
-
+		<form:form modelAttribute="attributMatiere" method="POST" action="${pageContext.request.contextPath}/matieres/add">
+			<table>
 				<tr>
 					<td><form:label path="libelle">libelle :</form:label></td>
 					<td><form:input path="libelle" /></td>
-
 				</tr>
-				<tr>
-					<td><form:label path="listeCours">Liste des cours :</form:label></td>
-					<td><form:select path="listeCours" items="${attribut_liste_cours}"
-							itemValue="cours" itemLabel="nom_cours" multiple="true" /></td>
+					<td><input type="submit" value="Ajouter" /></td>
 				</tr>
-
-				<tr>
-					<td colspan="2"><input type="submit" value="Ajouter" /></td>
-				</tr>
-
 			</table>
 
 

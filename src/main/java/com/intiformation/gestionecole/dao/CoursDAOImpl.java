@@ -8,12 +8,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.intiformation.gestionecole.modele.Cours;
 
 
-@Repository ("coursDAOBean")
+@Repository
+@EnableTransactionManagement
 public class CoursDAOImpl implements ICoursDAO {
 
 	@Autowired

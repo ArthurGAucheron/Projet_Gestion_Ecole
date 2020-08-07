@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -34,57 +36,36 @@ public class Cours {
 	@Column(name="id_promo")
 	private Long idPromo;
 	
-	@Column(name="id_matiere")
-	private Long idMatiere;
+	
+	@ManyToOne
+	@JoinColumn(name="matiere_id", referencedColumnName="id_matiere")
+	private Matiere matiere;
 	
 	/*__________________________ ctors __________________________*/
-	/**
-	 * ctor vide
-	 */
+	
 	public Cours() {
 	}
 
-	/**
-	 * ctor chargé avec toutes les props
-	 * @param idCours
-	 * @param libelle
-	 * @param date
-	 * @param duree
-	 * @param description
-	 * @param idPromo
-	 * @param idMatiere
-	 */
 	public Cours(long idCours, String libelle, Date date, Date duree, String description, Long idPromo,
-			Long idMatiere) {
-		super();
+			Matiere matiere) {
 		this.idCours = idCours;
 		this.libelle = libelle;
 		this.date = date;
 		this.duree = duree;
 		this.description = description;
 		this.idPromo = idPromo;
-		this.idMatiere = idMatiere;
+		this.matiere = matiere;
 	}
 
-	/**
-	 * ctor chargé sans l'idCours
-	 * @param libelle
-	 * @param date
-	 * @param duree
-	 * @param description
-	 * @param idPromo
-	 * @param idMatiere
-	 */
-	public Cours(String libelle, Date date, Date duree, String description, Long idPromo, Long idMatiere) {
-		super();
+	
+	public Cours(String libelle, Date date, Date duree, String description, Long idPromo, Matiere matiere) {
 		this.libelle = libelle;
 		this.date = date;
 		this.duree = duree;
 		this.description = description;
 		this.idPromo = idPromo;
-		this.idMatiere = idMatiere;
+		this.matiere = matiere;
 	}
-
 	/*_____________________ getters/setters _____________________*/
 	public long getIdCours() {
 		return idCours;
@@ -134,12 +115,12 @@ public class Cours {
 		this.idPromo = idPromo;
 	}
 
-	public Long getIdMatiere() {
-		return idMatiere;
+	public Matiere getMatiere() {
+		return matiere;
 	}
 
-	public void setIdMatiere(Long idMatiere) {
-		this.idMatiere = idMatiere;
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
 	}
-	
+
 }
