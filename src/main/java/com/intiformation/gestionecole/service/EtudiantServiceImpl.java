@@ -41,4 +41,9 @@ public class EtudiantServiceImpl implements IEtudiantService {
 		return etudiantDAO.getAll();
 	}
 
+	@Override
+	public boolean etudiantIsExist(String pIdEtudiant) {
+		return etudiantDAO.isExist(pIdEtudiant);
+	}
+
 }

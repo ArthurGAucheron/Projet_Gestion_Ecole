@@ -124,5 +124,24 @@ public class EtudiantDAOImpl implements IEtudiantDAO {
 		}
 
 	}//end getAll() - étudiant
+	
+	@Override
+	@Transactional(readOnly=true)
+	public boolean isExist(String pIdEtudiant) {
+		
+		Session session = this.sessionFactory.getCurrentSession();
+		try {
+			
+			Query query = session.createQuery("SELECT count(p.identifiant) FROM Personne p WHERE p.identifiant= :pIdentifant");
+			query.setParameter("pId", pIdEtudiant);
+			Long result = (Long) query.getSingleResult();
+			return result == 1L;
+			
+		} catch (HibernateException e) {
+			System.out.println("... Erreur lors de la vérification de l'identifiant (EtudiantDAOImpl) ...");
+			throw e;
+		}
+
+	}//end isExist() - étudiant
 
 }

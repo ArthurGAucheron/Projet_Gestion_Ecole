@@ -4,4 +4,6 @@ import com.intiformation.gestionecole.modele.Etudiant;
 
 public interface IEtudiantDAO extends IGeneriqueDAO<Etudiant> {
 
+	boolean isExist(String pIdEtudiant);
+
 }
