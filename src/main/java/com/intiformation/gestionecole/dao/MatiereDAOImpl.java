@@ -78,10 +78,10 @@ public class MatiereDAOImpl implements IMatiereDAO {
 
 		} // end catch
 
-	}//end delete()
+	}// end delete()
 
 	@Override
-	@Transactional (readOnly=true)
+	@Transactional(readOnly = true)
 	public Matiere getById(Long pIdMatiere) {
 		try {
 			Session session = this.sessionFactory.getCurrentSession();
@@ -92,10 +92,10 @@ public class MatiereDAOImpl implements IMatiereDAO {
 			System.out.println("(MatiereDAOImpl) Erreur lors de la recupération  by Id ...........;");
 			throw e;
 		} // end catch
-	}//end getById()
+	}// end getById()
 
 	@Override
-	@Transactional (readOnly=true)
+	@Transactional(readOnly = true)
 	public List<Matiere> getAll() {
 		try {
 			Session session = this.sessionFactory.openSession();
@@ -107,6 +107,6 @@ public class MatiereDAOImpl implements IMatiereDAO {
 			System.out.println("(MatiereDAOImpl) Erreur lors de la recupération de la liste dans la BDD  ...........;");
 			throw e;
 		} // end catch
-	}//end getAll()
+	}// end getAll()
 
-}//end class
+}// end class

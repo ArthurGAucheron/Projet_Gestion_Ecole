@@ -2,10 +2,14 @@ package com.intiformation.gestionecole.modele;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * modele de données pour une Promotion
@@ -13,6 +17,8 @@ import javax.persistence.Id;
  * @author cam
  *
  */
+@Entity
+@Table(name="promotions")
 public class Promotion {
 
 	/* ______Propriétés________ */
@@ -25,10 +31,12 @@ public class Promotion {
 	@Column(name = "libelle")
 	private String libelle;
 
-	@Column(name = "liste_cours")
+	@Column(name="liste_cours")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="promotion")
 	private List<Cours> listeCours;
 
-	@Column(name = "liste_etudiants")
+	@Column(name ="liste_etudiants")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="promotion")
 	private List<Etudiant> listeEtudiants;
 
 	/* ______Constructeurs________ */

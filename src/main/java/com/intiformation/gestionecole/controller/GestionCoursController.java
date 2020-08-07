@@ -16,8 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.intiformation.gestionecole.modele.Cours;
 import com.intiformation.gestionecole.modele.Matiere;
+import com.intiformation.gestionecole.modele.Promotion;
 import com.intiformation.gestionecole.service.CoursServiceImpl;
 import com.intiformation.gestionecole.service.MatiereServiceImpl;
+import com.intiformation.gestionecole.service.PromotionServiceImpl;
 
 @Controller
 public class GestionCoursController {
@@ -35,9 +37,15 @@ public class GestionCoursController {
 	public void setMatiereService(MatiereServiceImpl matiereService) {
 		this.matiereService = matiereService;
 	}
+	
+	@Autowired
+	private PromotionServiceImpl promotionService;
+	public void setPromotionService(PromotionServiceImpl promotionService) {
+		this.promotionService = promotionService;
+	}
 
 
-	@RequestMapping(value="/liste/cours", method=RequestMethod.GET)
+	@RequestMapping(value="/cours/liste", method=RequestMethod.GET)
 	public String recupererListeCours(ModelMap model) {
 		
 		List<Cours> listeCours = coursService.findAll();
@@ -54,10 +62,12 @@ public class GestionCoursController {
 		
 		Cours cours = new Cours();
 		List<Matiere> matieresList = matiereService.findAll();
+		List<Promotion> promotionsList = promotionService.findAll();
 		
 		Map<String, Object> donneesCommande = new HashMap<String, Object>();
 		donneesCommande.put("attributCours", cours);
 		donneesCommande.put("attributMatiere", matieresList);
+		donneesCommande.put("attributPromotion", promotionsList);
 		
 		return  new ModelAndView("ajouter-cours",donneesCommande);
 	} // afficherFormulaireAjout
@@ -67,7 +77,7 @@ public class GestionCoursController {
 		
 			coursService.ajouter(pCours);
 			
-			return "redirect:/liste/cours";
+			return "redirect:/cours/liste";
 		}
 
 	

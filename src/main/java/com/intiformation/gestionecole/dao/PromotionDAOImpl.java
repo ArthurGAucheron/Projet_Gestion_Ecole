@@ -9,12 +9,13 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.intiformation.gestionecole.modele.Promotion;
 
 @Repository
-@Transactional
+@EnableTransactionManagement
 public class PromotionDAOImpl implements IPromotionDAO {
 
 	// déclaration de la session factory (hibernate)
@@ -26,6 +27,7 @@ public class PromotionDAOImpl implements IPromotionDAO {
 	}
 
 	@Override
+	@Transactional
 	public void add(Promotion pPromotion) {
 		Session session = this.sessionFactory.getCurrentSession();
 
@@ -42,6 +44,7 @@ public class PromotionDAOImpl implements IPromotionDAO {
 	}// end add()
 
 	@Override
+	@Transactional
 	public void update(Promotion pPromotion) {
 		Session session = this.sessionFactory.getCurrentSession();
 
@@ -59,6 +62,7 @@ public class PromotionDAOImpl implements IPromotionDAO {
 	}// end update
 
 	@Override
+	@Transactional
 	public void delete(Long pIdPromotion) {
 		Session session = this.sessionFactory.getCurrentSession();
 
@@ -77,10 +81,10 @@ public class PromotionDAOImpl implements IPromotionDAO {
 	}// end delete()
 
 	@Override
-	@ReadOnlyProperty
+	@Transactional(readOnly = true)
 	public Promotion getById(Long pIdPromotion) {
 		try {
-			Session session = this.sessionFactory.openSession();
+			Session session = this.sessionFactory.getCurrentSession();
 			Promotion promo = session.find(Promotion.class, pIdPromotion);
 			return promo;
 		} catch (Exception e) {
@@ -91,7 +95,7 @@ public class PromotionDAOImpl implements IPromotionDAO {
 	}// end getById()
 
 	@Override
-	@ReadOnlyProperty
+	@Transactional(readOnly = true)
 	public List<Promotion> getAll() {
 		try {
 			Session session = this.sessionFactory.openSession();
@@ -100,7 +104,8 @@ public class PromotionDAOImpl implements IPromotionDAO {
 			return listePromotionsBDD;
 		} catch (Exception e) {
 
-			System.out.println("(PromotionDAOImpl) Erreur lors de la recupération de la liste dans la BDD  ...........;");
+			System.out
+					.println("(PromotionDAOImpl) Erreur lors de la recupération de la liste dans la BDD  ...........;");
 			throw e;
 		} // end catch
 	}// end getAll()

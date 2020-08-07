@@ -6,6 +6,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,8 +22,9 @@ public class Etudiant extends Personne {
 	@Column(name = "date_de_naissance")
 	private Date dateNaissance;
 
-	@Column(name = "promotion")
-	private Long idPromo;
+	@ManyToOne
+	@JoinColumn(name="promotion_id", referencedColumnName="id_promotion")
+	private Promotion promotion;
 
 	/* __________________________ ctors __________________________ */
 	/**
@@ -51,11 +54,11 @@ public class Etudiant extends Personne {
 	 * @param idPromo
 	 */
 	public Etudiant(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email,
-			Adresse adresse, byte[] photo, Date dateNaissance, Long idPromo) {
+			Adresse adresse, byte[] photo, Date dateNaissance, Promotion promotion) {
 		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresse);
 		this.photo = photo;
 		this.dateNaissance = dateNaissance;
-		this.idPromo = idPromo;
+		this.promotion = promotion;
 	}
 	
 
@@ -71,11 +74,11 @@ public class Etudiant extends Personne {
 	 * @param dateNaissance
 	 * @param idPromo
 	 */
-	public Etudiant(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse, byte[] photo, Date dateNaissance, Long idPromo) {
+	public Etudiant(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse, byte[] photo, Date dateNaissance, Promotion promotion) {
 		super(identifiant, motdePasse, nom, prenom, email, adresse);
 		this.photo = photo;
 		this.dateNaissance = dateNaissance;
-		this.idPromo = idPromo;
+		this.promotion = promotion;
 	}
 
 	/* _____________________ getters/setters _____________________ */
@@ -95,18 +98,18 @@ public class Etudiant extends Personne {
 		this.dateNaissance = dateNaissance;
 	}
 
-	public Long getIdPromo() {
-		return idPromo;
+	public Promotion getPromotion() {
+		return promotion;
 	}
 
-	public void setIdPromo(Long idPromo) {
-		this.idPromo = idPromo;
+	public void setPromotion(Promotion promotion) {
+		this.promotion = promotion;
 	}
 
 	@Override
 	public String toString() {
-		return "Etudiant [Photo=" + Arrays.toString(photo) + ", DateNaissance=" + dateNaissance + ", idPromo=" + idPromo
-				+ ", IdPromo=" + getIdPromo() + ", Identifiant=" + getIdentifiant() + ", MotdePasse=" + getMotdePasse()
+		return "Etudiant [Photo=" + Arrays.toString(photo) + ", DateNaissance=" + dateNaissance + ", idPromo=" + promotion
+				+ ", IdPromo=" + getPromotion() + ", Identifiant=" + getIdentifiant() + ", MotdePasse=" + getMotdePasse()
 				+ ", Nom=" + getNom() + ", Prenom=" + getPrenom() + ", Email=" + getEmail() + ", IdPersonne="
 				+ getIdPersonne() + "]";
 	}

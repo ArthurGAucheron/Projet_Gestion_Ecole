@@ -1,5 +1,6 @@
 package com.intiformation.gestionecole.modele;
 
+import java.sql.Time;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -28,13 +29,14 @@ public class Cours {
 	private Date date;
 	
 	@Column(name="duree")
-	private Date duree;
+	private Long duree;
 	
 	@Column(name="description")
 	private String description;
 
-	@Column(name="id_promo")
-	private Long idPromo;
+	@ManyToOne
+	@JoinColumn(name="promotion_id", referencedColumnName="id_promotion")
+	private Promotion promotion;
 	
 	
 	@ManyToOne
@@ -46,24 +48,24 @@ public class Cours {
 	public Cours() {
 	}
 
-	public Cours(long idCours, String libelle, Date date, Date duree, String description, Long idPromo,
+	public Cours(long idCours, String libelle, Date date, Long duree, String description, Promotion promotion,
 			Matiere matiere) {
 		this.idCours = idCours;
 		this.libelle = libelle;
 		this.date = date;
 		this.duree = duree;
 		this.description = description;
-		this.idPromo = idPromo;
+		this.promotion = promotion;
 		this.matiere = matiere;
 	}
 
 	
-	public Cours(String libelle, Date date, Date duree, String description, Long idPromo, Matiere matiere) {
+	public Cours(String libelle, Date date, Long duree, String description, Promotion promotion, Matiere matiere) {
 		this.libelle = libelle;
 		this.date = date;
 		this.duree = duree;
 		this.description = description;
-		this.idPromo = idPromo;
+		this.promotion = promotion;
 		this.matiere = matiere;
 	}
 	/*_____________________ getters/setters _____________________*/
@@ -91,11 +93,11 @@ public class Cours {
 		this.date = date;
 	}
 
-	public Date getDuree() {
+	public Long getDuree() {
 		return duree;
 	}
 
-	public void setDuree(Date duree) {
+	public void setDuree(Long duree) {
 		this.duree = duree;
 	}
 
@@ -107,12 +109,12 @@ public class Cours {
 		this.description = description;
 	}
 
-	public Long getIdPromo() {
-		return idPromo;
+	public Promotion getPromotion() {
+		return promotion;
 	}
 
-	public void setIdPromo(Long idPromo) {
-		this.idPromo = idPromo;
+	public void setPromotion(Promotion promotion) {
+		this.promotion = promotion;
 	}
 
 	public Matiere getMatiere() {

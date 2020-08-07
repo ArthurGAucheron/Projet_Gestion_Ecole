@@ -2,17 +2,20 @@ package com.intiformation.gestionecole.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.intiformation.gestionecole.dao.IPromotionDAO;
 import com.intiformation.gestionecole.dao.PromotionDAOImpl;
 import com.intiformation.gestionecole.modele.Promotion;
 
-@Service("promotionServiceBean")
+@Service
 public class PromotionServiceImpl implements IPromotionService {
 
 	// déclaration de la couche DAO
 
-	private PromotionDAOImpl promotionDAO;
+	@Autowired
+	private IPromotionDAO promotionDAO;
 
 	@Override
 	public void ajouter(Promotion pPromotion) {
