@@ -30,19 +30,13 @@
 					<td><form:input path="libelle" /></td>
 				</tr>
 				<tr>
-					<td>List des matières disponibles</td>
-				</tr>
-					<c:forEach items="${attributMatiere}" var="matiereBDD" >
-					<tr>
-						<td>${matiereBDD.idMatiere}</td>
-						<td>${matiereBDD.libelle}</td>	
-					</tr>
-					</c:forEach>
-				<tr>
-					<td><form:label path="matiere.idMatiere">Saisir l'id de la matière souhaité</form:label></td>
-					<td><form:input path="matiere.idMatiere" /></td>
-				</tr>
+					<td><form:label path="matiere.idMatiere">matiere :</form:label></td>
+					<td><form:select path="matiere.idMatiere">
+							<form:option value="NONE" label="--- Select ---" />
+							<form:options items="${attributMatiere}" itemValue="idMatiere" itemLabel="libelle" /> 
+						</form:select></td>
 
+				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" value="Ajouter" /></td>
 				</tr>
