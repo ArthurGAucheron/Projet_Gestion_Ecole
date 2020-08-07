@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Gestion des promotions</h1>
-	<a href="${pageContext.request.contextPath}/formadd/matiere">Ajouter une promotion</a>
+	<a href="${pageContext.request.contextPath}/formadd/promotion">Ajouter une promotion</a>
 	<br></br>
 	<table cellpadding="10" cellspacing="10" border="1">
 		<tr>
