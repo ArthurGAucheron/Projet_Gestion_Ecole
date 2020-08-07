@@ -1,6 +1,6 @@
 package com.intiformation.gestionecole.modele;
 
-import java.sql.Time;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -29,7 +29,7 @@ public class Cours {
 	private Date date;
 	
 	@Column(name="duree")
-	private Long duree;
+	private int duree;
 	
 	@Column(name="description")
 	private String description;
@@ -48,8 +48,10 @@ public class Cours {
 	public Cours() {
 	}
 
-	public Cours(long idCours, String libelle, Date date, Long duree, String description, Promotion promotion,
+
+	public Cours(long idCours, String libelle, Date date, int duree, String description, Promotion promotion,
 			Matiere matiere) {
+		super();
 		this.idCours = idCours;
 		this.libelle = libelle;
 		this.date = date;
@@ -58,9 +60,9 @@ public class Cours {
 		this.promotion = promotion;
 		this.matiere = matiere;
 	}
-
 	
-	public Cours(String libelle, Date date, Long duree, String description, Promotion promotion, Matiere matiere) {
+	public Cours(String libelle, Date date, int duree, String description, Promotion promotion, Matiere matiere) {
+		super();
 		this.libelle = libelle;
 		this.date = date;
 		this.duree = duree;
@@ -68,6 +70,19 @@ public class Cours {
 		this.promotion = promotion;
 		this.matiere = matiere;
 	}
+	
+	
+
+
+	public Cours(String libelle, Date date, int duree, String description) {
+		super();
+		
+		this.libelle = libelle;
+		this.date = date;
+		this.duree = duree;
+		this.description = description;
+	}
+
 	/*_____________________ getters/setters _____________________*/
 	public long getIdCours() {
 		return idCours;
@@ -93,11 +108,11 @@ public class Cours {
 		this.date = date;
 	}
 
-	public Long getDuree() {
+	public int getDuree() {
 		return duree;
 	}
 
-	public void setDuree(Long duree) {
+	public void setDuree(int duree) {
 		this.duree = duree;
 	}
 

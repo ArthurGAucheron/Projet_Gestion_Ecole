@@ -45,7 +45,7 @@
 				<tr>
 					<td><form:label path="matiere.idMatiere">Matiere :</form:label></td>
 					<td><form:select path="matiere.idMatiere">
-							<form:option value="Matière : none" label="--- Matière ---" />
+							<form:option value="NONE" label="--- Matière ---" />
 							<form:options items="${attributMatiere}" itemValue="idMatiere" itemLabel="libelle" /> 
 						</form:select></td>
 
@@ -53,7 +53,7 @@
 				<tr>
 					<td><form:label path="promotion.idPromotion">Promotion :</form:label></td>
 					<td><form:select path="promotion.idPromotion">
-							<form:option value="Promotion : none" label="--- Promotion ---" />
+							<form:option value="NONE" label="--- Promotion ---" />
 							<form:options items="${attributPromotion}" itemValue="idPromotion" itemLabel="libelle" /> 
 						</form:select></td>
 

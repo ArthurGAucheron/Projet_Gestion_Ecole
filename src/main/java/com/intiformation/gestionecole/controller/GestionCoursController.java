@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -72,8 +73,8 @@ public class GestionCoursController {
 		return  new ModelAndView("ajouter-cours",donneesCommande);
 	} // afficherFormulaireAjout
 	
-	@RequestMapping(value="/cours/add",method=RequestMethod.POST)
-	public String ajoutCours(@ModelAttribute("attributCours")@Validated Cours pCours) {
+	@PostMapping(value="/cours/add")
+	public String ajoutCours(@ModelAttribute("attributCours")Cours pCours) {
 		
 			coursService.ajouter(pCours);
 			
