@@ -87,7 +87,7 @@ public class CoursDAOImpl implements ICoursDAO {
 	@Transactional (readOnly=true)
 	public Cours getById(Long pIdCours) {
 
-		Session session = this.sessionFactory.openSession();
+		Session session = this.sessionFactory.getCurrentSession();
 
 		try {
 

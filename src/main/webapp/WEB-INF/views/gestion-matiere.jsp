@@ -26,8 +26,8 @@
 					</c:forEach>	
 					</ul>			
 				</td>
-				<td><a href="#">Supprimer</a></td>
-				<td><a href="#">Modifier</a></td>
+				<td><a href="${pageContext.request.contextPath}/matieres/delete/${matiereBDD.idMatiere}">Supprimer</a></td>
+				<td><a href="${pageContext.request.contextPath}/matieres/update-matiere-form?idMatiere=${matiereBDD.idMatiere}">Modifier</a></td>
 			</tr>
 		</c:forEach>
 	</table>

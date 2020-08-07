@@ -84,7 +84,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	@Transactional (readOnly=true)
 	public Matiere getById(Long pIdMatiere) {
 		try {
-			Session session = this.sessionFactory.openSession();
+			Session session = this.sessionFactory.getCurrentSession();
 			Matiere mat = session.find(Matiere.class, pIdMatiere);
 			return mat;
 		} catch (Exception e) {
