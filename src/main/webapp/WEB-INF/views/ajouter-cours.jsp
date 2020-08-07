@@ -28,10 +28,10 @@
 					<td><form:input path="libelle" /></td>
 				</tr>
 				
-				<tr>
-					<td><form:label path="date">Date :</form:label></td>
-					<td><form:input type="date" path="date" /></td>
-				</tr>
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="date">Date :</form:label></td> --%>
+<%-- 					<td><form:input type="date" path="date" /></td> --%>
+<!-- 				</tr> -->
 				
 				<tr>
 					<td><form:label path="duree">Durée :</form:label></td>
