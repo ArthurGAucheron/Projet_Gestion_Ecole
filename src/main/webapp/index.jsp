@@ -12,13 +12,13 @@
 	
 	<a href="${pageContext.request.contextPath}/admin/gestionpersonnel">Gestion du personnel</a>
 	
-	<a href="${pageContext.request.contextPath}/matieres/liste">lien
-		vers la page 'liste-matieres.jsp'</a>
+	<br />
+	
+	<a href="#">Liste des matières</a>
 
 	<br />
 
-	<a href="${pageContext.request.contextPath}/cours/liste">lien vers
-		la page 'liste-cours.jsp'</a>
+	<a href="#">Liste des cours</a>
 
 	<br />
 	
