@@ -22,6 +22,10 @@
 
 	<br />
 	
+	<a href="${pageContext.request.contextPath}/promotions/liste">Gestion des promotions</a>
+
+	<br />
+	
 	
 </body>
 </html>
