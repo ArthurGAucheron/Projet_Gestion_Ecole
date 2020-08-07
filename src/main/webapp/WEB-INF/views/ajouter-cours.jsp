@@ -40,7 +40,7 @@
 					<td><form:label path="matiere">matiere :</form:label></td>
 					<td><form:select path="matiere">
 							<form:option value="NONE" label="--- Select ---" />
-							<form:options items="${attribut_liste_matieres}" /> 
+							<form:options items="${attribut_liste_matieres}"/>
 						</form:select></td>
 
 				</tr>

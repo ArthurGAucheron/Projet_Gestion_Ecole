@@ -33,7 +33,8 @@ public class CoursDAOImpl implements ICoursDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		
 		try {
-			
+			Matiere pMatiere =pCours.getMatiere();
+			session.save(pMatiere);
 			session.save(pCours);
 
 		} catch (HibernateException e) {

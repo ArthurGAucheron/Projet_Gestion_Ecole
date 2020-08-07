@@ -2,6 +2,7 @@ package com.intiformation.gestionecole.dao;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.hibernate.HibernateException;
@@ -101,7 +102,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	public List<Matiere> getAll() {
 		try {
 			Session session = this.sessionFactory.openSession();
-			Query query = session.createQuery("FROM Matiere");
+			Query<Matiere> query = session.createQuery("FROM Matiere");
 			List<Matiere> listeMatieresBDD = query.list();
 			return listeMatieresBDD;
 		} catch (Exception e) {
@@ -110,6 +111,11 @@ public class MatiereDAOImpl implements IMatiereDAO {
 			throw e;
 		} // end catch
 	}//end getAll()
+	
+	
+	
+	
+	
 
 
 }//end class

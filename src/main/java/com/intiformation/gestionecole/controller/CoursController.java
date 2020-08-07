@@ -1,10 +1,14 @@
 package com.intiformation.gestionecole.controller;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.management.AttributeList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -47,7 +51,6 @@ public class CoursController {
 	 * +++++++++ Méthodes gestionnaires du controleur ++++++++++
 	 */
 
-
 	@RequestMapping(value = "/cours/liste", method = RequestMethod.GET)
 	public String recupererListeCoursBdd(ModelMap model) {
 
@@ -62,26 +65,30 @@ public class CoursController {
 
 	}// end recupererListeCoursBdd()
 
-
 	@GetMapping(value = "/cours/add-cours-form")
 	public ModelAndView afficherFormulaireAjout(ModelMap model) {
 
-		// définition d'un objet de commande qui va permettre la liaison avec les champs
-		// du formulaire
-		model.addAttribute("attribut_liste_matieres", matiereService.findAll());
+		Map<Long, String> mapMat =  new HashMap<>();
+		List<Matiere> listeMat = matiereService.findAll();
+		for (Matiere mat : listeMat) {
+			mapMat.put(mat.getIdMatiere(), mat.getLibelle()) ;
+		}
+		model.addAttribute("attribut_liste_matieres", mapMat);
+
+		
 
 		// objet vide
 		Cours cours = new Cours();
-		Matiere matiere = new Matiere() ;
+	
 
 		// affectation d'un nom à cet objet
 		String nomObjetCommande = "coursCommand";
-		String nomMatiereCommande = "matiereCommand";
+		
 
 		// envoi de l'objet de commande vers la vue (page du formulaire)
 		Map<String, Object> dataCommand = new HashMap<>();
 		dataCommand.put(nomObjetCommande, cours);
-		dataCommand.put(nomMatiereCommande, matiere);
+		
 
 		// definition du nom logique de la vue
 		String viewName = "ajouter-cours";
@@ -92,17 +99,13 @@ public class CoursController {
 
 	}// end afficherFormulaireAjout()
 
-
 	@PostMapping(value = "/cours/add")
-	public String ajouterCoursBDD(@ModelAttribute("coursCommand") Cours pCours, @ModelAttribute("matiereCommand")Matiere pMatiere, ModelMap model) {
+	public String ajouterCoursBDD(@ModelAttribute("coursCommand") Cours pCours, ModelMap model) {
 
 		// Ajout à la bdd via la couche service
-		
-		
-		
-		pCours.setMatiere(pMatiere);
+		Matiere pMatiere = pCours.getMatiere();
+		System.out.println(pMatiere);
 		coursService.ajouter(pCours);
-		
 
 		// redirection vers la page liste-matieres.jsp
 		// recup de la nouvelle liste
