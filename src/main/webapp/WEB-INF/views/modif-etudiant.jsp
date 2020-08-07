@@ -50,8 +50,8 @@
 				<td><form:input path="adresse.ville"/></td>
 			</tr>
 			<tr>
-				<td><form:label path="photo">Photo : </form:label></td>
-				<td> </td>
+				<td>Photo : </td>
+				<td><input type="file" id="photo"/></td>
 			</tr>
 			<tr>
 				<td><form:label path="datedeNaissance">Date de naissance : </form:label></td>
