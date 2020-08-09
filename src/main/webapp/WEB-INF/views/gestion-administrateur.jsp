@@ -23,10 +23,13 @@
 		</tr>
 		<c:forEach items="${attribut_liste_admin_bdd}" var="adminBDD">
 			<tr>
-				<td>${adminBDD.libelle}</td>
-				<td></td>
-				<td><a href="#">Supprimer</a></td>
-				<td><a href="#">Modifier</a></td>
+				<td>${adminBDD.identifiant}</td>
+				<td>${adminBDD.nom}</td>
+				<td>${adminBDD.prenom}</td>
+				<td>${adminBDD.email}</td>
+				<td>${adminBDD.adresse.rue} ${adminBDD.adresse.codePostal} ${adminBDD.adresse.ville}</td>
+				<td><a href="${pageContext.request.contextPath}/admin/supp/admini/${adminBDD.idPersonne}">Supprimer</a></td>
+				<td><a href="${pageContext.request.contextPath}/admin/formmodifadmin/${adminBDD.idPersonne}">Modifier</a></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -22,7 +22,7 @@
 	<br></br>
 	
 	<div align="left">
-	<form:form modelAttribute="attributAdmin"  method="POST"  action="${pageContext.request.contextPath}/admin/addadmin" onsubmit="return validate()">
+	<form:form modelAttribute="attributAdmin"  method="POST"  action="${pageContext.request.contextPath}/admin/addadmin">
 		<form:errors path="*" cssClass="erreurs_validation" element="div" />
 		<table>
 			<tr>

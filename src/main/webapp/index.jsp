@@ -11,6 +11,7 @@
 <h1>Hello ! Ceci est la page d'accueil (index.jsp) !</h1>
 	
 	<a href="${pageContext.request.contextPath}/admin/gestionpersonnel">Gestion du personnel</a>
+<<<<<<< HEAD
 	
 	<br />
 	
@@ -26,6 +27,15 @@
 
 	<br />
 	
+=======
+	<br/>
+	<a href="${pageContext.request.contextPath}/liste/matiere">Liste des matières</a>
+	<br/>
+	<a href="${pageContext.request.contextPath}/liste/cours">Liste des cours</a>
+	<br/>
+	<a href="${pageContext.request.contextPath}/aide">Page aide</a>
+	<br/>
+>>>>>>> 1abca6b0f4e3d9ea0b357cff68cbb8b23a7bb4c6
 	
 </body>
 </html>
