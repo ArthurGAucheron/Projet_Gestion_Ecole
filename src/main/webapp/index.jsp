@@ -11,8 +11,7 @@
 <h1>Hello ! Ceci est la page d'accueil (index.jsp) !</h1>
 	
 	<a href="${pageContext.request.contextPath}/admin/gestionpersonnel">Gestion du personnel</a>
-<<<<<<< HEAD
-	
+
 	<br />
 	
 	<a href="${pageContext.request.contextPath}/matieres/liste">Gestion des matières</a>
