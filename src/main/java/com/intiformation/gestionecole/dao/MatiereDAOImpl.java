@@ -98,7 +98,7 @@ public class MatiereDAOImpl implements IMatiereDAO {
 	@Transactional(readOnly = true)
 	public List<Matiere> getAll() {
 		try {
-			Session session = this.sessionFactory.openSession();
+			Session session = this.sessionFactory.getCurrentSession();
 			Query query = session.createQuery("FROM Matiere");
 			List<Matiere> listeMatieresBDD = query.list();
 			return listeMatieresBDD;

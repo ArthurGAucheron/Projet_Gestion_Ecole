@@ -107,7 +107,7 @@ public class CoursDAOImpl implements ICoursDAO {
 	@Transactional(readOnly=true)
 	public List<Cours> getAll() {
 
-		Session session = this.sessionFactory.openSession();
+		Session session = this.sessionFactory.getCurrentSession();
 
 		try {
 

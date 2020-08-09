@@ -64,7 +64,6 @@ public abstract class Personne {
 	@JoinColumn(name="adresse_id", referencedColumnName="id_adresse")
 	private Adresse adresse;
 	
-	
 
 	/*
 	 * _____________________________________________________ Constructeurs

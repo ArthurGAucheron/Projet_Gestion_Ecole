@@ -15,6 +15,7 @@ com\intiformation\gestionecole\service\PromotionServiceImpl.class
 com\intiformation\gestionecole\service\IEtudiantService.class
 com\intiformation\gestionecole\modele\Cours.class
 com\intiformation\gestionecole\modele\Promotion.class
+com\intiformation\gestionecole\controller\GestionPromotionController.class
 com\intiformation\gestionecole\modele\Enseigne.class
 com\intiformation\gestionecole\dao\ICoursDAO.class
 com\intiformation\gestionecole\dao\IPromotionDAO.class

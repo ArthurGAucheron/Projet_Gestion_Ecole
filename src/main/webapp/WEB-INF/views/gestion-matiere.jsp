@@ -15,6 +15,7 @@
 		<tr>
 			<th>Libelle</th>
 			<th>Liste des cours</th>
+			<th>Responsable</th>
 		</tr>
 		<c:forEach items="${attribut_liste_matiere_bdd}" var="matiereBDD">
 			<tr>
@@ -26,6 +27,7 @@
 					</c:forEach>	
 					</ul>			
 				</td>
+				<td>${matiereBDD.enseignant.nom}</td>
 				<td><a href="${pageContext.request.contextPath}/matieres/delete/${matiereBDD.idMatiere}">Supprimer</a></td>
 				<td><a href="${pageContext.request.contextPath}/matieres/update-matiere-form?idMatiere=${matiereBDD.idMatiere}">Modifier</a></td>
 			</tr>

@@ -19,7 +19,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.intiformation.gestionecole.modele.Administrateur;
 import com.intiformation.gestionecole.modele.Adresse;
+import com.intiformation.gestionecole.modele.Enseignant;
 import com.intiformation.gestionecole.modele.Matiere;
+import com.intiformation.gestionecole.service.EnseignantServiceImpl;
 import com.intiformation.gestionecole.service.MatiereServiceImpl;
 
 @Controller
@@ -30,6 +32,12 @@ public class GestionMatiereController {
 
 	public void setMatiereService(MatiereServiceImpl matiereService) {
 		this.matiereService = matiereService;
+	}
+	
+	@Autowired
+	private EnseignantServiceImpl enseignantService;
+	public void setEnseignantService(EnseignantServiceImpl enseignantService) {
+		this.enseignantService = enseignantService;
 	}
 
 	@RequestMapping(value = "/matieres/liste", method = RequestMethod.GET)
@@ -47,9 +55,11 @@ public class GestionMatiereController {
 	public ModelAndView afficherFormulaireAjout() {
 
 		Matiere matiere = new Matiere();
+		List<Enseignant> listeEnseignant = enseignantService.findAll();
 
 		Map<String, Object> donneesCommande = new HashMap<String, Object>();
 		donneesCommande.put("attributMatiere", matiere);
+		donneesCommande.put("attributEnseignant", listeEnseignant);
 
 		return new ModelAndView("ajouter-matiere", donneesCommande);
 	} // afficherFormulaireAjout
@@ -66,8 +76,12 @@ public class GestionMatiereController {
 	public ModelAndView afficherFormulaireModification(@RequestParam("idMatiere") Long pMatiereID) {
 
 		Matiere matiereAModifier = matiereService.findById(pMatiereID);
-
-		return new ModelAndView("modifier-matiere", "matiereModifCommand", matiereAModifier);
+		List<Enseignant> listeEnseignant = enseignantService.findAll();
+		Map<String, Object> donneesCommande = new HashMap<String, Object>();
+		donneesCommande.put("matiereModifCommand", matiereAModifier);
+		donneesCommande.put("attributEnseignant", listeEnseignant);
+		
+		return new ModelAndView("modifier-matiere", donneesCommande );
 
 	}// end afficherFormulaireModification()
 

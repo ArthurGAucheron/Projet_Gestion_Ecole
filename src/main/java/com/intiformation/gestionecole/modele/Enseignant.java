@@ -2,6 +2,7 @@ package com.intiformation.gestionecole.modele;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,12 +23,13 @@ public class Enseignant extends Personne {
 	public Enseignant(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email,
 			Adresse adresse) {
 		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresse);
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	public Enseignant(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse) {
 		super(identifiant, motdePasse, nom, prenom, email, adresse);
-		// TODO Auto-generated constructor stub
 	}
 
+
+	
 }// end class
