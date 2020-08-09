@@ -26,16 +26,9 @@
 	<a href="${pageContext.request.contextPath}/promotions/liste">Gestion des promotions</a>
 
 	<br />
-	
-=======
-	<br/>
-	<a href="${pageContext.request.contextPath}/liste/matiere">Liste des matières</a>
-	<br/>
-	<a href="${pageContext.request.contextPath}/liste/cours">Liste des cours</a>
-	<br/>
 	<a href="${pageContext.request.contextPath}/aide">Page aide</a>
 	<br/>
->>>>>>> 1abca6b0f4e3d9ea0b357cff68cbb8b23a7bb4c6
+
 	
 </body>
 </html>
