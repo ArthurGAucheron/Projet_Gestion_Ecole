@@ -28,13 +28,13 @@
 					<td><form:input path="libelle" /></td>
 				</tr>
 				
-<!-- 				<tr> -->
-<%-- 					<td><form:label path="date">Date :</form:label></td> --%>
-<%-- 					<td><form:input type="date" path="date" /></td> --%>
-<!-- 				</tr> -->
+				<tr>
+					<td><form:label path="date">Date (jj/mm/aaaa ):</form:label></td>
+					<td><form:input path="date" /></td>
+				</tr>
 				
 				<tr>
-					<td><form:label path="duree">Durée :</form:label></td>
+					<td><form:label path="duree">Durée (en heures):</form:label></td>
 					<td><form:input path="duree" /></td>
 				</tr>
 				
@@ -45,7 +45,6 @@
 				<tr>
 					<td><form:label path="matiere.idMatiere">Matiere :</form:label></td>
 					<td><form:select path="matiere.idMatiere">
-							<form:option value="NONE" label="--- Matière ---" />
 							<form:options items="${attributMatiere}" itemValue="idMatiere" itemLabel="libelle" /> 
 						</form:select></td>
 
@@ -53,11 +52,10 @@
 				<tr>
 					<td><form:label path="promotion.idPromotion">Promotion :</form:label></td>
 					<td><form:select path="promotion.idPromotion">
-							<form:option value="NONE" label="--- Promotion ---" />
 							<form:options items="${attributPromotion}" itemValue="idPromotion" itemLabel="libelle" /> 
 						</form:select></td>
 
-				</tr>
+<!-- 				</tr> -->
 				<tr>
 					<td colspan="2"><input type="submit" value="Ajouter" /></td>
 				</tr>
