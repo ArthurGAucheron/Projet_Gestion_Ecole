@@ -66,14 +66,14 @@ public class GestionPromotionController {
 	} // afficherFormulaireAjout
 
 	@RequestMapping(value = "/promotions/add", method = RequestMethod.POST)
-	public String ajoutMatiere(@ModelAttribute("attributPromotion") @Validated Promotion pPromotion,ModelMap model,
+	public String ajoutPromotion(@ModelAttribute("attributPromotion") @Validated Promotion pPromotion,ModelMap model,
 			BindingResult resultatValidation) {
 
 		promotionValidator.validate(pPromotion, resultatValidation);
 
 		if (resultatValidation.hasErrors()) {
 
-			return "ajouter-cours";
+			return "ajouter-promotion";
 
 		} else {
 			promotionService.ajouter(pPromotion);

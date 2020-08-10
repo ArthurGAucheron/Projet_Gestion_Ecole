@@ -77,7 +77,7 @@ public class GestionMatiereController {
 
 			model.addAttribute("attribut_liste_matiere", matiereService.findAll());
 
-			return "redirect:/matiere/liste";
+			return "redirect:/matieres/liste";
 
 		} // end else
 	}
