@@ -9,10 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.intiformation.gestionecole.modele.Cours;
@@ -80,7 +83,40 @@ public class GestionCoursController {
 			
 			return "redirect:/cours/liste";
 		}
+	@GetMapping(value = "/cours/update-cours-form")
+	public ModelAndView afficherFormulaireModification(@RequestParam("idCours") Long pCoursID) {
 
+		Cours coursAModifier = coursService.findById(pCoursID);
+
+		return new ModelAndView("modifier-cours", "coursModifCommand", coursAModifier);
+
+	}// end afficherFormulaireModification()
+
+	@RequestMapping(value = "/cours/update", method = RequestMethod.POST)
+	public String modifierCoursBDD(@ModelAttribute("coursModifCommand") Cours pCoursToUpdate, ModelMap model) {
+
+		coursService.modifier(pCoursToUpdate);
+
+		List<Cours> listeCoursBDD = coursService.findAll();
+
+		model.addAttribute("attribut_liste_cours", listeCoursBDD);
+
+		return "redirect:/cours/liste";
+
+	}// end modifierCoursBDD()
+
+	@GetMapping(value = "/cours/delete/{cours-id}")
+	public String supprimerCoursBdd(@PathVariable("cours-id") Long pIdCours, ModelMap model) {
+
+		matiereService.supprimer(pIdCours);
+
+		List<Cours> listeCoursBDD = coursService.findAll();
+
+		model.addAttribute("attribut_liste_cours", listeCoursBDD);
+
+		return "redirect:/cours/liste";
+
+	}// end supprimerCoursBdd()
 	
 	
 	

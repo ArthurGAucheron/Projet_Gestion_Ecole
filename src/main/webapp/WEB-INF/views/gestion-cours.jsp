@@ -28,7 +28,7 @@
 				<td>${cours.matiere.libelle}</td>
 				<td>${cours.promotion.libelle}</td>
 				<td><a href="${pageContext.request.contextPath}/cours/delete/${cours.idCours}">Supprimer</a></td>
-				<td><a href="${pageContext.request.contextPath}/cours/update-matiere-form?idCours=${cours.idCours}">Modifier</a></td>
+				<td><a href="${pageContext.request.contextPath}/cours/update-cours-form?idCours=${cours.idCours}">Modifier</a></td>
 			</tr>
 		</c:forEach>
 	</table>
