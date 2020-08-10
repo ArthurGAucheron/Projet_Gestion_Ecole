@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -28,6 +30,8 @@ public class Cours {
 	private String libelle;
 	
 	@Column(name="date")
+	@DateTimeFormat(pattern = "jj/mm/aaaa")
+	@Temporal(TemporalType.DATE)
 	private Date date;
 	
 	@Column(name="duree")
@@ -76,13 +80,11 @@ public class Cours {
 	
 
 
-	public Cours(String libelle, Date date, int duree, String description) {
+	public Cours(String libelle, Date date) {
 		super();
 		
 		this.libelle = libelle;
 		this.date = date;
-		this.duree = duree;
-		this.description = description;
 	}
 
 	/*_____________________ getters/setters _____________________*/
