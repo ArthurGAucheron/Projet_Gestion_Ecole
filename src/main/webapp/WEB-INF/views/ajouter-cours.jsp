@@ -28,21 +28,25 @@
 				<tr>
 					<td><form:label path="libelle">Libelle :</form:label></td>
 					<td><form:input path="libelle" /></td>
+					<td><form:errors path="libelle" cssStyle="color:red; font-style:italic;"/></td>
 				</tr>
 
 				<tr>
 					<td><form:label path="date">Date (jj/mm/aaaa ):</form:label></td>
 					<td><form:input path="date" /></td>
+					<td><form:errors path="date" cssStyle="color:red; font-style:italic;"/></td>
 				</tr>
 
 				<tr>
 					<td><form:label path="duree">Durée (en heures):</form:label></td>
 					<td><form:input path="duree" /></td>
+					<td><form:errors path="duree" cssStyle="color:red; font-style:italic;"/></td>
 				</tr>
 
 				<tr>
 					<td><form:label path="description">Description :</form:label></td>
 					<td><form:input path="description" /></td>
+					<td><form:errors path="description" cssStyle="color:red; font-style:italic;"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="matiere.idMatiere">Matiere :</form:label></td>
