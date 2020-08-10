@@ -19,24 +19,19 @@
 <spring:url value="/assets/scripts/bootstrap.bundle.min.js" var="bootstrapJS"></spring:url>
 <spring:url value="/assets/scripts/jquery-3.5.1.min.js" var="jquery"></spring:url>
 
-<style type="text/css">
-
-
-</style>
-
 </head>
 <body class="d-flex flex-column h-100">
 	<%-- Début de la navbar --%>
 	<header>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-	<img src="${pageContext.request.contextPath}/assets/images/logo.jpg" style="max-width: 50px; margin-right: 15px" >
+	<a href="${pageContext.request.contextPath}/index.jsp" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logo.jpg" style="max-width: 50px; margin-right: 15px" ></a>
 	<a class="navbar-brand"	href="${pageContext.request.contextPath}/index.jsp">Université du Poitou</a>
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item dropdown">
         		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer (admin)</a>
        			<div class="dropdown-menu" aria-labelledby="dropdown01">
-          		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/gestionpersonnel">Le personnel</a>
+          		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/listeadmin">Le personnel</a>
           		<a class="dropdown-item" href="${pageContext.request.contextPath}/matieres/liste">Les matières</a>
          		<a class="dropdown-item" href="${pageContext.request.contextPath}/cours/liste">Les cours</a>
           		<a class="dropdown-item" href="${pageContext.request.contextPath}/promotions/liste">Les promotions</a>
