@@ -1,28 +1,29 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  
-  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-  <!-- ++++++++++++++++++++++++++++++ COORDONNES DU PROJET +++++++++++++++++++++++++++++++++++++++ -->
-  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-  <groupId>com.intiformation.spring.projet</groupId>
-  <artifactId>app_gestion_ecole</artifactId>
-  <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>app_gestion_ecole Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  
-  
-  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-  <!-- ++++++++++++++++++++++++++++++ PROPRIETES DU PROJET +++++++++++++++++++++++++++++++++++++++ -->
-  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- ++++++++++++++++++++++++++++++ COORDONNES DU PROJET +++++++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<groupId>com.intiformation.spring.projet</groupId>
+	<artifactId>app_gestion_ecole</artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>app_gestion_ecole Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- ++++++++++++++++++++++++++++++ PROPRIETES DU PROJET +++++++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
+
 		<!-- version de java => v8 -->
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		
+
 		<!-- version de spring -->
 		<spring.version>5.2.0.RELEASE</spring.version>
 
@@ -35,22 +36,26 @@
 
 		<!-- version des JSP -->
 		<jsp.version>2.3.1</jsp.version>
-		
+
 		<!-- version hibernate -->
 		<hibernate.version>5.2.11.Final</hibernate.version>
-		
-		<!-- version pilote jdbc de mysql-->
+
+		<!-- version pilote jdbc de mysql -->
 		<mysql.driver.version>5.1.47</mysql.driver.version>
-		
-		<!-- Version de srping security -->
+
+		<!-- Version de spring security -->
 		<spring.security.version>5.0.2.RELEASE</spring.security.version>
+
+		<!-- versionn de javaMail -->
+		<javax.mail.version>1.4</javax.mail.version>
 
 	</properties>
 
-  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-  <!-- +++++++++++++++++++++++++++++ DEPENDANCES DU PROJET +++++++++++++++++++++++++++++++++++++++ -->
-  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++ DEPENDANCES DU PROJET +++++++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 	<dependencies>
+
 
 		<!-- ================================ -->
 		<!-- ===== spring framework ========= -->
@@ -117,7 +122,7 @@
 			<artifactId>javax.servlet.jsp-api</artifactId>
 			<version>${jsp.version}</version>
 		</dependency>
-		
+
 		<!-- ======================================== -->
 		<!-- ============== Hibernate =============== -->
 		<!-- ======================================== -->
@@ -135,44 +140,45 @@
 			<version>${mysql.driver.version}</version>
 		</dependency>
 
-	
+
 		<!-- ======================================== -->
 		<!-- ============= Spring Security ========== -->
 		<!-- ======================================== -->
-	<dependency>
-		<groupId>org.springframework.security</groupId>
-		<artifactId>spring-security-core</artifactId>
-		<version>${spring.security.version}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework.security</groupId>
-		<artifactId>spring-security-web</artifactId>
-		<version>${spring.security.version}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework.security</groupId>
-		<artifactId>spring-security-config</artifactId>
-		<version>${spring.security.version}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework.security</groupId>
-		<artifactId>spring-security-crypto</artifactId>
-		<version>${spring.security.version}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework.security</groupId>
-		<artifactId>spring-security-taglibs</artifactId>
-		<version>${spring.security.version}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework.security</groupId>
-		<artifactId>spring-security-data</artifactId>
-		<version>${spring.security.version}</version>
-	</dependency>
-		
-  	</dependencies>
-  
-   <build> 
-    <finalName>app_gestion_ecole</finalName>
-  </build>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-crypto</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-data</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<finalName>app_gestion_ecole</finalName>
+	</build>
 </project>

@@ -136,7 +136,7 @@ public class AdministrateurDAOImpl implements IAdministrateurDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		try {
 			
-			Query query = session.createQuery("FROM Administrateur");
+			Query<Administrateur> query = session.createQuery("FROM Administrateur");
 			List<Administrateur> listeAdmin = query.list();
 			return listeAdmin;
 			

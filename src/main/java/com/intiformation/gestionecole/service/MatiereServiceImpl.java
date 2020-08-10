@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.intiformation.gestionecole.dao.IMatiereDAO;
-import com.intiformation.gestionecole.dao.MatiereDAOImpl;
+
 import com.intiformation.gestionecole.modele.Matiere;
 
 @Service

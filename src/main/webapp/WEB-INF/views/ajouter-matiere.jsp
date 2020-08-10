@@ -27,6 +27,7 @@
 				<tr>
 					<td><form:label path="libelle">libelle :</form:label></td>
 					<td><form:input path="libelle" /></td>
+					<td><form:errors path="libelle" cssStyle="color:red; font-style:italic;"/></td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="Ajouter" /></td>

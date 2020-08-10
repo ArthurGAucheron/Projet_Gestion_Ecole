@@ -7,7 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
@@ -99,7 +98,7 @@ public class PromotionDAOImpl implements IPromotionDAO {
 	public List<Promotion> getAll() {
 		try {
 			Session session = this.sessionFactory.openSession();
-			Query query = session.createQuery("FROM Promotion");
+			Query<Promotion> query = session.createQuery("FROM Promotion");
 			List<Promotion> listePromotionsBDD = query.list();
 			return listePromotionsBDD;
 		} catch (Exception e) {

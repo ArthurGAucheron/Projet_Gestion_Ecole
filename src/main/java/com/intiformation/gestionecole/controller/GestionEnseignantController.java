@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.intiformation.gestionecole.modele.Administrateur;
+
 import com.intiformation.gestionecole.modele.Adresse;
 import com.intiformation.gestionecole.modele.Enseignant;
 import com.intiformation.gestionecole.service.AdresseServiceImpl;
