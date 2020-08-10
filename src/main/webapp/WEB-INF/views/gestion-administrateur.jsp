@@ -118,7 +118,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12" style="text-align: center; " >
-               Développer avec tendresse par l'étuipe Lotus
+               Développer avec tendresse par l'équipe Lotus
             </div>
         </div>
         <div class="row" >
