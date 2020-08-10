@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.intiformation.gestionecole.modele.Administrateur;
-import com.intiformation.gestionecole.modele.Adresse;
-import com.intiformation.gestionecole.modele.Matiere;
+
 import com.intiformation.gestionecole.modele.Promotion;
-import com.intiformation.gestionecole.service.MatiereServiceImpl;
+
 import com.intiformation.gestionecole.service.PromotionServiceImpl;
+
+import com.intiformation.gestionecole.validator.PromotionValidator;
 
 @Controller
 public class GestionPromotionController {
@@ -33,6 +33,15 @@ public class GestionPromotionController {
 	public void setMatiereService(PromotionServiceImpl promotionService) {
 		this.promotionService = promotionService;
 	}
+	
+	// declaration du validator
+		@Autowired
+		private PromotionValidator promotionValidator;
+
+		// setter du validateur
+		public void setCoursValidator(PromotionValidator promotionValidator) {
+			this.promotionValidator = promotionValidator;
+		}
 
 	@RequestMapping(value = "/promotions/liste", method = RequestMethod.GET)
 	public String recupererListePromotion(ModelMap model) {
@@ -57,11 +66,23 @@ public class GestionPromotionController {
 	} // afficherFormulaireAjout
 
 	@RequestMapping(value = "/promotions/add", method = RequestMethod.POST)
-	public String ajoutMatiere(@ModelAttribute("attributPromotion") @Validated Promotion pPromotion) {
+	public String ajoutMatiere(@ModelAttribute("attributPromotion") @Validated Promotion pPromotion,ModelMap model,
+			BindingResult resultatValidation) {
 
-		promotionService.ajouter(pPromotion);
+		promotionValidator.validate(pPromotion, resultatValidation);
 
-		return "redirect:/promotions/liste";
+		if (resultatValidation.hasErrors()) {
+
+			return "ajouter-cours";
+
+		} else {
+			promotionService.ajouter(pPromotion);
+
+			model.addAttribute("attribut_liste_promotions", promotionService.findAll());
+
+			return "redirect:/promotions/liste";
+
+		} // end else
 	}
 
 	@GetMapping(value = "/promotions/update-promotion-form")

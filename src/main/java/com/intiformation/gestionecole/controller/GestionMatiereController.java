@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.intiformation.gestionecole.modele.Administrateur;
-import com.intiformation.gestionecole.modele.Adresse;
 import com.intiformation.gestionecole.modele.Matiere;
 import com.intiformation.gestionecole.service.MatiereServiceImpl;
+
+import com.intiformation.gestionecole.validator.MatiereValidator;
 
 @Controller
 public class GestionMatiereController {
@@ -31,6 +31,15 @@ public class GestionMatiereController {
 	public void setMatiereService(MatiereServiceImpl matiereService) {
 		this.matiereService = matiereService;
 	}
+	
+	// declaration du validator
+		@Autowired
+		private MatiereValidator matiereValidator;
+
+		// setter du validateur
+		public void setCoursValidator(MatiereValidator matiereValidator) {
+			this.matiereValidator = matiereValidator;
+		}
 
 	@RequestMapping(value = "/matieres/liste", method = RequestMethod.GET)
 	public String recupererListeMatiere(ModelMap model) {
@@ -55,11 +64,22 @@ public class GestionMatiereController {
 	} // afficherFormulaireAjout
 
 	@RequestMapping(value = "/matieres/add", method = RequestMethod.POST)
-	public String ajoutMatiere(@ModelAttribute("attributMatiere") @Validated Matiere pMatiere) {
+	public String ajoutMatiere(@ModelAttribute("attributMatiere") @Validated Matiere pMatiere, ModelMap model,
+			BindingResult resultatValidation) {
+		matiereValidator.validate(pMatiere, resultatValidation);
 
-		matiereService.ajouter(pMatiere);
+		if (resultatValidation.hasErrors()) {
 
-		return "redirect:/matieres/liste";
+			return "ajouter-matiere";
+
+		} else {
+			matiereService.ajouter(pMatiere);
+
+			model.addAttribute("attribut_liste_matiere", matiereService.findAll());
+
+			return "redirect:/matiere/liste";
+
+		} // end else
 	}
 
 	@GetMapping(value = "/matieres/update-matiere-form")
