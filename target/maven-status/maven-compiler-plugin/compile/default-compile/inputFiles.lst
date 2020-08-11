@@ -9,6 +9,7 @@ C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\IAdresseDAO.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\controller\GestionPageAideController.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Enseignant.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\mail\AppConfigMail.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Matiere.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\Aide.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\AdresseServiceImpl.java
@@ -45,6 +46,7 @@ C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\validator\AideValidator.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\AideServiceImpl.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\service\IGeneriqueService.java
+C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\mail\MailController.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\modele\EtudiantCours.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\controller\GestionCoursController.java
 C:\Users\arthu\Documents\Formation Java_JEE\12_Spring\app_gestion_ecole\src\main\java\com\intiformation\gestionecole\dao\IEnseignantDAO.java
