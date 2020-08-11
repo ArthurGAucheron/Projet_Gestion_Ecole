@@ -1,3 +1,4 @@
+com\intiformation\gestionecole\validator\CoursValidator.class
 com\intiformation\gestionecole\dao\IAdministrateurDAO.class
 com\intiformation\gestionecole\service\IGeneriqueService.class
 com\intiformation\gestionecole\controller\GestionPersonnelController.class
@@ -16,14 +17,15 @@ com\intiformation\gestionecole\service\IEtudiantService.class
 com\intiformation\gestionecole\modele\Cours.class
 com\intiformation\gestionecole\modele\Promotion.class
 com\intiformation\gestionecole\controller\GestionPromotionController.class
-com\intiformation\gestionecole\modele\Enseigne.class
 com\intiformation\gestionecole\dao\ICoursDAO.class
 com\intiformation\gestionecole\dao\IPromotionDAO.class
 com\intiformation\gestionecole\service\IAideService.class
+com\intiformation\gestionecole\validator\MatiereValidator.class
 com\intiformation\gestionecole\dao\AdresseDAOImpl.class
 com\intiformation\gestionecole\modele\Enseignant.class
 com\intiformation\gestionecole\service\ICoursService.class
 com\intiformation\gestionecole\modele\Administrateur.class
+com\intiformation\gestionecole\validator\PromotionValidator.class
 com\intiformation\gestionecole\dao\MatiereDAOImpl.class
 com\intiformation\gestionecole\service\IAdministrateurService.class
 com\intiformation\gestionecole\dao\IEtudiantDAO.class
