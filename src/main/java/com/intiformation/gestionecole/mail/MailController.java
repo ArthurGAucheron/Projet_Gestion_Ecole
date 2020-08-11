@@ -35,8 +35,6 @@ public class MailController {
 		
 	}
 	
-	
-	@ResponseBody
 	@RequestMapping(value="/send/email", method=RequestMethod.POST )
 	public String sendSimpleEmail(@ModelAttribute("attributMail")@Validated SimpleMailMessage message) {
 		
