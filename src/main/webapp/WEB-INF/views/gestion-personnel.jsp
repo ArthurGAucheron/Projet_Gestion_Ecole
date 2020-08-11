@@ -79,21 +79,17 @@
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
 	<%--////////////////////////////////////////////////////////////   Footer ///////////////////////////////////////////////////////////////////////// --%>
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12" style="text-align: center; " >
-               Développer avec tendresse par l'étuipe Lotus
-            </div>
-        </div>
-        <div class="row" >
+<footer class="page-footer font-small blue">
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+   Arthur, Camille, Jérémie, Pierre-François, Yanis
+  </div>
+  <div class="row" >
         	<div class="col-md-12" style="text-align: center; " >
               	<a href="#" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logoFR.jpg" style="max-width: 20px; margin-right: 15px" > </a>
               	<a href="#" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logoES.jpg" style="max-width: 20px; margin-right: 15px" > </a>
               	<a href="#" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logoEN.jpg" style="max-width: 20px; margin-right: 20px" > </a>
             </div>
         </div>
-    </div>
 </footer>
 	
 <%-- Scripts JS --%>

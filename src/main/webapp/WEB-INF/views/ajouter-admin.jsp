@@ -13,15 +13,7 @@
 <link href="${bootstrapCSS}" rel="stylesheet">
 
 <spring:url value="/assets/styles/styleperso.css" var="styleperso"></spring:url>
-<link href="${styleperso}" rel="stylesheet">
 
-<style type="text/css">
-	.erreurs_validation{
-		color: red;
-		font-style: italic;
-		margin: 15px
-	}
-</style>
 <%-- Insertion JS --%>
 <spring:url value="/assets/scripts/bootstrap.bundle.min.js" var="bootstrapJS"></spring:url>
 <spring:url value="/assets/scripts/jquery-3.5.1.min.js" var="jquery"></spring:url>
@@ -73,58 +65,59 @@
 	
 	
 	<main role="main" class="flex-shrink-0">
- 	 <div class="container" style="padding-top: 100px">
+ 	 <div class="container-fluid" style="padding-top: 100px;">
  	 <h1>Ajout d'un administrateur</h1>
 
 	<a href="${pageContext.request.contextPath}/admin/listeadmin">Retour à la liste des administrateurs</a>
-	<br></br>
 	
-	<div align="left">
+	<div class="container">
 	<form:form modelAttribute="attributAdmin"  method="POST"  action="${pageContext.request.contextPath}/admin/addadmin">
-		<form:errors path="*" cssClass="erreurs_validation" element="div" />
-		<div class="form-group">
-		<table>
-			<tr>
-				<td><form:label path="identifiant">Identifiant</form:label></td>
-				<td><form:input path="identifiant"/></td>
-				<td><form:errors pahth="identifiant" cssClass="erreurs_validation"/>
-			</tr>
-			<tr>
-				<td><form:label path="motdePasse">Mot de passe</form:label></td>
-				<td><form:password path="motdePasse" id="mdp"/></td>
-				<td><form:errors pahth="motdePasse" cssClass="erreurs_validation"/>
-			</tr>
-			<tr>
-				<td><form:label path="nom">Nom</form:label></td>
-				<td><form:input path="nom"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="prenom">Prénom</form:label></td>
-				<td><form:input path="prenom"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="email">Email</form:label></td>
-				<td><form:input path="email"/></td>
-				<td><form:errors pahth="email" cssClass="erreurs_validation"/>
-			</tr>
-			<tr>
-				<td><form:label path="adresse.rue">Rue</form:label></td>
-				<td><form:input path="adresse.rue"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="adresse.codePostal">Code Postal</form:label></td>
-				<td><form:input path="adresse.codePostal"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="adresse.ville">Ville</form:label></td>
-				<td><form:input path="adresse.ville"/></td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<input type="submit" value="Ajouter">
-				</td>
-		   </tr>
-		</table>
+		<form:errors path="*" cssClass="alert alert-danger" element="div" />
+		<div class="row-form">
+			<div class="form-group col-md-6">	
+				<form:label path="identifiant">Identifiant</form:label>
+				<form:input path="identifiant" cssClass="form-control"/>
+				<form:errors pahth="identifiant" cssClass="erreurs_validation"/>
+			</div>
+		</div>
+		<div class="row-form">
+			<div class="form-group col-md-6">
+				<form:label path="motdePasse">Mot de passe</form:label>
+				<form:password path="motdePasse" cssClass="form-control"/>
+				<form:errors pahth="motdePasse" cssClass="erreurs_validation"/>
+			</div>
+		</div>
+		<div class="row-form">
+			<div class="form-group col-md-6" >	
+				<form:label path="nom">Nom</form:label>
+				<form:input path="nom" cssClass="form-control"/>
+			</div>
+			<div class="form-group col-md-6">
+				<form:label path="prenom">Prénom</form:label>
+				<form:input path="prenom" cssClass="form-control"/>
+			</div>
+		</div>		
+		<div class="row-form">	
+			<div class="form-group col-md-6">
+				<form:label path="email">Email</form:label>
+				<form:input path="email" cssClass="form-control"/>
+				<form:errors pahth="email" cssClass="erreurs_validation"/>
+			</div>
+		</div>
+		<div class="row-form">
+			<div class="form-group col-md-6" >
+				<form:label path="adresse.rue">Rue</form:label>
+				<form:input path="adresse.rue" cssClass="form-control"/>
+				<form:label path="adresse.codePostal">Code Postal</form:label>
+				<form:input path="adresse.codePostal" cssClass="form-control"/>
+				<form:label path="adresse.ville" >Ville</form:label>
+				<form:input path="adresse.ville" cssClass="form-control"/>
+			</div>
+		</div>
+		<div class="row-form">
+			<div class="form-group col-md-6" >
+				<input type="submit" value="Ajouter" class="btn btn-primary mb-2">
+			</div>
 		</div>
 	</form:form>
 	
@@ -134,21 +127,17 @@
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
 	<%--////////////////////////////////////////////////////////////   Footer ///////////////////////////////////////////////////////////////////////// --%>
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12" style="text-align: center; " >
-               Développer avec tendresse par l'équipe Lotus
-            </div>
-        </div>
-        <div class="row" >
+<footer class="page-footer font-small blue">
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+   Arthur, Camille, Jérémie, Pierre-François, Yanis
+  </div>
+  <div class="row" >
         	<div class="col-md-12" style="text-align: center; " >
               	<a href="#" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logoFR.jpg" style="max-width: 20px; margin-right: 15px" > </a>
               	<a href="#" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logoES.jpg" style="max-width: 20px; margin-right: 15px" > </a>
               	<a href="#" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logoEN.jpg" style="max-width: 20px; margin-right: 20px" > </a>
             </div>
         </div>
-    </div>
 </footer>
 	
 <%-- Scripts JS --%>
