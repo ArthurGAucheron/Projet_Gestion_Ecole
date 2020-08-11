@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -38,17 +40,27 @@ public class Promotion {
 	@Column(name ="liste_etudiants")
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="promotion")
 	private List<Etudiant> listeEtudiants;
+	
+	@ManyToMany(cascade=CascadeType.DETACH)
+	@JoinColumn(name="enseignant_id")
+	private List<Enseignant> enseignants;
+	
+	@ManyToMany(cascade=CascadeType.DETACH)
+	@JoinColumn(name="matiere_id")
+	private List<Matiere> matieres;
 
 	/* ______Constructeurs________ */
 
 	public Promotion() {
 	}
 
-	public Promotion(String libelle, List<Cours> listeCours, List<Etudiant> listeEtudiants) {
+	public Promotion(String libelle, List<Cours> listeCours, List<Etudiant> listeEtudiants,List<Enseignant> enseignants,List<Matiere> matieres) {
 		super();
 		this.libelle = libelle;
 		this.listeCours = listeCours;
 		this.listeEtudiants = listeEtudiants;
+		this.enseignants=enseignants;
+		this.matieres=matieres;
 	}
 
 	/* ______Getters/Setters________ */
@@ -83,6 +95,23 @@ public class Promotion {
 
 	public void setListeEtudiants(List<Etudiant> listeEtudiants) {
 		this.listeEtudiants = listeEtudiants;
+	}
+	
+
+	public List<Enseignant> getEnseignants() {
+		return enseignants;
+	}
+
+	public void setEnseignants(List<Enseignant> enseignants) {
+		this.enseignants = enseignants;
+	}
+
+	public List<Matiere> getMatieres() {
+		return matieres;
+	}
+
+	public void setMatieres(List<Matiere> matieres) {
+		this.matieres = matieres;
 	}
 
 	/* ______toString()________ */

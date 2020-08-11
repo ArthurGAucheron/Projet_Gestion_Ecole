@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -38,9 +39,15 @@ public class Matiere {
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="matiere", fetch=FetchType.EAGER)
 	private List<Cours> listeCours;
 
-	@OneToOne(cascade=CascadeType.MERGE)
+	
+	@OneToOne(cascade=CascadeType.DETACH)
 	@JoinColumn(name="enseignant_id")
 	private Enseignant enseignant;
+	
+	@ManyToMany(cascade=CascadeType.DETACH)
+	@JoinColumn(name="promotion_id")
+	private List<Promotion> promotions;
+	
 
 	/* ______Constructeurs________ */
 
@@ -49,21 +56,23 @@ public class Matiere {
 
 	
 
-	public Matiere(Long idMatiere, String libelle, List<Cours> listeCours, Enseignant enseignant) {
+	public Matiere(Long idMatiere, String libelle, List<Cours> listeCours, Enseignant enseignant,List<Promotion> promotions) {
 		super();
 		this.idMatiere = idMatiere;
 		this.libelle = libelle;
 		this.listeCours = listeCours;
 		this.enseignant = enseignant;
+		this.promotions = promotions ;
 	}
 
 
 
-	public Matiere(String libelle, List<Cours> listeCours, Enseignant enseignant) {
+	public Matiere(String libelle, List<Cours> listeCours, Enseignant enseignant,List<Promotion> promotions) {
 		super();
 		this.libelle = libelle;
 		this.listeCours = listeCours;
 		this.enseignant = enseignant;
+		this.promotions = promotions;
 	}
 
 
@@ -104,6 +113,18 @@ public class Matiere {
 
 	public void setEnseignant(Enseignant enseignant) {
 		this.enseignant = enseignant;
+	}
+
+
+
+	public List<Promotion> getPromotions() {
+		return promotions;
+	}
+
+
+
+	public void setPromotions(List<Promotion> promotions) {
+		this.promotions = promotions;
 	}
 
 
