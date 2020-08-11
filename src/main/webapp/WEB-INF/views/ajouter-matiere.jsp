@@ -29,9 +29,8 @@
 					<td><form:input path="libelle" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="enseignant.idPersonne">Enseignant résponsable</form:label></td>
+					<td><form:label path="enseignant.idPersonne">Enseignant responsable</form:label></td>
 					<td><form:select path="enseignant.idPersonne">
-							<form:option value="NONE" label="--- Enseignant ---" />
 							<form:options items="${attributEnseignant}" itemValue="idPersonne" itemLabel="nom" /> 
 						</form:select></td>
 
