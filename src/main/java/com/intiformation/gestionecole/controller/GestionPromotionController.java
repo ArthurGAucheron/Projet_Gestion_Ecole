@@ -37,24 +37,16 @@ public class GestionPromotionController {
 	@RequestMapping(value = "/promotions/liste", method = RequestMethod.GET)
 	public String recupererListePromotion(ModelMap model) {
 
+		Promotion promotion = new Promotion();
 		List<Promotion> listePromotion = promotionService.findAll();
 
 		model.addAttribute("attribut_liste_promotion_bdd", listePromotion);
+		model.addAttribute("attributPromotion", promotion);
 
 		return "gestion-promotion";
 
 	}// end recupererListeMatiere
 
-	@RequestMapping(value = "/formadd/promotion", method = RequestMethod.GET)
-	public ModelAndView afficherFormulaireAjout() {
-
-		Promotion promotion = new Promotion();
-
-		Map<String, Object> donneesCommande = new HashMap<String, Object>();
-		donneesCommande.put("attributPromotion", promotion);
-
-		return new ModelAndView("ajouter-promotion", donneesCommande);
-	} // afficherFormulaireAjout
 
 	@RequestMapping(value = "/promotions/add", method = RequestMethod.POST)
 	public String ajoutMatiere(@ModelAttribute("attributPromotion") @Validated Promotion pPromotion) {

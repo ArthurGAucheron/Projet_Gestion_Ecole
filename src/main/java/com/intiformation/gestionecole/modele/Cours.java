@@ -43,8 +43,7 @@ public class Cours {
 	@ManyToOne
 	@JoinColumn(name="promotion_id", referencedColumnName="id_promotion")
 	private Promotion promotion;
-	
-	
+		
 	@ManyToOne
 	@JoinColumn(name="matiere_id", referencedColumnName="id_matiere")
 	private Matiere matiere;

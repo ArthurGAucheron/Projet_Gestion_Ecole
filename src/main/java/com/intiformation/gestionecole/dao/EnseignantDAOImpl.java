@@ -68,12 +68,12 @@ public class EnseignantDAOImpl implements IEnseignantDAO {
 		}
 	}// end delete
 
-	@Transactional(readOnly = true)
+	@Transactional
 	@Override
 	public Enseignant getById(Long pIdEnseignant) {
-		Session session = this.sessionFactory.getCurrentSession();
+		Session session = this.sessionFactory.openSession();
 		try {
-			
+
 			Enseignant enseignant = session.find(Enseignant.class, pIdEnseignant);
 			return enseignant;
 		} catch (HibernateException e) {

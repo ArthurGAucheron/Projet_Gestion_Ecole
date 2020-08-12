@@ -1,64 +1,95 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Modification d'un Enseignant</title>
+
+<%-- Insertion feuille de style --%>
+<spring:url value="/assets/styles/bootstrap.min.css" var="bootstrapCSS"></spring:url>
+<link href="${bootstrapCSS}" rel="stylesheet">
+
+<spring:url value="/assets/styles/styleperso.css" var="styleperso"></spring:url>
+
+<%-- Insertion JS --%>
+<spring:url value="/assets/scripts/bootstrap.bundle.min.js" var="bootstrapJS"></spring:url>
+<spring:url value="/assets/scripts/jquery-3.5.1.min.js" var="jquery"></spring:url>
+
+
 </head>
-<body>
-<h1>Modification d'un Enseignant</h1>
+<body class="d-flex flex-column h-100">
+		<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<%--////////////////////////////////////////////////////////////  header ///////////////////////////////////////////////////////////////////////// --%>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<jsp:include page="/assets/templates/header.jsp"/>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<%--/////////////////////////////////////////   Fin de la navbar et début du contenu ////////////////////////////////////////////////////////////// --%>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+
+	<div class=container-fluid style="padding-top: 100px;">
+	<h1>Modification d'un Enseignant</h1>
+	<a href="${pageContext.request.contextPath}/admin/listeenseignant">Retour à la liste des enseignants</a>
 	<br></br>
-	<a href="${pageContext.request.contextPath}/admin/listeenseignant">Retour à la liste des administrateurs</a>
-	<br></br>
+	
+	<div class="container">
 	<form:form modelAttribute="attrtibutEnseignantModif" method="POST" action="${pageContext.request.contextPath}/admin/updateens">
-	<table>
-			<tr>
-				<td><form:hidden path="idPersonne"/></td>
-			</tr>
+		
+	<form:hidden path="idPersonne"/>
+	<form:hidden path="identifiant" />
+	
+		<div class="row-form">
+			<div class="form-group col-md-6">
+				<form:label path="motdePasse">Mot de passe</form:label>
+				<form:password path="motdePasse" cssClass="form-control"/>
 			
-			<tr>
-				<td><form:label path="identifiant">Identifiant</form:label></td>
-				<td><form:input path="identifiant"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="motdePasse">Mot de passe</form:label></td>
-				<td><form:input path="motdePasse"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="nom">Nom</form:label></td>
-				<td><form:input path="nom"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="prenom">Prénom</form:label></td>
-				<td><form:input path="prenom"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="email">Email</form:label></td>
-				<td><form:input path="email"/></td>
-			</tr>
-			<tr>
-				<td><form:hidden path="adresse.idAdresse"/></td>	
-			<tr>
-			<tr>
-				<td><form:label path="adresse.rue">Rue</form:label></td>
-				<td><form:input path="adresse.rue"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="adresse.codePostal">Code Postal</form:label></td>
-				<td><form:input path="adresse.codePostal"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="adresse.ville">Ville</form:label></td>
-				<td><form:input path="adresse.ville"/></td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<input type="submit" value="Modifier">
-				</td>
-		   </tr>
-		</table>
+			</div>
+		</div>
+		<div class="row-form">
+			<div class="form-group col-md-6" >	
+				<form:label path="nom">Nom</form:label>
+				<form:input path="nom" cssClass="form-control"/>
+			</div>
+			<div class="form-group col-md-6">
+				<form:label path="prenom">Prénom</form:label>
+				<form:input path="prenom" cssClass="form-control"/>
+			</div>
+		</div>		
+		<div class="row-form">	
+			<div class="form-group col-md-6">
+				<form:label path="email">Email</form:label>
+				<form:input path="email" cssClass="form-control"/>
+		
+			</div>
+		</div>
+		<div class="row-form">
+			<div class="form-group col-md-6" >
+				<form:label path="adresse.rue">Rue</form:label>
+				<form:input path="adresse.rue" cssClass="form-control"/>
+				<form:label path="adresse.codePostal">Code Postal</form:label>
+				<form:input path="adresse.codePostal" cssClass="form-control"/>
+				<form:label path="adresse.ville" >Ville</form:label>
+				<form:input path="adresse.ville" cssClass="form-control"/>
+			</div>
+		</div>
+		<div class="row-form">
+			<div class="form-group col-md-6" >
+				<input type="submit" value="Modifier" class="btn btn-primary mb-2">
+			</div>
+		</div>
 	</form:form>
+	</div>
+	</div>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<%--////////////////////////////////////////////////////////////   Footer ///////////////////////////////////////////////////////////////////////// --%>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	
+	<jsp:include page="/assets/templates/footer.jsp"/>
+	
+<%-- Scripts JS --%>
+<script src="${jquery}"></script>
+<script src="${bootstrapJS}"></script>	
 </body>
 </html>

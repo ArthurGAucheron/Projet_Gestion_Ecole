@@ -40,8 +40,8 @@ public class Matiere {
 	private List<Cours> listeCours;
 
 	
-	@OneToOne(cascade=CascadeType.DETACH)
-	@JoinColumn(name="enseignant_id")
+	@OneToOne (cascade=CascadeType.DETACH)
+	@JoinColumn(name="enseignant_id",referencedColumnName = "id_personne")
 	private Enseignant enseignant;
 	
 	@ManyToMany(cascade=CascadeType.DETACH)
