@@ -111,12 +111,13 @@ public class GestionAdministrateurController {
 	}// end afficherFormModifAdmin()
 	
 	@RequestMapping(value="/admin/updateadmin", method=RequestMethod.POST)
-	public String modifierAdministrateur(@ModelAttribute("attrtibutAdminModif")@Validated Administrateur pAdmin) {
+	public String modifierAdministrateur(@ModelAttribute("attrtibutAdminModif")@Validated Administrateur pAdmin	) {
+	
+			
+			return "redirect:/admin/listeadmin";
+	
 		
-		adminService.modifier(pAdmin);
-		
-		
-		return "redirect:/admin/listeadmin";
+	
 	}// end class
 	
 	
