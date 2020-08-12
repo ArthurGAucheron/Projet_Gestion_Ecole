@@ -27,12 +27,12 @@
 			<tr>
 				<td><form:label path="identifiant">Identifiant</form:label></td>
 				<td><form:input path="identifiant"/></td>
-				<td><form:errors pahth="identifiant" cssClass="erreurs_validation"/>
+				<td><form:errors path="identifiant" cssClass="erreurs_validation"/>
 			</tr>
 			<tr>
 				<td><form:label path="motdePasse">Mot de passe</form:label></td>
 				<td><form:password path="motdePasse"/></td>
-				<td><form:errors pahth="motdePasse" cssClass="erreurs_validation"/>
+				<td><form:errors path="motdePasse" cssClass="erreurs_validation"/>
 			</tr>
 			<tr>
 				<td><form:label path="nom">Nom</form:label></td>
@@ -45,7 +45,7 @@
 			<tr>
 				<td><form:label path="email">Email</form:label></td>
 				<td><form:input path="email"/></td>
-				<td><form:errors pahth="email" cssClass="erreurs_validation"/>
+				<td><form:errors path="email" cssClass="erreurs_validation"/>
 			</tr>
 			<tr>
 				<td><form:label path="adresse.rue">Rue</form:label></td>
