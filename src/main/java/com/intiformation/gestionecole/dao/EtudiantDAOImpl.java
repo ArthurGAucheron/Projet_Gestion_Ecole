@@ -14,7 +14,7 @@ import com.intiformation.gestionecole.modele.Administrateur;
 import com.intiformation.gestionecole.modele.Cours;
 import com.intiformation.gestionecole.modele.Etudiant;
 
-@Repository("EtudiantDAOBean")
+@Repository
 public class EtudiantDAOImpl implements IEtudiantDAO {
 
 	@Autowired
@@ -110,7 +110,7 @@ public class EtudiantDAOImpl implements IEtudiantDAO {
 
 		try {
 
-			Query query = session.createQuery("FROM Cours");
+			Query query = session.createQuery("FROM Etudiant");
 			List<Etudiant> listeEtudiantsBdd = query.list();
 			return listeEtudiantsBdd;
 

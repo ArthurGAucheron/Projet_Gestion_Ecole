@@ -19,6 +19,15 @@
 <spring:url value="/assets/scripts/jquery-3.5.1.min.js" var="jquery"></spring:url>
 
 </head>
+<<<<<<< HEAD
+<body>
+	<table cellspacing="10" border="1" cellpadding="10" >
+		<tr><td><a href="${pageContext.request.contextPath}/admin/listeadmin">Gestion des administrateurs</a></td></tr>
+		<tr><td><a href="${pageContext.request.contextPath}/admin/listeenseignant">Gestion des enseignants</a></td></tr>
+		<tr><td><a href="${pageContext.request.contextPath}/admin/listeetudiant">Gestion des étudiants </a></td></tr>
+		<tr><td><a href="${pageContext.request.contextPath}/index.jsp">Retour à l'index</a></td></tr>
+	</table>
+=======
 <body class="d-flex flex-column h-100">
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
 	<%--///////////////////////////////////////////////////////  Début de la navbar /////////////////////////////////////////////////////////////////// --%>
@@ -71,7 +80,7 @@
       		 <a class="nav-link" href="${pageContext.request.contextPath}/admin/listeenseignant">Enseignants</a>
       	<li>
       	<li class="nav-item">
-      	 <a class="nav-link" href="#">Étudiants</a>
+      	 <a class="nav-link" href="${pageContext.request.contextPath}/admin/listeetudiant">Étudiants</a>
       	<li>
       </ul>
 	</div>
@@ -95,5 +104,6 @@
 <%-- Scripts JS --%>
 <script src="${jquery}"></script>
 <script src="${bootstrapJS}"></script>	
+>>>>>>> af2d6f179cb3fe3953949e29a764a1ec8153262f
 </body>
 </html>

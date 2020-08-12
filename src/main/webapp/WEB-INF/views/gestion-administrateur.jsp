@@ -75,7 +75,7 @@
       		 <a class="nav-link" href="${pageContext.request.contextPath}/admin/listeenseignant">Enseignants</a>
       	<li>
       	<li class="nav-item">
-      	 <a class="nav-link" href="#">Étudiants</a>
+      	 <a class="nav-link" href="${pageContext.request.contextPath}/admin/listeetudiant">Étudiants</a>
       	<li>
       </ul>
 	</div>

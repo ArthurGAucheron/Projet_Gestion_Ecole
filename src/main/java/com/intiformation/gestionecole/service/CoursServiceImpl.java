@@ -15,12 +15,11 @@ public class CoursServiceImpl implements ICoursService {
 
 	@Autowired
 	private ICoursDAO coursDAO;
+	
 	public void setCoursDAO(CoursDAOImpl coursDAO) {
 		this.coursDAO = coursDAO;
 	}
 
-	public CoursServiceImpl() {
-	}
 	
 	@Override
 	public void ajouter(Cours pCours) {

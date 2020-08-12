@@ -2,15 +2,18 @@ package com.intiformation.gestionecole.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.intiformation.gestionecole.dao.EtudiantDAOImpl;
+import com.intiformation.gestionecole.dao.IEtudiantDAO;
 import com.intiformation.gestionecole.modele.Etudiant;
 
-@Service("EtudiantServiceDAO")
+@Service
 public class EtudiantServiceImpl implements IEtudiantService {
 
-	private EtudiantDAOImpl etudiantDAO;
+	@Autowired
+	private IEtudiantDAO etudiantDAO;
 
 	public void setEtudiantDAO(EtudiantDAOImpl etudiantDAO) {
 		this.etudiantDAO = etudiantDAO;

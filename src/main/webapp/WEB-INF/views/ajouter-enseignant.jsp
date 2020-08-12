@@ -69,6 +69,7 @@
  	 <h1>Ajout d'un enseignant</h1>
 
 	<a href="${pageContext.request.contextPath}/admin/listeenseignant">Retour à la liste des enseignants</a>
+<<<<<<< HEAD
 	
 	<div class="container">
 	<form:form  modelAttribute="attributEns"  method="POST"  action="${pageContext.request.contextPath}/admin/addens">
@@ -119,6 +120,54 @@
 				<input type="submit" value="Ajouter" class="btn btn-primary mb-2">
 			</div>
 		</div>
+=======
+	<br></br>
+	<div align="left">
+	<form:form modelAttribute="attributEns"  method="POST"  action="${pageContext.request.contextPath}/admin/addens">
+		<form:errors path="*" cssClass="erreurs_validation" element="div" />
+		<table>
+			<tr>
+				<td><form:label path="identifiant">Identifiant</form:label></td>
+				<td><form:input path="identifiant"/></td>
+				<td><form:errors path="identifiant" cssClass="erreurs_validation"/>
+			</tr>
+			<tr>
+				<td><form:label path="motdePasse">Mot de passe</form:label></td>
+				<td><form:password path="motdePasse"/></td>
+				<td><form:errors path="motdePasse" cssClass="erreurs_validation"/>
+			</tr>
+			<tr>
+				<td><form:label path="nom">Nom</form:label></td>
+				<td><form:input path="nom"/></td>
+			</tr>
+			<tr>
+				<td><form:label path="prenom">Prénom</form:label></td>
+				<td><form:input path="prenom"/></td>
+			</tr>
+			<tr>
+				<td><form:label path="email">Email</form:label></td>
+				<td><form:input path="email"/></td>
+				<td><form:errors path="email" cssClass="erreurs_validation"/>
+			</tr>
+			<tr>
+				<td><form:label path="adresse.rue">Rue</form:label></td>
+				<td><form:input path="adresse.rue"/></td>
+			</tr>
+			<tr>
+				<td><form:label path="adresse.codePostal">Code Postal</form:label></td>
+				<td><form:input path="adresse.codePostal"/></td>
+			</tr>
+			<tr>
+				<td><form:label path="adresse.ville">Ville</form:label></td>
+				<td><form:input path="adresse.ville"/></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" value="Ajouter">
+				</td>
+		   </tr>
+		</table>
+>>>>>>> 9d8098444ff365f13d011d166b224a5db5cbc93a
 	</form:form>
 	
 	</div>
