@@ -33,7 +33,7 @@ public class Etudiant extends Personne {
 	private String base64;
 
 	@Column(name = "date_de_naissance")
-	@DateTimeFormat(pattern = "jj/mm/aaaa")
+	@DateTimeFormat(pattern = "aaaa-MM-jj")
 	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;
 

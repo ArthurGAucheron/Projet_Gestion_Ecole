@@ -68,7 +68,7 @@
 					<td><input type="file" name="file" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="dateNaissance">Date de naissance : </form:label></td>
+					<td><form:label path="dateNaissance">Date de naissance (aaaa-mm-jj) : </form:label></td>
 					<td><form:input path="dateNaissance" /></td>
 				</tr>
 				<tr>
