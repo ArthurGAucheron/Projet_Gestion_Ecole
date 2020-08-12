@@ -15,6 +15,7 @@ import com.intiformation.gestionecole.modele.Cours;
 import com.intiformation.gestionecole.modele.Enseignant;
 import com.intiformation.gestionecole.modele.Etudiant;
 import com.intiformation.gestionecole.modele.Matiere;
+import com.intiformation.gestionecole.modele.Promotion;
 
 
 @Repository
@@ -155,12 +156,12 @@ public class CoursDAOImpl implements ICoursDAO {
 	public List<Cours> getCoursEtu(Long pIdEtu) {
 		Session session = this.sessionFactory.getCurrentSession();
 
-		try {
+try {
 			
-			EtudiantDAOImpl etuDAO = new EtudiantDAOImpl();  
+			EtudiantDAOImpl etuDAO = new EtudiantDAOImpl(sessionFactory);  
 			Etudiant etu = etuDAO.getById(pIdEtu);
 			Long pIDPromo = etu.getPromotion().getIdPromotion();
-			Query query = session.createQuery("FROM Cours WHERE id_promotion = :p_id_promo");
+			Query query = session.createQuery("FROM Cours WHERE promotion.idPromotion = :p_id_promo");
 			query.setParameter("p_id_promo", pIDPromo);
 			List<Cours> listeCoursEtuBdd = query.list();
 			return listeCoursEtuBdd;

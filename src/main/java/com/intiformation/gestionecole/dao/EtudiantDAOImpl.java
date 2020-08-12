@@ -20,9 +20,12 @@ public class EtudiantDAOImpl implements IEtudiantDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+	@Autowired
+    public EtudiantDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+	
 	
 	@Override
 	@Transactional
