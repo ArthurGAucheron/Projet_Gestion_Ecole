@@ -21,80 +21,26 @@
 
 </head>
 <body class="d-flex flex-column h-100">
-	<%-- Début de la navbar --%>
-	<header>
-	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-	<a href="${pageContext.request.contextPath}/index.jsp" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logo.jpg" style="max-width: 50px; margin-right: 15px" ></a>
-	<a class="navbar-brand"	href="${pageContext.request.contextPath}/index.jsp">Université du Poitou</a>
-	<div class="collapse navbar-collapse" id="navbarCollapse">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item dropdown">
-        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer (admin)</a>
-       			<div class="dropdown-menu" aria-labelledby="dropdown01">
-          		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/listeadmin">Le personnel</a>
-          		<a class="dropdown-item" href="${pageContext.request.contextPath}/matieres/liste">Les matières</a>
-         		<a class="dropdown-item" href="${pageContext.request.contextPath}/cours/liste">Les cours</a>
-          		<a class="dropdown-item" href="${pageContext.request.contextPath}/promotions/liste">Les promotions</a>
-         		<a class="dropdown-item" href="${pageContext.request.contextPath}/aide">La page aide</a>
-         		<a class="dropdown-item" href="#">Les absences</a>
-       			</div>
-      		</li>
-      		<li class="nav-item dropdown">
-        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consulter (ense)</a>
-       			<div class="dropdown-menu" aria-labelledby="dropdown01">
-         		<a class="dropdown-item" href="${pageContext.request.contextPath}/cours/liste">Les cours</a>
-         		<a class="dropdown-item" href="#">Récapulatif des absences</a>
-       			</div>
-      		</li>
-      		<li class="nav-item dropdown">
-        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer (ense)</a>
-       			<div class="dropdown-menu" aria-labelledby="dropdown01">
-         		<a class="dropdown-item" href="#">Mes cours</a>
-         		<a class="dropdown-item" href="#">Les absences</a>
-       			</div>
-      		</li>
-      		<li class="nav-item"><a class="nav-link" href="#">Mes cours (etu)</a></li>
-      		<li class="nav-item"><a class="nav-link" href="#">Mes absences (etu)</a></li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/email">Contact</a></li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/aide">Aide</a></li>
-		</ul>
-		
-		<ul class="navbar-nav mt-2 mt-md-2" style="align-content: right;" >
-			<li class="nav-item dropdown">
-        		<div class="btn-group dropleft">
-  				<a style="color: white; font-weight: bold;" class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Identifiant</a>
-			  <div class="dropdown-menu">
-			   	<a class="dropdown-item" href="#">Mon Compte</a>
-          		<a class="dropdown-item" href="#">Se déconnecter</a>
-			  </div>
-			</div>
-      		</li>
-		</ul>	
-	</div>
-	</nav>
-	</header> 
-
-	<%-- Fin de la navbar et début du contenu --%> 
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<%--////////////////////////////////////////////////////////////  header ///////////////////////////////////////////////////////////////////////// --%>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<jsp:include page="/assets/templates/header.jsp"/>
 	
+    <%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<%--////////////////////////////////////////////////////////////   Contenu ///////////////////////////////////////////////////////////////////////// --%>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+
 	<main role="main" class="flex-shrink-0">
-  <div class="container" style="padding-top: 60px">
+  <div class="container-fluid" style="padding-top: 60px">
     <h1 class="mt-5">Page d'accueil</h1>
 </main>
 	
 	
-	<%-- Footer --%>
-<footer class="page-footer font-small blue">
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-   Arthur, Camille, Jérémie, Pierre-François, Yanis
-  </div>
-  <div class="row" >
-        	<div class="col-md-12" style="text-align: center; " >
-              	<a href="#" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logoFR.jpg" style="max-width: 20px; margin-right: 15px" > </a>
-              	<a href="#" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logoES.jpg" style="max-width: 20px; margin-right: 15px" > </a>
-              	<a href="#" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logoEN.jpg" style="max-width: 20px; margin-right: 20px" > </a>
-            </div>
-        </div>
-</footer>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<%--////////////////////////////////////////////////////////////   Footer ///////////////////////////////////////////////////////////////////////// --%>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	
+	<jsp:include page="/assets/templates/footer.jsp"/>
 	
 <%-- Scripts JS --%>
 <script src="${jquery}"></script>
