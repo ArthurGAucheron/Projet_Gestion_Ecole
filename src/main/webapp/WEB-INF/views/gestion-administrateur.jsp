@@ -35,7 +35,7 @@
 			<li class="nav-item dropdown">
         		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer</a>
        			<div class="dropdown-menu" aria-labelledby="dropdown01">
-          		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/gestionpersonnel">Le personnel</a>
+          		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/listeadmin">Le personnel</a>
           		<a class="dropdown-item" href="${pageContext.request.contextPath}/matieres/liste">Les matières</a>
          		<a class="dropdown-item" href="${pageContext.request.contextPath}/cours/liste">Les cours</a>
           		<a class="dropdown-item" href="${pageContext.request.contextPath}/promotions/liste">Les promotions</a>
@@ -69,7 +69,7 @@
       <h2>Gestion du personnel</h2>
       <ul class="nav nav-tabs">
       	<li class="nav-item">
-      		<a class="nav-link active" href="${pageContext.request.contextPath}/admin/listeadmin">Administrateurs</a>
+      		<a class="nav-link active" href="${pageContext.request.contextPath}/admin/listeadmin" style="font-weight: bold;">Administrateurs</a>
       	<li>
       	<li class="nav-item">
       		 <a class="nav-link" href="${pageContext.request.contextPath}/admin/listeenseignant">Enseignants</a>
