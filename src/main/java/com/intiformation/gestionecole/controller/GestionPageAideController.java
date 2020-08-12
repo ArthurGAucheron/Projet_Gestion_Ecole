@@ -51,9 +51,11 @@ public class GestionPageAideController {
 	@RequestMapping(value="/aide", method=RequestMethod.GET)
 	public String goToPageAide(ModelMap model) {
 		
+		Aide aide = new Aide();
 		List<Aide> listeAide = aideService.findAll();
 		
 		model.addAttribute("attributAide", listeAide);
+		model.addAttribute("AttributAideAjout",aide);
 		
 		
 		return "gestion-aide";
@@ -64,16 +66,16 @@ public class GestionPageAideController {
 		
 		Aide aide = new Aide();
 		Map<String, Object> donneesAide = new HashMap<String, Object>();
-		donneesAide.put("attributAide", aide);
+		donneesAide.put("AttributAideAjout", aide);
 		return new ModelAndView("ajouter-aide", donneesAide);
 	}// end goToFormulaire
 	
 	@RequestMapping(value="aide/admin/add", method=RequestMethod.POST)
-	public String ajouterAide(@ModelAttribute("attributAide")@Validated Aide pAide, BindingResult resultatValidation) {
+	public String ajouterAide(@ModelAttribute("AttributAideAjout")@Validated Aide pAide, BindingResult resultatValidation) {
 		aideValidator.validate(pAide, resultatValidation);
 		
 		if (resultatValidation.hasErrors()) {
-			return "ajouter-aide";
+			return "aide";
 		} else {
 			
 			aideService.ajouter(pAide);

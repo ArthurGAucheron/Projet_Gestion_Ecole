@@ -72,6 +72,7 @@
 				<value>com.intiformation.gestionecole.modele.Promotion</value>
 				<value>com.intiformation.gestionecole.modele.Etudiant</value>
 				<value>com.intiformation.gestionecole.modele.Cours</value>
+				<value>com.intiformation.gestionecole.modele.EtudiantCours</value>
 			</list>
 		</property>
 	</bean>
@@ -86,6 +87,14 @@
 	<bean id="transactionManagerBean" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<!-- injection du bean de la session Factory "sessionFactoryBean" dans le gestionnaire des tx  -->
 		<property name="sessionFactory" ref="sessionFactoryBean"/>
+	</bean>
+	
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- ++++++++++++++++++++++++++++ Déclaration du bean pour le telechargement d'images  +++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="400000"></property>
 	</bean>
 
 </beans>

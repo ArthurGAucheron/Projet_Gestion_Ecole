@@ -30,7 +30,7 @@ public class Cours {
 	private String libelle;
 	
 	@Column(name="date")
-	@DateTimeFormat(pattern = "jj/mm/aaaa")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	
