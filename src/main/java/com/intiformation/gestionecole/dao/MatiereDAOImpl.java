@@ -18,12 +18,14 @@ import com.intiformation.gestionecole.modele.Matiere;
 public class MatiereDAOImpl implements IMatiereDAO {
 
 	// déclaration de la session factory (hibernate)
+	
 	@Autowired
 	private SessionFactory sessionFactory;
-
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+	
+	@Autowired
+    public MatiereDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
 	@Override
 	@Transactional
@@ -80,6 +82,8 @@ public class MatiereDAOImpl implements IMatiereDAO {
 
 	}// end delete()
 
+	
+	
 	@Override
 	@Transactional(readOnly = true)
 	public Matiere getById(Long pIdMatiere) {
@@ -108,5 +112,21 @@ public class MatiereDAOImpl implements IMatiereDAO {
 			throw e;
 		} // end catch
 	}// end getAll()
+
+	@Transactional(readOnly = true)
+	public Matiere getByIdEns(Long pIdEns) {
+		try {
+			Session session = this.sessionFactory.getCurrentSession();
+			Query query = session.createQuery("FROM Matiere WHERE enseignant_id = :p_id_ens");
+			query.setParameter("p_id_ens", pIdEns);
+			Matiere mat = (Matiere) query.uniqueResult();
+			return mat;
+		} catch (Exception e) {
+
+			System.out.println("(MatiereDAOImpl) Erreur lors de la recupération matiere par idEns dans la BDD  ...........;");
+			throw e;
+		} // end catch
+	}// end getByIdEns()
+	
 
 }// end class

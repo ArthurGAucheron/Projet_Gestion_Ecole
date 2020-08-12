@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.intiformation.gestionecole.modele.Cours;
@@ -69,7 +72,34 @@ public class GestionCoursController {
 
 		return "gestion-cours";
 
-	}// end recupererListeMatiere
+	}// end recupererListeCours
+	
+	
+	@RequestMapping(value = "/etu/mesCours", method = RequestMethod.GET)
+	public String recupererListeCoursParEtu(ModelMap model) {
+
+		Long pIdEtu = (long) 1 /*à récuperer comme attribut de session;*/;
+		List<Cours> listeCoursEtu = coursService.findCoursEtu(pIdEtu);
+
+		model.addAttribute("attribut_liste_cours_bdd_ParEtu", listeCoursEtu);
+
+		return "etu-mesCours";
+
+	}// end recupererListeCours
+	
+	@RequestMapping(value = "/ens/mesCours", method = RequestMethod.GET)
+	public String recupererListeCoursParEns(ModelMap model) {
+
+		Long pIdEns = (long) 1 /*à récuperer comme attribut de session;*/;
+		List<Cours> listeCoursEns = coursService.findCoursEns(pIdEns);
+
+		model.addAttribute("attribut_liste_cours_bdd_ParEns", listeCoursEns);
+
+		return "ens-mesCours";
+
+	}// end recupererListeCours
+	
+	
 
 	@RequestMapping(value = "/formadd/cours", method = RequestMethod.GET)
 	public ModelAndView afficherFormulaireAjout() {
