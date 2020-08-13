@@ -12,10 +12,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.intiformation.gestionecole.modele.Cours;
-import com.intiformation.gestionecole.modele.Enseignant;
+
 import com.intiformation.gestionecole.modele.Etudiant;
 import com.intiformation.gestionecole.modele.Matiere;
-import com.intiformation.gestionecole.modele.Promotion;
+
 
 
 @Repository

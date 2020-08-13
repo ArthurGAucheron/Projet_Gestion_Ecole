@@ -7,7 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
+
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.intiformation.gestionecole.modele.Administrateur;
-import com.intiformation.gestionecole.modele.Adresse;
+
 import com.intiformation.gestionecole.modele.Enseignant;
 import com.intiformation.gestionecole.modele.Matiere;
 import com.intiformation.gestionecole.service.EnseignantServiceImpl;
@@ -40,7 +39,7 @@ public class GestionMatiereController {
 		this.enseignantService = enseignantService;
 	}
 
-	@RequestMapping(value = "/matieres/liste", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/listemat", method = RequestMethod.GET)
 	public String recupererListeMatiere(ModelMap model) {
 
 		List<Matiere> listeMatiere = matiereService.findAll();
@@ -51,7 +50,7 @@ public class GestionMatiereController {
 
 	}// end recupererListeMatiere
 
-	@RequestMapping(value = "/formadd/matiere", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/formatiere", method = RequestMethod.GET)
 	public ModelAndView afficherFormulaireAjout() {
 
 		Matiere matiere = new Matiere();
@@ -64,15 +63,15 @@ public class GestionMatiereController {
 		return new ModelAndView("ajouter-matiere", donneesCommande);
 	} // afficherFormulaireAjout
 
-	@RequestMapping(value = "/matieres/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/addmatiere", method = RequestMethod.POST)
 	public String ajoutMatiere(@ModelAttribute("attributMatiere") @Validated Matiere pMatiere) {
 
 		matiereService.ajouter(pMatiere);
 
-		return "redirect:/matieres/liste";
+		return "redirect:/admin/listemat";
 	}
 
-	@GetMapping(value = "/matieres/update-matiere-form")
+	@GetMapping(value = "/admin/formodifmat/{idMatiere}")
 	public ModelAndView afficherFormulaireModification(@RequestParam("idMatiere") Long pMatiereID) {
 
 		Matiere matiereAModifier = matiereService.findById(pMatiereID);
@@ -81,11 +80,11 @@ public class GestionMatiereController {
 		donneesCommande.put("matiereModifCommand", matiereAModifier);
 		donneesCommande.put("attributEnseignant", listeEnseignant);
 		
-		return new ModelAndView("modifier-matiere", donneesCommande );
+		return new ModelAndView("modif-matiere", donneesCommande );
 
 	}// end afficherFormulaireModification()
 
-	@RequestMapping(value = "/matieres/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/updatemat", method = RequestMethod.POST)
 	public String modifierMatiereBDD(@ModelAttribute("matiereModifCommand") Matiere pMatiereToUpdate, ModelMap model) {
 
 		matiereService.modifier(pMatiereToUpdate);
@@ -94,11 +93,11 @@ public class GestionMatiereController {
 
 		model.addAttribute("attribut_liste_matieres", listeMatieresBDD);
 
-		return "redirect:/matieres/liste";
+		return "redirect:/admin/listemat";
 
 	}// end modifierMatiereBDD()
 
-	@GetMapping(value = "/matieres/delete/{matiere-id}")
+	@GetMapping(value = "/admin/supp/mat/{matiere-id}")
 	public String supprimerMatiereBdd(@PathVariable("matiere-id") Long pIdMatiere, ModelMap model) {
 
 		matiereService.supprimer(pIdMatiere);
@@ -107,7 +106,7 @@ public class GestionMatiereController {
 
 		model.addAttribute("attribut_liste_matieres", listeMatieresBDD);
 
-		return "redirect:/matieres/liste";
+		return "redirect:/admin/listemat";
 
 	}// end supprimerMatiereBdd()
 

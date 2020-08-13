@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Modification d'un enseignant</title>
+<title>Modification d'un cours</title>
 
 <%-- Insertion feuille de style --%>
 <spring:url value="/assets/styles/bootstrap.min.css" var="bootstrapCSS"></spring:url>
@@ -29,58 +29,67 @@
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
 	<%--/////////////////////////////////////////   Fin de la navbar et début du contenu ////////////////////////////////////////////////////////////// --%>
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
-	
+
 	<div class=container-fluid style="padding-top: 100px;">
-		<h1>Modification d'un enseignant</h1>
-		<a href="${pageContext.request.contextPath}/admin/listeenseignant">Retour
-			à la liste des enseignants</a> <br></br>
+		<h1>Modification d'un cours</h1>
+		<a href="${pageContext.request.contextPath}/gestion-cours.jsp">Retour
+			à la liste des cours</a> <br></br>
 
 		<div class="container">
-			<form:form modelAttribute="attrtibutEnseignantModif" method="POST"
-				action="${pageContext.request.contextPath}/admin/updateens">
 
-				<form:hidden path="idPersonne" />
-				<form:hidden path="identifiant" />
 
-				<div class="row-form">
-					<div class="form-group col-md-6">
-						<form:label path="motdePasse">Mot de passe</form:label>
-						<form:password path="motdePasse" cssClass="form-control" />
 
-					</div>
-				</div>
-				<div class="row-form">
-					<div class="form-group col-md-6">
-						<form:label path="nom">Nom</form:label>
-						<form:input path="nom" cssClass="form-control" />
-					</div>
-					<div class="form-group col-md-6">
-						<form:label path="prenom">Prénom</form:label>
-						<form:input path="prenom" cssClass="form-control" />
-					</div>
-				</div>
-				<div class="row-form">
-					<div class="form-group col-md-6">
-						<form:label path="email">Email</form:label>
-						<form:input path="email" cssClass="form-control" />
+			<form:form modelAttribute="coursModifCommand" method="POST"
+				action="${pageContext.request.contextPath}/updatecours">
 
-					</div>
-				</div>
-				<div class="row-form">
-					<div class="form-group col-md-6">
-						<form:label path="adresse.rue">Rue</form:label>
-						<form:input path="adresse.rue" cssClass="form-control" />
-						<form:label path="adresse.codePostal">Code Postal</form:label>
-						<form:input path="adresse.codePostal" cssClass="form-control" />
-						<form:label path="adresse.ville">Ville</form:label>
-						<form:input path="adresse.ville" cssClass="form-control" />
-					</div>
-				</div>
-				<div class="row-form">
-					<div class="form-group col-md-6">
-						<input type="submit" value="Modifier" class="btn btn-primary mb-2">
-					</div>
-				</div>
+				<table width="60%">
+					<!-- recup de l'id dans un champ caché -->
+					<tr>
+						<td><form:hidden path="idCours" /></td>
+					</tr>
+					<tr>
+						<td><form:label path="libelle">Libelle :</form:label></td>
+						<td><form:input path="libelle" /></td>
+					</tr>
+
+					<tr>
+						<td><form:label path="date">Date (jj/mm/aaaa ):</form:label></td>
+						<td><form:input path="date" /></td>
+					</tr>
+
+					<tr>
+						<td><form:label path="duree">Durée (en heures):</form:label></td>
+						<td><form:input path="duree" /></td>
+					</tr>
+
+					<tr>
+						<td><form:label path="description">Description :</form:label></td>
+						<td><form:input path="description" /></td>
+					</tr>
+					<tr>
+						<td><form:label path="matiere.idMatiere">Matiere :</form:label></td>
+						<td><form:select path="matiere.idMatiere">
+								<form:options items="${attributMatiere}" itemValue="idMatiere"
+									itemLabel="libelle" />
+							</form:select></td>
+
+					</tr>
+					<tr>
+						<td><form:label path="promotion.idPromotion">Promotion :</form:label></td>
+						<td><form:select path="promotion.idPromotion">
+								<form:options items="${attributPromotion}"
+									itemValue="idPromotion" itemLabel="libelle" />
+							</form:select></td>
+
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit"
+							value="Appliquer les modifications" /></td>
+					</tr>
+
+				</table>
+
+
 			</form:form>
 		</div>
 	</div>

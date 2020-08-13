@@ -90,7 +90,7 @@ public class GestionAdministrateurController {
 		}
 	}// end ajouteAdmin
 	
-	@RequestMapping(value="/admin/supp/admini/{adminId}", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/supp/admin/{adminId}", method=RequestMethod.GET)
 	public String supprimerAdmin(@PathVariable("adminId") Long pIdAdmin) {
 		
 		adminService.supprimer(pIdAdmin);
