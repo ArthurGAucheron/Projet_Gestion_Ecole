@@ -1,13 +1,12 @@
 package com.intiformation.gestionecole.controller;
 
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
+
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,11 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.intiformation.gestionecole.modele.Administrateur;
-import com.intiformation.gestionecole.modele.Adresse;
-import com.intiformation.gestionecole.modele.Matiere;
+
 import com.intiformation.gestionecole.modele.Promotion;
-import com.intiformation.gestionecole.service.MatiereServiceImpl;
+
 import com.intiformation.gestionecole.service.PromotionServiceImpl;
 
 @Controller
@@ -34,7 +31,7 @@ public class GestionPromotionController {
 		this.promotionService = promotionService;
 	}
 
-	@RequestMapping(value = "/promotions/liste", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/listepromo", method = RequestMethod.GET)
 	public String recupererListePromotion(ModelMap model) {
 
 		Promotion promotion = new Promotion();
@@ -48,15 +45,15 @@ public class GestionPromotionController {
 	}// end recupererListeMatiere
 
 
-	@RequestMapping(value = "/promotions/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/addpromo", method = RequestMethod.POST)
 	public String ajoutMatiere(@ModelAttribute("attributPromotion") @Validated Promotion pPromotion) {
 
 		promotionService.ajouter(pPromotion);
 
-		return "redirect:/promotions/liste";
+		return "redirect:/admin/listepromo";
 	}
 
-	@GetMapping(value = "/promotions/update-promotion-form")
+	@GetMapping(value = "/admin/formodifpromo/{idPromotion}")
 	public ModelAndView afficherFormulaireModification(@RequestParam("idPromotion") Long pPromotionID) {
 
 		Promotion promotionAModifier = promotionService.findById(pPromotionID);
@@ -65,7 +62,7 @@ public class GestionPromotionController {
 
 	}// end afficherFormulaireModification()
 
-	@RequestMapping(value = "/promotions/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/updatepromo", method = RequestMethod.POST)
 	public String modifierPromotionBDD(@ModelAttribute("promotionModifCommand") Promotion pPromotionToUpdate, ModelMap model) {
 
 		promotionService.modifier(pPromotionToUpdate);
@@ -74,11 +71,11 @@ public class GestionPromotionController {
 
 		model.addAttribute("attribut_liste_promotions", listePromotionsBDD);
 
-		return "redirect:/promotions/liste";
+		return "redirect:/admin/listepromo";
 
 	}// end modifierPromotionBDD()
 
-	@GetMapping(value = "/promotions/delete/{promotion-id}")
+	@GetMapping(value = "/admin/supp/promo/{promotion-id}")
 	public String supprimerPromotionBdd(@PathVariable("promotion-id") Long pIdPromotion, ModelMap model) {
 
 		promotionService.supprimer(pIdPromotion);
@@ -87,7 +84,7 @@ public class GestionPromotionController {
 
 		model.addAttribute("attribut_liste_promotions", listePromotionsBDD);
 
-		return "redirect:/promotions/liste";
+		return "redirect:/admin/listepromo";
 
 	}// end supprimerMatiereBdd()
 

@@ -1,1 +1,19 @@
 @charset "UTF-8";
+
+  #emailFormDiv {
+                text-align: center;
+                padding-top: 16px;
+            }
+             
+#emailFormPage {
+                text-decoration: none;
+                text-align: center;
+                cursor: pointer;
+            }
+             
+#successMessage {
+                text-align: center; 
+                color: green; 
+                font-size: 25px; 
+                padding-top: 17px;
+            }

@@ -38,7 +38,7 @@
       <h2>Gestion des promotions</h2>
       <div class="container" style="padding-top: 30px">
 	  
-	  <form:form  modelAttribute="attributPromotion" method="POST" action="${pageContext.request.contextPath}/promotions/add" cssClass="form-inline">
+	  <form:form  modelAttribute="attributPromotion" method="POST" action="${pageContext.request.contextPath}/admin/addpromo" cssClass="form-inline">
 	  	<div class="row-form">
 			<div class="form-group col-md-6">	
 				<form:input path="libelle" cssClass="form-control" placeholder="libelle"/>
@@ -74,8 +74,8 @@
 					</c:forEach>	
 					</ul>			
 				</td>
-				<td><a href="${pageContext.request.contextPath}/promotions/delete/${promo.idPromotion}">Supprimer</a></td>
-				<td><a href="${pageContext.request.contextPath}/promotions/update-promotion-form?idPromotion=${promo.idPromotion}">Modifier</a></td>
+				<td><a href="${pageContext.request.contextPath}/admin/supp/promo/${promo.idPromotion}">Supprimer</a></td>
+				<td><a href="${pageContext.request.contextPath}/admin/formmodifpromo/${promo.idPromotion}">Modifier</a></td>
 			</tr>
 		</c:forEach>
 	</table>

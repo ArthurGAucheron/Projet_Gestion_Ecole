@@ -61,7 +61,7 @@ public class GestionPageAideController {
 		return "gestion-aide";
 	}// end goToPageAide
 	
-	@RequestMapping(value="/aide/admin/form" , method=RequestMethod.GET)
+	@RequestMapping(value="/admin/formaide" , method=RequestMethod.GET)
 	public ModelAndView goToFormulaire() {
 		
 		Aide aide = new Aide();
@@ -70,7 +70,7 @@ public class GestionPageAideController {
 		return new ModelAndView("ajouter-aide", donneesAide);
 	}// end goToFormulaire
 	
-	@RequestMapping(value="aide/admin/add", method=RequestMethod.POST)
+	@RequestMapping(value="admin/addaide", method=RequestMethod.POST)
 	public String ajouterAide(@ModelAttribute("AttributAideAjout")@Validated Aide pAide, BindingResult resultatValidation) {
 		aideValidator.validate(pAide, resultatValidation);
 		
@@ -83,7 +83,7 @@ public class GestionPageAideController {
 		}
 	}
 	
-	@RequestMapping(value="/aide/admin/delete/{idAide}", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/supp/aide/{idAide}", method=RequestMethod.GET)
 	public String deleteAide(@PathVariable("idAide") Long pidAide) {
 		
 		aideService.supprimer(pidAide);
@@ -91,7 +91,7 @@ public class GestionPageAideController {
 		return "redirect:/aide";
 	}// end deleteAide()
 	
-	@RequestMapping(value="/aide/admin/update/{idAide}", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/formodifaide/{idAide}", method=RequestMethod.GET)
 	public ModelAndView goToFormUpdate (@PathVariable("idAide") Long pidAide) {
 		
 		Aide aide = aideService.findById(pidAide);
@@ -102,7 +102,7 @@ public class GestionPageAideController {
 		return new ModelAndView("/modif-aide", donneesAide);
 	}// end goToFormUpdate
 	
-	@RequestMapping(value="/aide/admin/update", method=RequestMethod.POST)
+	@RequestMapping(value="/admin/updateaide", method=RequestMethod.POST)
 	public String updateAide(@ModelAttribute("attributAideModif")@Validated Aide pAide) {
 		
 		aideService.modifier(pAide);

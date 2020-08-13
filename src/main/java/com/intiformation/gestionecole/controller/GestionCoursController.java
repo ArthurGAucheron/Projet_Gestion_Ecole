@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.mail.Session;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
+
 import org.springframework.web.servlet.ModelAndView;
 
 import com.intiformation.gestionecole.modele.Cours;
@@ -63,7 +63,7 @@ public class GestionCoursController {
 		this.promotionService = promotionService;
 	}
 
-	@RequestMapping(value = "/cours/liste", method = RequestMethod.GET)
+	@RequestMapping(value = {"/admin/listecours","/ens/listecours"}, method = RequestMethod.GET)
 	public String recupererListeCours(ModelMap model) {
 
 		List<Cours> listeCours = coursService.findAll();
@@ -78,7 +78,7 @@ public class GestionCoursController {
 	@RequestMapping(value = "/etu/mesCours", method = RequestMethod.GET)
 	public String recupererListeCoursParEtu(ModelMap model) {
 
-		Long pIdEtu = (long) 1 /*à récuperer comme attribut de session;*/;
+		Long pIdEtu = (long) 5 /*à récuperer comme attribut de session;*/;
 		List<Cours> listeCoursEtu = coursService.findCoursEtu(pIdEtu);
 
 		model.addAttribute("attribut_liste_cours_bdd_ParEtu", listeCoursEtu);
@@ -87,7 +87,7 @@ public class GestionCoursController {
 
 	}// end recupererListeCours
 	
-	@RequestMapping(value = "/ens/mesCours", method = RequestMethod.GET)
+	@RequestMapping(value ="/ens/mesCours", method = RequestMethod.GET)
 	public String recupererListeCoursParEns(ModelMap model) {
 
 		Long pIdEns = (long) 1 /*à récuperer comme attribut de session;*/;
@@ -101,7 +101,7 @@ public class GestionCoursController {
 	
 	
 
-	@RequestMapping(value = "/formadd/cours", method = RequestMethod.GET)
+	@RequestMapping(value = "/cours/formcours", method = RequestMethod.GET)
 	public ModelAndView afficherFormulaireAjout() {
 
 		Cours cours = new Cours();
@@ -116,7 +116,7 @@ public class GestionCoursController {
 		return new ModelAndView("ajouter-cours", donneesCommande);
 	} // afficherFormulaireAjout
 
-	@PostMapping(value = "/cours/add")
+	@PostMapping(value = "/cours/addcours")
 	public String ajoutCours(@ModelAttribute("attributCours") @Validated Cours pCours, ModelMap model,
 			BindingResult resultatValidation) {
 
@@ -131,21 +131,21 @@ public class GestionCoursController {
 
 			model.addAttribute("attribut_liste_cours", coursService.findAll());
 
-			return "redirect:/cours/liste";
+			return "redirect:/cours/listecours";
 
 		} // end else
 	}// end ajoutCours
 
-	@GetMapping(value = "/cours/update-cours-form")
-	public ModelAndView afficherFormulaireModification(@RequestParam("idCours") Long pCoursID) {
+	@GetMapping(value = "/cours/formmodifcours/{coursId}")
+	public ModelAndView afficherFormulaireModification(@RequestParam("coursId") Long pCoursID) {
 
 		Cours coursAModifier = coursService.findById(pCoursID);
 
-		return new ModelAndView("modifier-cours", "coursModifCommand", coursAModifier);
+		return new ModelAndView("modif-cours", "coursModifCommand", coursAModifier);
 
 	}// end afficherFormulaireModification()
 
-	@RequestMapping(value = "/cours/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/cours/updatecours", method = RequestMethod.POST)
 	public String modifierCoursBDD(@ModelAttribute("coursModifCommand") Cours pCoursToUpdate, ModelMap model) {
 
 		coursService.modifier(pCoursToUpdate);
@@ -154,12 +154,12 @@ public class GestionCoursController {
 
 		model.addAttribute("attribut_liste_cours", listeCoursBDD);
 
-		return "redirect:/cours/liste";
+		return "redirect:/cours/listecours";
 
 	}// end modifierCoursBDD()
 
-	@GetMapping(value = "/cours/delete/{cours-id}")
-	public String supprimerCoursBdd(@PathVariable("cours-id") Long pIdCours, ModelMap model) {
+	@GetMapping(value="/cours/supp/cours/{coursId}")
+	public String supprimerCoursBdd(@PathVariable("coursId") Long pIdCours, ModelMap model) {
 
 		matiereService.supprimer(pIdCours);
 
@@ -167,7 +167,7 @@ public class GestionCoursController {
 
 		model.addAttribute("attribut_liste_cours", listeCoursBDD);
 
-		return "redirect:/cours/liste";
+		return "redirect:/cours/listecours";
 
 	}// end supprimerCoursBdd()
 

@@ -30,4 +30,28 @@
 <mvc:resources location="/assets/" mapping="/assets/**"></mvc:resources>
 
 <mvc:annotation-driven/>
+
+<!-- Configuration de Spring Email Sender -->
+<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	<property name="host" value="smtp.gmail.com" />
+	<property name="port" value="587" />
+	<property name="username" value="gestionecole.inti@gmail.com" />
+	<property name="password" value="ProjetEcole+1" />
+	<property name="javaMailProperties">
+		<props>
+				<prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.debug">true</prop>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+		</props>
+	</property>
+</bean>
+
+<!-- Configuration de Spring Email Attachment -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name="maxUploadSize" value="20971520"/>
+	<property name="maxInMemorySize" value="1048576"/>
+</bean>
+
+
 </beans>
