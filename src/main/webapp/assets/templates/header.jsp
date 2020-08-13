@@ -27,7 +27,7 @@
 					(admin)</a>
 				<div class="dropdown-menu" aria-labelledby="dropdown01">
 					<a class="dropdown-item"
-						href="${pageContext.request.contextPath}/admin/gestionpersonnel">Le
+						href="${pageContext.request.contextPath}/admin/listeadmin">Le
 						personnel</a> <a class="dropdown-item"
 						href="${pageContext.request.contextPath}/admin/listemat">Les
 						matières</a> <a class="dropdown-item"

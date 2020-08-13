@@ -37,13 +37,13 @@
 	<div class="container-fluid" style="padding-top: 100px">
 		<h2>Gestion du personnel</h2>
 		<ul class="nav nav-tabs">
-			<li class="nav-item"><a class="nav-link active"
+			<li class="nav-item"><a class="nav-link"
 				href="${pageContext.request.contextPath}/admin/listeadmin">Administrateurs</a>
 			<li>
 			<li class="nav-item"><a class="nav-link"
 				href="${pageContext.request.contextPath}/admin/listeenseignant">Enseignants</a>
 			<li>
-			<li class="nav-item active"><a class="nav-link"
+			<li class="nav-item "><a class="nav-link active" style="font-weight: bold;"
 				href="${pageContext.request.contextPath}/admin/listeetudiant">Étudiants</a>
 			<li>
 		</ul>
