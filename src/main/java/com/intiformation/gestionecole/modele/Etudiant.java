@@ -3,6 +3,7 @@ package com.intiformation.gestionecole.modele;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -41,8 +43,8 @@ public class Etudiant extends Personne {
 	@JoinColumn(name="promotion_id", referencedColumnName="id_promotion")
 	private Promotion promotion;
 	
-	@OneToOne(mappedBy="etudiant")
-	private EtudiantCours etudiantCours;
+	@OneToMany(cascade=CascadeType.DETACH, mappedBy="etudiant")
+	private List<EtudiantCours> etudiantCours;
 
 	/* __________________________ ctors __________________________ */
 	/**
@@ -121,12 +123,15 @@ public class Etudiant extends Personne {
 	}
 
 
-	public EtudiantCours getEtudiantCours() {
+	
+
+
+	public List<EtudiantCours> getEtudiantCours() {
 		return etudiantCours;
 	}
 
 
-	public void setEtudiantCours(EtudiantCours etudiantCours) {
+	public void setEtudiantCours(List<EtudiantCours> etudiantCours) {
 		this.etudiantCours = etudiantCours;
 	}
 

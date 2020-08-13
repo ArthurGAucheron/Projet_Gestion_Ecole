@@ -44,4 +44,9 @@ public class EtudiantServiceImpl implements IEtudiantService {
 		return etudiantDAO.getAll();
 	}
 
+	@Override
+	public List<Etudiant> findAllEtudiantsOfAPromotion(Long pIdPromo) {
+		return etudiantDAO.getAllEtudiantsOfAPromotion(pIdPromo);
+	}
+
 }

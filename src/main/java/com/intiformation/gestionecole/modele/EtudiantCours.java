@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,11 +27,11 @@ public class EtudiantCours {
 	@Column(name="motif")
 	private String motif;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="etudiant_id", referencedColumnName="id_personne")
 	private Etudiant etudiant;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="cours_id", referencedColumnName="id_cours")
 	private Cours cours;
 	
@@ -39,6 +40,11 @@ public class EtudiantCours {
 	 * ctor vide
 	 */
 	public EtudiantCours() {
+	}
+	
+	public EtudiantCours(Etudiant etudiant, Cours cours) {
+		this.etudiant = etudiant;
+		this.cours = cours;
 	}
 
 	/**
@@ -49,7 +55,6 @@ public class EtudiantCours {
 	 * @param cours
 	 */
 	public EtudiantCours(boolean absence, String motif, Etudiant etudiant, Cours cours) {
-		super();
 		this.absence = absence;
 		this.motif = motif;
 		this.etudiant = etudiant;
@@ -77,8 +82,6 @@ public class EtudiantCours {
 	public boolean isAbsence() {
 		return absence;
 	}
-
-	
 
 	public void setAbsence(boolean absence) {
 		this.absence = absence;

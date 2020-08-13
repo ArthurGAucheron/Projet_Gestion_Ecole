@@ -89,7 +89,7 @@ public class EtudiantDAOImpl implements IEtudiantDAO {
 	@Transactional(readOnly=true)
 	public Etudiant getById(Long pIdEtudiant) {
 
-		Session session = this.sessionFactory.openSession();
+		Session session = this.sessionFactory.getCurrentSession();
 
 		try {
 
@@ -109,7 +109,7 @@ public class EtudiantDAOImpl implements IEtudiantDAO {
 	@Transactional(readOnly=true)
 	public List<Etudiant> getAll() {
 
-		Session session = this.sessionFactory.openSession();
+		Session session = this.sessionFactory.getCurrentSession();
 
 		try {
 
@@ -125,5 +125,28 @@ public class EtudiantDAOImpl implements IEtudiantDAO {
 		}
 
 	}//end getAll() - étudiant
+
+
+
+	@Override
+	@Transactional(readOnly=true)
+	public List<Etudiant> getAllEtudiantsOfAPromotion(Long pIdPromo) {
+		
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		try {
+
+			Query query = session.createQuery("FROM Etudiant WHERE promotion.idPromotion = :p_id_promo");
+			query.setParameter("p_id_promo", pIdPromo);
+			List<Etudiant> listeEtudiantsBdd = query.list();
+			return listeEtudiantsBdd;
+
+		} catch (HibernateException e) {
+
+			System.out.println("... Erreur lors de la récupération des étudiants d'une promo (CoursDAOImpl) ...");
+			throw e;
+
+		}
+	}
 
 }

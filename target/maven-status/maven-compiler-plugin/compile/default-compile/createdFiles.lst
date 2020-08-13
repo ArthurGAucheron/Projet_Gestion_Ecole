@@ -1,10 +1,12 @@
 com\intiformation\gestionecole\validator\CoursValidator.class
 com\intiformation\gestionecole\dao\IAdministrateurDAO.class
+com\intiformation\gestionecole\service\IEtudiantCoursService.class
 com\intiformation\gestionecole\service\IGeneriqueService.class
 com\intiformation\gestionecole\controller\GestionPersonnelController.class
 com\intiformation\gestionecole\dao\EnseignantDAOImpl.class
 com\intiformation\gestionecole\service\EnseignantServiceImpl.class
 com\intiformation\gestionecole\modele\Etudiant.class
+com\intiformation\gestionecole\service\EtudiantCoursServiceImpl.class
 com\intiformation\gestionecole\service\IAdresseService.class
 com\intiformation\gestionecole\service\IMatiereService.class
 com\intiformation\gestionecole\dao\PromotionDAOImpl.class
@@ -17,11 +19,14 @@ com\intiformation\gestionecole\service\IEtudiantService.class
 com\intiformation\gestionecole\modele\Cours.class
 com\intiformation\gestionecole\modele\Promotion.class
 com\intiformation\gestionecole\controller\GestionPromotionController.class
+com\intiformation\gestionecole\dao\EtudiantCoursDAOImpl.class
 com\intiformation\gestionecole\dao\ICoursDAO.class
 com\intiformation\gestionecole\dao\IPromotionDAO.class
 com\intiformation\gestionecole\mail\AppConfigMail.class
 com\intiformation\gestionecole\service\IAideService.class
+com\intiformation\gestionecole\utils\EtudiantCoursListContainer.class
 com\intiformation\gestionecole\validator\MatiereValidator.class
+com\intiformation\gestionecole\dao\IEtudiantCoursDAO.class
 com\intiformation\gestionecole\dao\AdresseDAOImpl.class
 com\intiformation\gestionecole\modele\Enseignant.class
 com\intiformation\gestionecole\service\ICoursService.class
@@ -57,3 +62,4 @@ com\intiformation\gestionecole\dao\IMatiereDAO.class
 com\intiformation\gestionecole\controller\GestionCoursController.class
 com\intiformation\gestionecole\modele\EtudiantCours.class
 com\intiformation\gestionecole\dao\IEnseignantDAO.class
+com\intiformation\gestionecole\controller\GestionAbsenceController.class

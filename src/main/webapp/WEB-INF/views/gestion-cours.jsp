@@ -29,6 +29,7 @@
 				<td>${cours.promotion.libelle}</td>
 				<td><a href="${pageContext.request.contextPath}/cours/delete/${cours.idCours}">Supprimer</a></td>
 				<td><a href="${pageContext.request.contextPath}/cours/update-cours-form?idCours=${cours.idCours}">Modifier</a></td>
+				<td><a href="${pageContext.request.contextPath}/ens/absence-form?idCours=${cours.idCours}">Gérer les absences</a></td>
 			</tr>
 		</c:forEach>
 	</table>
