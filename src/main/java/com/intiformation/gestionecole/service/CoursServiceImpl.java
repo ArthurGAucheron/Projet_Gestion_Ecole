@@ -45,6 +45,14 @@ public class CoursServiceImpl implements ICoursService {
 	public List<Cours> findAll() {
 		return coursDAO.getAll();
 	}
+
+	public List<Cours> findCoursEns(Long pIdEns) {
+		return coursDAO.getCoursEns(pIdEns);
+	}
+
+	public List<Cours> findCoursEtu(Long pIdEtu) {
+		return coursDAO.getCoursEtu(pIdEtu);
+	}
 	
 	
 

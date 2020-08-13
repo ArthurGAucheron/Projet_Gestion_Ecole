@@ -42,7 +42,6 @@ public abstract class Personne {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_personne")
-
 	private Long idPersonne;
 
 	@Column(name = "identifiant")

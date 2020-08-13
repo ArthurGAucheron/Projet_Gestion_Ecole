@@ -5,5 +5,7 @@ import com.intiformation.gestionecole.modele.Matiere;
 public interface IMatiereDAO extends IGeneriqueDAO<Matiere> {
 
 
+
+
 }//end interface
 

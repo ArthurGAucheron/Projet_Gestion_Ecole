@@ -22,10 +22,7 @@ import javax.persistence.Table;
 @DiscriminatorValue("ens")
 public class Enseignant extends Personne {
 	
-	
-	
-	@OneToOne(cascade=CascadeType.DETACH)
-	@JoinColumn(name="matiere_id")
+	@OneToOne(mappedBy="enseignant")
 	private Matiere matiere;
 	
 	@ManyToMany(cascade=CascadeType.DETACH)
@@ -43,6 +40,22 @@ public class Enseignant extends Personne {
 
 	public Enseignant(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse) {
 		super(identifiant, motdePasse, nom, prenom, email, adresse);
+	}
+
+	public Matiere getMatiere() {
+		return matiere;
+	}
+
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
+	}
+
+	public List<Promotion> getPromotions() {
+		return promotions;
+	}
+
+	public void setPromotions(List<Promotion> promotions) {
+		this.promotions = promotions;
 	}
 
 
