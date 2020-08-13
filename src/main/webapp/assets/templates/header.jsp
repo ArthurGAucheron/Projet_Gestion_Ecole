@@ -29,14 +29,14 @@
         		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consulter (ense)</a>
        			<div class="dropdown-menu" aria-labelledby="dropdown01">
          		<a class="dropdown-item" href="${pageContext.request.contextPath}/cours/liste">Les cours</a>
-         		<a class="dropdown-item" href="#">Récapulatif des absences</a>
+         		<a class="dropdown-item" href="${pageContext.request.contextPath}/ens/absence">Récapulatif des absences</a>
        			</div>
       		</li>
       		<li class="nav-item dropdown">
         		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer (ense)</a>
        			<div class="dropdown-menu" aria-labelledby="dropdown01">
          		<a class="dropdown-item" href="#">Mes cours</a>
-         		<a class="dropdown-item" href="#">Les absences</a>
+         		<a class="dropdown-item" href="${pageContext.request.contextPath}/ens/absence">Les absences</a>
        			</div>
       		</li>
       		<li class="nav-item"><a class="nav-link" href="#">Mes cours (etu)</a></li>

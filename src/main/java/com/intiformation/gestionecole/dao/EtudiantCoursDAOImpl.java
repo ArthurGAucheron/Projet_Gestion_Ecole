@@ -108,7 +108,7 @@ public class EtudiantCoursDAOImpl implements IEtudiantCoursDAO{
 
 		try {
 
-			Query query = session.createQuery("FROM EtudiantCours");
+			Query query = session.createQuery("FROM EtudiantCours WHERE absence = 1");
 			List<EtudiantCours> listeEtudiantsCoursBdd = query.list();
 			return listeEtudiantsCoursBdd;
 

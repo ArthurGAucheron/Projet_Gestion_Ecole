@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -112,6 +114,18 @@ public class GestionAbsenceController {
 		modelMap.addAttribute("etudiantCoursAttribute", etudiantCours);
 		
 		return "consulter-absences";
+		
+	}//end
+	
+	@RequestMapping(value="/ens/absence", method=RequestMethod.GET)
+	public String envoiListeAbsence(ModelMap modelMap) {
+		
+		List<EtudiantCours> etudiantCours = etudiantCoursService.findAll();
+		etudiantCours = etudiantCours.stream().sorted((e1, e2) -> e1.getCours().getDate().compareTo(e2.getCours().getDate())).collect(Collectors.toList());
+		
+		modelMap.addAttribute("etudiantCoursAttribute", etudiantCours);
+		
+		return "gestion-absences";
 		
 	}//end
 	
