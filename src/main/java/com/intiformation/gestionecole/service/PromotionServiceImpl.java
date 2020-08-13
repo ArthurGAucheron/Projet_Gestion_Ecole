@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.intiformation.gestionecole.dao.IPromotionDAO;
-import com.intiformation.gestionecole.dao.PromotionDAOImpl;
+
 import com.intiformation.gestionecole.modele.Promotion;
 
 @Service

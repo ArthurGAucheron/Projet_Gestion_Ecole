@@ -1,6 +1,6 @@
 package com.intiformation.gestionecole.dao;
 
-import org.springframework.stereotype.Repository;
+
 
 import com.intiformation.gestionecole.modele.Administrateur;
 /**

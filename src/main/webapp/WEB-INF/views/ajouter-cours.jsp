@@ -1,77 +1,116 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Ajouter un cours</title>
+
+<%-- Insertion feuille de style --%>
+<spring:url value="/assets/styles/bootstrap.min.css" var="bootstrapCSS"></spring:url>
+<link href="${bootstrapCSS}" rel="stylesheet">
+
+<spring:url value="/assets/styles/styleperso.css" var="styleperso"></spring:url>
+
+<%-- Insertion JS --%>
+<spring:url value="/assets/scripts/bootstrap.bundle.min.js"
+	var="bootstrapJS"></spring:url>
+<spring:url value="/assets/scripts/jquery-3.5.1.min.js" var="jquery"></spring:url>
+
 </head>
-<body>
+<body class="d-flex flex-column h-100">
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<%--////////////////////////////////////////////////////////////  header ///////////////////////////////////////////////////////////////////////// --%>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<jsp:include page="/assets/templates/header.jsp" />
 
 
-	<br />
-	<br />
-	<div>
-		<h1>Formulaire d'ajout d'un cours</h1>
-	</div>
-	<a href="${pageContext.request.contextPath}/gestion-cours.jsp">Retour à la liste des cours</a>
-	<br />
-	<br />
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<%--/////////////////////////////////////////   Fin de la navbar et début du contenu ////////////////////////////////////////////////////////////// --%>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
 
-	<div align="center">
+	<main role="main" class="flex-shrink-0">
+	<div class="container-fluid" style="padding-top: 100px;">
+		<h1>Ajout d'un cours</h1>
 
-		<form:form modelAttribute="attributCours" method="POST"
-			action="${pageContext.request.contextPath}/cours/add">
-			<table>
-				<tr>
-					<td><form:label path="libelle">Libelle :</form:label></td>
-					<td><form:input path="libelle" /></td>
-					<td><form:errors path="libelle" cssStyle="color:red; font-style:italic;"/></td>
-				</tr>
+		<a href="${pageContext.request.contextPath}/gestion-cours.jsp">Retour à la liste des cours</a>
 
-				<tr>
-					<td><form:label path="date">Date (jj/mm/aaaa ):</form:label></td>
-					<td><form:input path="date" /></td>
-					<td><form:errors path="date" cssStyle="color:red; font-style:italic;"/></td>
-				</tr>
+		<div class="container">
 
-				<tr>
-					<td><form:label path="duree">Durée (en heures):</form:label></td>
-					<td><form:input path="duree" /></td>
-					<td><form:errors path="duree" cssStyle="color:red; font-style:italic;"/></td>
-				</tr>
+			<form:form modelAttribute="attributCours" method="POST"
+				action="${pageContext.request.contextPath}/cours/addcours">
+				<form:errors path="*" cssClass="alert alert-danger" element="div" />
 
-				<tr>
-					<td><form:label path="description">Description :</form:label></td>
-					<td><form:input path="description" /></td>
-					<td><form:errors path="description" cssStyle="color:red; font-style:italic;"/></td>
-				</tr>
-				<tr>
-					<td><form:label path="matiere.idMatiere">Matiere :</form:label></td>
-					<td><form:select path="matiere.idMatiere">
+				<div class="row-form">
+					<div class="form-group col-md-6">
+
+						<form:label path="libelle">Libelle :</form:label>
+						<form:input path="libelle" cssClass="form-control" />
+						<form:errors path="libelle" cssClass="erreurs_validation" />
+
+					</div>
+				</div>
+				<div class="row-form">
+					<div class="form-group col-md-6">
+
+						<form:label path="date">Date (jj/mm/aaaa ):</form:label>
+						<form:input path="date" cssClass="form-control" />
+						<form:errors path="date" cssClass="erreurs_validation" />
+					</div>
+				</div>
+				<div class="row-form">
+					<div class="form-group col-md-6">
+						<form:label path="duree">Durée (en heures):</form:label>
+						<form:input path="duree" cssClass="form-control" />
+						<form:errors path="duree" cssClass="erreurs_validation" />
+					</div>
+				</div>
+
+				<div class="row-form">
+					<div class="form-group col-md-6">
+						<form:label path="description">Description :</form:label>
+						<form:input path="description" cssClass="form-control" />
+						<form:errors path="description" cssClass="erreurs_validation" />
+					</div>
+				</div>
+				<div class="row-form">
+					<div class="form-group col-md-6">
+						<form:label path="matiere.idMatiere">Matiere :</form:label>
+						<form:select path="matiere.idMatiere" cssClass="form-control">
 							<form:options items="${attributMatiere}" itemValue="idMatiere"
 								itemLabel="libelle" />
-						</form:select></td>
+						</form:select>
 
-				</tr>
-				<tr>
-					<td><form:label path="promotion.idPromotion">Promotion :</form:label></td>
-					<td><form:select path="promotion.idPromotion">
+					</div>
+				</div>
+				<div class="row-form">
+					<div class="form-group col-md-6">
+						<form:label path="promotion.idPromotion">Promotion :</form:label>
+						<form:select path="promotion.idPromotion" cssClass="form-control">
 							<form:options items="${attributPromotion}"
 								itemValue="idPromotion" itemLabel="libelle" />
-						</form:select></td>
+						</form:select>
+					</div>
+				</div>
+				<div class="row-form">
+					<div class="form-group col-md-6">
+						<input type="submit" value="Ajouter" class="btn btn-primary mb-2">
+					</div>
+				</div>
+			</form:form>
 
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" value="Ajouter" /></td>
-				</tr>
-			</table>
-		</form:form>
-
+		</div>
 	</div>
+	</main>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<%--////////////////////////////////////////////////////////////   Footer ///////////////////////////////////////////////////////////////////////// --%>
+	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
+	<jsp:include page="/assets/templates/footer.jsp" />
 
-
+	<%-- Scripts JS --%>
+	<script src="${jquery}"></script>
+	<script src="${bootstrapJS}"></script>
 </body>
 </html>

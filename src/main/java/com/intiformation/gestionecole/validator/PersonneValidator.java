@@ -9,8 +9,6 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.intiformation.gestionecole.dao.AdministrateurDAOImpl;
-import com.intiformation.gestionecole.modele.Administrateur;
 import com.intiformation.gestionecole.modele.Personne;
 import com.intiformation.gestionecole.service.AdministrateurServiceImpl;
 
