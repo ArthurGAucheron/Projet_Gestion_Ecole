@@ -22,36 +22,7 @@
 <spring:url value="/assets/scripts/jquery-3.5.1.min.js" var="jquery"></spring:url>
 
 </head>
-<<<<<<< HEAD
-<body>
-<a href="${pageContext.request.contextPath}/formadd/cours">Ajouter un cours</a>
-	<br></br>
-	<table cellpadding="10" cellspacing="10" border="1">
-		<tr>
-			<th>Libelle</th>
-			<th>Date</th>
-			<th>Durée</th>
-			<th>Description</th>
-			<th>Matière</th>
-			<th>Promotion</th>
-		</tr>
-		<c:forEach items="${attribut_liste_cours_bdd}" var="cours">
-			<tr>
-				<td>${cours.libelle}</td>
-				<td>${cours.date} </td>
-				<td>${cours.duree}</td>
-				<td>${cours.description}</td>
-				<td>${cours.matiere.libelle}</td>
-				<td>${cours.promotion.libelle}</td>
-				<td><a href="${pageContext.request.contextPath}/cours/delete/${cours.idCours}">Supprimer</a></td>
-				<td><a href="${pageContext.request.contextPath}/cours/update-cours-form?idCours=${cours.idCours}">Modifier</a></td>
-				<td><a href="${pageContext.request.contextPath}/ens/absence-form?idCours=${cours.idCours}">Gérer les absences</a></td>
-			</tr>
-		</c:forEach>
-	</table>
-	<br></br>
-	<a href="${pageContext.request.contextPath}/index.jsp">Retour à l'index</a>
-=======
+
 <body class="d-flex flex-column h-100">
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
 	<%--////////////////////////////////////////////////////////////  header ///////////////////////////////////////////////////////////////////////// --%>
@@ -59,7 +30,7 @@
 	<jsp:include page="/assets/templates/header.jsp" />
 
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
-	<%--/////////////////////////////////////////   Fin de la navbar et dÃ©but du contenu ////////////////////////////////////////////////////////////// --%>
+	<%--/////////////////////////////////////////    contenu ////////////////////////////////////////////////////////////// --%>
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
 	<main role="main" class="flex-shrink-0">
 	<div class="container-fluid" style="padding-top: 100px">
@@ -79,6 +50,9 @@
 						<th scope="col">Description</th>
 						<th scope="col">MatiÃ¨re</th>
 						<th scope="col">Promotion</th>
+						<th scope="col"></th>
+						<th scope="col"></th>
+						<th scope="col"></th>
 					</tr>
 				</thead>
 				<c:forEach items="${attribut_liste_cours_bdd}" var="coursBDD">
@@ -93,6 +67,7 @@
 							href="${pageContext.request.contextPath}/cours/supp/cours/${coursBDD.idCours}">Supprimer</a></td>
 						<td><a
 							href="${pageContext.request.contextPath}/cours/formodifcours/${coursBDD.idCours}">Modifier</a></td>
+						<td><a href="${pageContext.request.contextPath}/ens/absence-form?idCours=${coursBDD.idCours}">GÃ©rer les absences</a></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -108,6 +83,5 @@
 	<script src="${jquery}"></script>
 	<script src="${bootstrapJS}"></script>
 
->>>>>>> 2ab1d889986998f73bad01de23b97823954967b7
 </body>
 </html>

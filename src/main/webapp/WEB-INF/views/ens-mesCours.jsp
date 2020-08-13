@@ -47,6 +47,7 @@
 						<th scope="col">Description</th>
 						<th scope="col">Matière</th>
 						<th scope="col">Promotion</th>
+						<th scope="col"></th>
 					</tr>
 				</thead>
 				<c:forEach items="${attribut_liste_cours_bdd_ParEns}" var="coursBDD">
@@ -57,7 +58,7 @@
 						<td>${coursBDD.description}</td>
 						<td>${coursBDD.matiere.libelle}</td>
 						<td>${coursBDD.promotion.libelle}</td>
-
+						<td><a href="${pageContext.request.contextPath}/ens/absence-form?idCours=${coursBDD.idCours}">Gérer les absences</a></td>
 					</tr>
 				</c:forEach>
 			</table>

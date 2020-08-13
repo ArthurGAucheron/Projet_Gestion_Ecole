@@ -21,37 +21,6 @@
 		Poitou</a>
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto">
-<<<<<<< HEAD
-			<li class="nav-item dropdown">
-        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer (admin)</a>
-       			<div class="dropdown-menu" aria-labelledby="dropdown01">
-          		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/listeadmin">Le personnel</a>
-          		<a class="dropdown-item" href="${pageContext.request.contextPath}/matieres/liste">Les matières</a>
-         		<a class="dropdown-item" href="${pageContext.request.contextPath}/cours/liste">Les cours</a>
-          		<a class="dropdown-item" href="${pageContext.request.contextPath}/promotions/liste">Les promotions</a>
-         		<a class="dropdown-item" href="${pageContext.request.contextPath}/aide">La page aide</a>
-         		<a class="dropdown-item" href="#">Les absences</a>
-       			</div>
-      		</li>
-      		<li class="nav-item dropdown">
-        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consulter (ense)</a>
-       			<div class="dropdown-menu" aria-labelledby="dropdown01">
-         		<a class="dropdown-item" href="${pageContext.request.contextPath}/cours/liste">Les cours</a>
-         		<a class="dropdown-item" href="${pageContext.request.contextPath}/ens/absence">Récapulatif des absences</a>
-       			</div>
-      		</li>
-      		<li class="nav-item dropdown">
-        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer (ense)</a>
-       			<div class="dropdown-menu" aria-labelledby="dropdown01">
-         		<a class="dropdown-item" href="#">Mes cours</a>
-         		<a class="dropdown-item" href="${pageContext.request.contextPath}/ens/absence">Les absences</a>
-       			</div>
-      		</li>
-      		<li class="nav-item"><a class="nav-link" href="#">Mes cours (etu)</a></li>
-      		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/etu/absence">Mes absences (etu)</a></li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/email">Contact</a></li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/aide">Aide</a></li>
-=======
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="dropdown01"
 				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer
@@ -67,14 +36,14 @@
 						href="${pageContext.request.contextPath}/admin/listepromo">Les
 						promotions</a> <a class="dropdown-item"
 						href="${pageContext.request.contextPath}/aide">La page aide</a> <a
-						class="dropdown-item" href="#">Les absences</a>
+						class="dropdown-item" href="${pageContext.request.contextPath}/ens/absence">Les absences</a>
 				</div></li>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consulter
 					(ens)</a>
 				<div class="dropdown-menu" aria-labelledby="dropdown01">
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/ens/listecours">Les cours</a> 
-						<a class="dropdown-item" href="#">Récapulatif des absences</a>
+						<a class="dropdown-item" href="${pageContext.request.contextPath}/ens/absence">Récapulatif des absences</a>
 				</div></li>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/ens/mesCours" id="dropdown01"
@@ -82,17 +51,16 @@
 					(ens)</a>
 				<div class="dropdown-menu" aria-labelledby="dropdown01">
 					<a class="dropdown-item" href="#">Mes cours</a> <a
-						class="dropdown-item" href="#">Les absences</a>
+						class="dropdown-item" href="${pageContext.request.contextPath}/ens/absence">Les absences</a>
 				</div></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/etu/mesCours">Mes cours
 					(etu)</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Mes
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/etu/absence">Mes
 					absences (etu)</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="${pageContext.request.contextPath}/email">Contact</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="${pageContext.request.contextPath}/emailForm">Aide</a></li>
->>>>>>> 2ab1d889986998f73bad01de23b97823954967b7
 		</ul>
 
 		<ul class="navbar-nav mt-2 mt-md-2" style="align-content: right;">

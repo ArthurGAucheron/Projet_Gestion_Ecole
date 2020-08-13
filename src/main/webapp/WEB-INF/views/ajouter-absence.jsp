@@ -38,7 +38,7 @@
 			<h4>Cours : ${coursAttribute.libelle}</h4>
 			<h4>Promotion : ${promotionAttribute.libelle}</h4>
 			
-			<a href="${pageContext.request.contextPath}/cours/liste">Retour à la liste des cours</a>
+			<a href="${pageContext.request.contextPath}/ens/listecours">Retour à la liste des cours</a>
 
 			<div class="container">
 			<form:form modelAttribute="etudiantCoursAttribute" method="POST" action="${pageContext.request.contextPath}/ens/addabsences">

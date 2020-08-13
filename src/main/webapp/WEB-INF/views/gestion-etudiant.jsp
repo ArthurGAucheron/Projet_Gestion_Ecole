@@ -35,59 +35,6 @@
 
 	<main role="main" class="flex-shrink-0">
 	<div class="container-fluid" style="padding-top: 100px">
-
-<<<<<<< HEAD
-			<h2>Gestion du personnel</h2>
-		      <ul class="nav nav-tabs">
-		      	<li class="nav-item">
-		      		<a class="nav-link" href="${pageContext.request.contextPath}/admin/listeadmin">Administrateurs</a>
-		      	<li>
-		      	<li class="nav-item">
-		      		 <a class="nav-link" href="${pageContext.request.contextPath}/admin/listeenseignant">Enseignants</a>
-		      	<li>
-		      	<li class="nav-item">
-		      	 <a class="nav-link active" href="#">Étudiants</a>
-		      	<li>
-		      </ul>
-		</div>
-		<div class="container" style="padding-top: 30px">
-			<a href="${pageContext.request.contextPath}/admin/formetu">Ajouter un etudiant</a>
-			<br></br>
-			<div class="row col-12">
-				<table class="table">
-					<thead class="thead-dark">
-						<tr>
-							<th>Identifiant</th>
-							<th>Mot de passe</th>
-							<th>Nom</th>
-							<th>Prenom</th>
-							<th>Email</th>
-							<th>Adresse</th>
-							<th>Photo</th>
-							<th>Date de naissance</th>
-							<th>Promotion</th>
-							<th>Supprimer</th>
-							<th>Modifier</th>
-						</tr>
-					</thead>
-					<c:forEach items="${liste_etudiant_attribute}" var="etuBDD">
-						<tr>
-							<td>${etuBDD.identifiant}</td>
-							<td>${etuBDD.motdePasse}</td>
-							<td>${etuBDD.nom}</td>
-							<td>${etuBDD.prenom}</td>
-							<td>${etuBDD.email}</td>
-							<td>${etuBDD.adresse.rue} ${etuBDD.adresse.codePostal} ${etuBDD.adresse.ville}</td>
-							<td><img src="data:image/png;base64,${etuBDD.base64}" height="100px"/></th>
-							<td>${etuBDD.dateNaissance}</td>
-							<td>${etuBDD.promotion.libelle}</td>
-							<td> <a href="${pageContext.request.contextPath}/admin/supp/idetu/${etuBDD.idPersonne}">supprimer</a> </td>
-							<td> <a href="${pageContext.request.contextPath}/admin/formulairemodifetudiant/${etuBDD.idPersonne}">modifier</a> </td>
-						</tr>
-					</c:forEach>
-				</table>
-			</div>
-=======
 		<h2>Gestion du personnel</h2>
 		<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link active"
@@ -96,7 +43,7 @@
 			<li class="nav-item"><a class="nav-link"
 				href="${pageContext.request.contextPath}/admin/listeenseignant">Enseignants</a>
 			<li>
-			<li class="nav-item"><a class="nav-link"
+			<li class="nav-item active"><a class="nav-link"
 				href="${pageContext.request.contextPath}/admin/listeetudiant">Étudiants</a>
 			<li>
 		</ul>
@@ -143,7 +90,6 @@
 					</tr>
 				</c:forEach>
 			</table>
->>>>>>> 2ab1d889986998f73bad01de23b97823954967b7
 		</div>
 	</div>
 	</main>
