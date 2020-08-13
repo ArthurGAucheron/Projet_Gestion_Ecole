@@ -35,34 +35,34 @@
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
 	<%--///////////////////////////////////////////////////////////   Contenu ///////////////////////////////////////////////////////////////////////// --%>
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
-	<main role="main" class="flex-shrink-0">
-		<center>
-		<br></br>	<br></br>	<br></br>
-            <h2>Spring MVC Email Example</h2>
+	<main role="main">
+		<div class="container" style="padding-top: 150 px;">
+		<br/><br/><br/><br/>
+            <h2>Formulaire d'envoie d'un mail</h2>
             <form id="sendEmailForm" method="post" action="sendEmail" enctype="multipart/form-data">
                 <table id="emailFormBeanTable" border="0" width="80%">
                     <tr>
                         <td>Email To: </td>
-                        <td><input id="receiverMail" type="text" name="mailTo" size="65" /></td>
+                        <td><input id="receiverMail" type="text" name="mailTo" size="65" class="form-control"/></td>
                     </tr>
                     <tr>
                         <td>Subject: </td>
-                        <td><input id="mailSubject" type="text" name="subject" size="65" /></td>
+                        <td><input id="mailSubject" type="text" name="subject" size="65" class="form-control"  /></td>
                     </tr>
                     <tr>
                         <td>Message: </td>
-                        <td><textarea id="mailMessage" cols="50" rows="10" name="message"></textarea></td>
+                        <td><textarea id="mailMessage" cols="50" rows="10" name="message" class="form-control"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Attachment: </td>
-                        <td><input id="mailAttachment" type="file" name="attachFileObj" size="60" /></td>
+                        <td>Pièce Jointe: </td>
+                        <td><input class="form-control-file" id="mailAttachment" type="file" name="attachFileObj" size="60" style="margin-top: 10px;"/></td>
                     </tr>
                     <tr>
-                        <td colspan="2" align="center"><input id="sendEmailBtn" type="submit" value="Send Email" /></td>
+                        <td colspan="2" align="center"><input id="sendEmailBtn" type="submit" value="Envoyer" class="btn btn-primary" /></td>
                     </tr>
                 </table>
             </form>
-        </center>
+       	</div>
 	</main>
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
 	<%--////////////////////////////////////////////////////////////   Footer ///////////////////////////////////////////////////////////////////////// --%>
