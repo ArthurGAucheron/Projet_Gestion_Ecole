@@ -41,15 +41,18 @@
 			<a href="${pageContext.request.contextPath}/ens/listecours">Retour à la liste des cours</a>
 
 			<div class="container">
+			<div class="row col-12">
 			<form:form modelAttribute="etudiantCoursAttribute" method="POST" action="${pageContext.request.contextPath}/ens/addabsences">
 				<form:errors path="*" cssClass="alert alert-danger" element="div" />
-					<table>
-						<tr>
-							<th>Nom :</th>
-							<th>Prenom :</th>
-							<th>Absent :</th>
-							<th>Motif :</th>
-						</tr>
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th>Nom :</th>
+								<th>Prenom :</th>
+								<th>Absent :</th>
+								<th>Motif :</th>
+							</tr>
+						</thead>
 						<c:forEach  var="etuCours" items="${etudiantCoursAttribute.etudiantCours}" varStatus="status">
 							<tr>
 								<td>${etuCours.etudiant.nom}</td>
@@ -66,6 +69,7 @@
 						</tr>
 					</table>
 				</form:form>
+			</div>
 			</div>
 		</div>
 	</main>

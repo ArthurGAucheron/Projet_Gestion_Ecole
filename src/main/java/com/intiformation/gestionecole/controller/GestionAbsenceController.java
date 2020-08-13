@@ -117,7 +117,7 @@ public class GestionAbsenceController {
 	public String envoiListeAbsence(ModelMap modelMap) {
 		
 		List<EtudiantCours> etudiantCours = etudiantCoursService.findAll();
-		etudiantCours = etudiantCours.stream().sorted((e1, e2) -> e1.getCours().getDate().compareTo(e2.getCours().getDate())).collect(Collectors.toList());
+		etudiantCours = etudiantCours.stream().sorted((e1, e2) -> e2.getCours().getDate().compareTo(e1.getCours().getDate())).collect(Collectors.toList());
 		
 		modelMap.addAttribute("etudiantCoursAttribute", etudiantCours);
 		
