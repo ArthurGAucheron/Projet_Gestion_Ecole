@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.intiformation.gestionecole.modele.Adresse;
 import com.intiformation.gestionecole.modele.Etudiant;
 import com.intiformation.gestionecole.modele.Promotion;
 import com.intiformation.gestionecole.service.AdresseServiceImpl;
@@ -108,7 +107,7 @@ public class GestionEtudiantController {
 		
 	}//end addEtudiant()
 	
-	@RequestMapping(value="/admin/supp/idetu/{idEtudiant}", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/supp/etu/{idEtudiant}", method=RequestMethod.GET)
 	public String supprimerEtudiant(@PathVariable("idEtudiant") long idEtudiant) {
 		
 		etudiantService.supprimer(idEtudiant);
@@ -124,7 +123,7 @@ public class GestionEtudiantController {
 	 * @param idEtudiant
 	 * @return
 	 */
-	@RequestMapping(value="/admin/formulairemodifetudiant/{idEtudiant}", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/formmodifetu/{idEtudiant}", method=RequestMethod.GET)
 	public ModelAndView modifierEtudiant(@PathVariable("idEtudiant") long idEtudiant) {
 		
 		Etudiant etudiantModif = etudiantService.findById(idEtudiant);

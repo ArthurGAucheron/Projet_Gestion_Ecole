@@ -1,6 +1,6 @@
 package com.intiformation.gestionecole.modele;
 
-import java.util.Arrays;
+
 import java.util.Base64;
 import java.util.Date;
 
