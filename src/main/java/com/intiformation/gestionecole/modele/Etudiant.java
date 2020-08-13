@@ -132,8 +132,13 @@ public class Etudiant extends Personne {
 
 
 	public String getBase64() {
-		return this.base64 = Base64.getEncoder().encodeToString(this.photo);
-	}
+		if (this.photo != null) {
+            return this.base64 = Base64.getEncoder().encodeToString(this.photo);
+        } else {
+            return base64;
+        }
+
+    }
 
 
 	public void setBase64(String base64) {
