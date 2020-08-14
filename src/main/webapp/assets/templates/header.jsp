@@ -22,7 +22,7 @@
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto">
 		
-		<c:if test =  "${role == 'admin'}">
+		<s:authorize access="hasAnyRole('ROLE_ADMIN')">
 			<li class="nav-item dropdown">
         		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer (admin)</a>
        			<div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -34,9 +34,9 @@
          		<a class="dropdown-item" href="#">Les absences</a>
        			</div>       			
       		</li>     	
-      	</c:if>
+      </s:authorize>
       	
-      	<c:if test =  "${role == 'ens'}">
+      <s:authorize access="hasAnyRole('ROLE_ENS')">
       		<li class="nav-item dropdown">
         		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consulter (ense)</a>
        			<div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -51,12 +51,16 @@
          		<a class="dropdown-item" href="#">Les absences</a>
        			</div>
       		</li>
-      	</c:if>
+        </s:authorize>
       	
-      	<c:if test =  "${role == 'etu'}">
+      	 <s:authorize access="hasAnyRole('ROLE_ETU')">
       		<li class="nav-item"><a class="nav-link" href="#">Mes cours (etu)</a></li>
       		<li class="nav-item"><a class="nav-link" href="#">Mes absences (etu)</a></li>
+<<<<<<< HEAD
       	</c:if>
+=======
+      	</s:authorize>
+>>>>>>> 5f495a2e81d6a970964b95bda2f8688c62c24ed3
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/emailForm">Contact</a></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/aide">Aide</a></li>
 		
@@ -68,7 +72,7 @@
   				<a style="color: white; font-weight: bold;" class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Identifiant</a>
 			  <div class="dropdown-menu">
 			   	<a class="dropdown-item" href="#">Mon Compte</a>
-          		<a class="dropdown-item" href="#">Se déconnecter</a>
+          	    <a class="dropdown-item" href="<c:url value='/logout'/>">Se déconnecter</a>
 			  </div>
 			</div>
       		</li>

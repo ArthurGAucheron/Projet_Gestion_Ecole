@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
 
 /**
  * <pre>
@@ -63,7 +65,9 @@ public abstract class Personne {
 	@JoinColumn(name="adresse_id", referencedColumnName="id_adresse")
 	private Adresse adresse;
 	
-
+	@Column(name="actived")
+	@ColumnDefault("1")
+	private boolean actived;
 	/*
 	 * _____________________________________________________ Constructeurs
 	 * _______________________________________________________
@@ -160,6 +164,18 @@ public abstract class Personne {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}
+
+
+
+	public boolean isActived() {
+		return actived;
+	}
+
+
+
+	public void setActived(boolean actived) {
+		this.actived = actived;
 	}
 
 

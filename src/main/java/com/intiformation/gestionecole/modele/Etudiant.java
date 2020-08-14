@@ -22,7 +22,7 @@ import javax.persistence.Transient;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@DiscriminatorValue("etu")
+@DiscriminatorValue("ROLE_ETU")
 @Table(name = "etudiants")
 public class Etudiant extends Personne {
 

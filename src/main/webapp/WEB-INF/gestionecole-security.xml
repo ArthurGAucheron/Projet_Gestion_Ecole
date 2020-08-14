@@ -18,9 +18,9 @@
 	 -->
 	<sec:http auto-config="true" use-expressions="true">
 		
-		<sec:intercept-url pattern="/admin/**" access="hasRole('admin')"/>
-		<sec:intercept-url pattern="/cours/**" access="hasAnyRole('admin', 'ens')"/>
-		<sec:intercept-url pattern="/formadd/cours" access="hasAnyRole('admin', 'ens')"/>
+		<sec:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+		<sec:intercept-url pattern="/cours/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ENS')"/>
+		<sec:intercept-url pattern="/formadd/cours" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ENS')"/>
 	
 		<!-- ================== Formulaire personnalisé ================= -->
 		<!-- 
@@ -74,6 +74,7 @@
 		 -->
 		<sec:csrf disabled="true"/>
 		
+	
 	</sec:http>
 	
 	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -92,35 +93,19 @@
 	mdp student : 789
 	 -->
 	
+	
+	
+	
+
 	<sec:authentication-manager>
 		<sec:authentication-provider>
 			<sec:password-encoder hash="bcrypt"/>
-			<sec:user-service>
-				<sec:user name="admin" 
-						password="$2a$10$7AvBMWiQucCy8RR2gdX2Nu2lBwUxPuWt5jNy5GdYxfreOnRJoC1CC" 
-						authorities="admin"/>
-				<sec:user name="teacher" 
-						password="$2a$10$LSxkWRLQ1b75EJzn0GFwreoP.wP0.SkIFGfsBD7eHqPfPgEu2z5ae" 
-						authorities="ens"/>
-				<sec:user name="student" 
-						password="$2a$10$lsnbD460MMJcxB2nLxXwrec9lNr/vCOnaMyUk1JLLdTfylpIbP6zu" 
-						authorities="etu"/>
-			</sec:user-service>
-		</sec:authentication-provider>
-	</sec:authentication-manager>
-	
-	
-	
-	<!-- 
-	<sec:authentication-manager>
-		<sec:authentication-provider>
-			<sec:password-encoder hash="bcrypt"/>
-			<sec:jdbc-user-service data-source-ref="datasourceBean" 
-								   users-by-username-query="SELECT type_personne, email, identifiant, mote_de_passe, nom, prenom FROM personnes WHERE identifiant =?"
+			<sec:jdbc-user-service data-source-ref="dataSourceBean" 
+								   users-by-username-query="SELECT identifiant, mote_de_passe, actived FROM personnes WHERE identifiant =?"
 								   authorities-by-username-query="SELECT identifiant, type_personne FROM personnes WHERE identifiant =?"/>
 		</sec:authentication-provider>
 	</sec:authentication-manager>
-	 -->
+	
 	
 	
 	
