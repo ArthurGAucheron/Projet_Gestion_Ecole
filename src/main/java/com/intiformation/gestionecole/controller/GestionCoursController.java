@@ -4,9 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
 
-
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.ModelMap;
@@ -23,9 +26,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.intiformation.gestionecole.modele.Cours;
+import com.intiformation.gestionecole.modele.Enseignant;
+import com.intiformation.gestionecole.modele.Etudiant;
 import com.intiformation.gestionecole.modele.Matiere;
 import com.intiformation.gestionecole.modele.Promotion;
 import com.intiformation.gestionecole.service.CoursServiceImpl;
+import com.intiformation.gestionecole.service.EnseignantServiceImpl;
+import com.intiformation.gestionecole.service.EtudiantServiceImpl;
 import com.intiformation.gestionecole.service.MatiereServiceImpl;
 import com.intiformation.gestionecole.service.PromotionServiceImpl;
 import com.intiformation.gestionecole.validator.CoursValidator;
@@ -39,6 +46,12 @@ public class GestionCoursController {
 	public void setCoursService(CoursServiceImpl coursService) {
 		this.coursService = coursService;
 	}
+	
+	@Autowired 
+	EnseignantServiceImpl enseignantService = new EnseignantServiceImpl();
+	
+	@Autowired 
+	EtudiantServiceImpl etudiantService = new EtudiantServiceImpl();
 
 	// declaration du validator
 	@Autowired
@@ -78,7 +91,14 @@ public class GestionCoursController {
 	@RequestMapping(value = "/etu/mesCours", method = RequestMethod.GET)
 	public String recupererListeCoursParEtu(ModelMap model) {
 
-		Long pIdEtu = (long) 5 /*à récuperer comme attribut de session;*/;
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		  String identifiant = ((UserDetails)principal).getUsername();
+		
+		Etudiant etu = etudiantService.findIdentite(identifiant);
+	System.out.println(etu.getNom() + etu.getIdentifiant() + etu.getIdPersonne());
+		
+		Long pIdEtu = etu.getIdPersonne();
 		List<Cours> listeCoursEtu = coursService.findCoursEtu(pIdEtu);
 
 		model.addAttribute("attribut_liste_cours_bdd_ParEtu", listeCoursEtu);
@@ -89,8 +109,19 @@ public class GestionCoursController {
 	
 	@RequestMapping(value ="/ens/mesCours", method = RequestMethod.GET)
 	public String recupererListeCoursParEns(ModelMap model) {
-
-		Long pIdEns = (long) 1 /*à récuperer comme attribut de session;*/;
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		
+		  String identifiant = ((UserDetails)principal).getUsername();
+		  String mdp = ((UserDetails)principal).getPassword();
+		System.out.println(identifiant + mdp + principal.getClass() ); 
+		  
+		Enseignant ens = enseignantService.findIdentite(identifiant);
+		System.out.println(ens);
+		
+		Long pIdEns = ens.getIdPersonne();
+		
 		List<Cours> listeCoursEns = coursService.findCoursEns(pIdEns);
 
 		model.addAttribute("attribut_liste_cours_bdd_ParEns", listeCoursEns);

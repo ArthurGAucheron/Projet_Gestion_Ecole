@@ -49,4 +49,9 @@ public class EtudiantServiceImpl implements IEtudiantService {
 		return etudiantDAO.getAllEtudiantsOfAPromotion(pIdPromo);
 	}
 
+	@Override
+	public Etudiant findIdentite(String pIdentifiant) {
+		return etudiantDAO.getIdentite(pIdentifiant);
+	}
+
 }

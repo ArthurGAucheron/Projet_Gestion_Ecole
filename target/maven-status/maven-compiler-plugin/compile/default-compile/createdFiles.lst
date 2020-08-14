@@ -54,6 +54,7 @@ com\intiformation\gestionecole\controller\GestionAdministrateurController.class
 com\intiformation\gestionecole\dao\IAdresseDAO.class
 com\intiformation\gestionecole\modele\Aide.class
 com\intiformation\gestionecole\mail\EmailController$1.class
+com\intiformation\gestionecole\cryptage\PasswordEncoderGenerator.class
 com\intiformation\gestionecole\dao\AdministrateurDAOImpl.class
 com\intiformation\gestionecole\modele\Matiere.class
 com\intiformation\gestionecole\service\AdresseServiceImpl.class
