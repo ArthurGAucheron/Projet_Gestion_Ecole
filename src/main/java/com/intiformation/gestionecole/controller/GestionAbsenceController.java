@@ -12,6 +12,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -137,10 +138,10 @@ public class GestionAbsenceController {
 	}//end
 	
 	
-	@RequestMapping(value="/etu/absence", method=RequestMethod.GET)
-	public String envoiListeAbsenceParEleve(ModelMap modelMap) {
+	@RequestMapping(value="/etu/absence/{idEtudiant}", method=RequestMethod.GET)
+	public String envoiListeAbsenceParEleve(@PathVariable("idEtudiant") long idEtudiant, ModelMap modelMap) {
 		
-		List<EtudiantCours> etudiantCours = etudiantCoursService.findAllByEtudiantId(5L);
+		List<EtudiantCours> etudiantCours = etudiantCoursService.findAllByEtudiantId(idEtudiant);
 		
 		modelMap.addAttribute("etudiantCoursAttribute", etudiantCours);
 		
