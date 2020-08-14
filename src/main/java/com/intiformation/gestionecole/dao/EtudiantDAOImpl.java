@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import com.intiformation.gestionecole.modele.Enseignant;
 import com.intiformation.gestionecole.modele.Etudiant;
 
 @Repository
@@ -125,7 +125,21 @@ public class EtudiantDAOImpl implements IEtudiantDAO {
 
 	}//end getAll() - étudiant
 
+	@Override
+	@Transactional(readOnly=true)
+	public Etudiant getIdentite(String pIdentifiant) {
+		try {
+			Session session = this.sessionFactory.getCurrentSession();
+			Query query = session.createQuery("FROM Personne WHERE identifiant = :p_identifiant");
+			query.setParameter("p_identifiant", pIdentifiant);
+			Etudiant etu = (Etudiant) query.uniqueResult();
+			return etu;
+		} catch (Exception e) {
 
+			System.out.println("(EtudiantDAOImpl) Erreur lors de la recupération de l'identité de l'etudiant dans la BDD  ...........;");
+			throw e;
+		} // end catch
+	}//end getIdentite
 
 	@Override
 	@Transactional(readOnly=true)

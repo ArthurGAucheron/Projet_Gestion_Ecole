@@ -9,9 +9,11 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -138,9 +140,13 @@ public class GestionAbsenceController {
 	
 	
 	@RequestMapping(value="/etu/absence", method=RequestMethod.GET)
-	public String envoiListeAbsenceParEleve(ModelMap modelMap) {
+	public String envoiListeAbsenceParEleve(Authentication authentication , ModelMap modelMap) {
 		
-		List<EtudiantCours> etudiantCours = etudiantCoursService.findAllByEtudiantId(5L);
+		String identifiant = authentication.getName();
+		
+		Etudiant etudiant = etudiantService.findIdentite(identifiant);
+		
+		List<EtudiantCours> etudiantCours = etudiantCoursService.findAllByEtudiantId(etudiant.getIdPersonne());
 		
 		modelMap.addAttribute("etudiantCoursAttribute", etudiantCours);
 		

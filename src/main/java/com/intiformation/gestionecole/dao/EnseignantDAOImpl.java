@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.intiformation.gestionecole.modele.Enseignant;
+import com.intiformation.gestionecole.modele.Matiere;
 
 /**
  * 
@@ -97,4 +98,20 @@ public class EnseignantDAOImpl implements IEnseignantDAO {
 		}
 		
 	}// end getAll
+
+	@Override
+	@Transactional(readOnly=true)
+	public Enseignant getIdentite(String pIdentifiant) {
+		try {
+			Session session = this.sessionFactory.getCurrentSession();
+			Query query = session.createQuery("FROM Personne WHERE identifiant = :p_identifiant");
+			query.setParameter("p_identifiant", pIdentifiant);
+			Enseignant ens = (Enseignant) query.uniqueResult();
+			return ens;
+		} catch (Exception e) {
+
+			System.out.println("(EnseignantDAOImpl) Erreur lors de la recupération de l'identité de l'enseignant dans la BDD  ...........;");
+			throw e;
+		} // end catch
+	}//end getIdentite
 }// end class

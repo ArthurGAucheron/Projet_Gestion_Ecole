@@ -42,5 +42,10 @@ public class EnseignantServiceImpl implements IEnseignantService {
 	public List<Enseignant> findAll() {
 		return enseignantDAO.getAll();
 	}
+	
+	@Override
+	public Enseignant findIdentite(String pIdentifiant) {
+		return enseignantDAO.getIdentite(pIdentifiant);
+	}
 
 }// end class
