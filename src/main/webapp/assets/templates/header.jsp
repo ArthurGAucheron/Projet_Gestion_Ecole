@@ -26,10 +26,10 @@
 			<li class="nav-item dropdown">
         		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer (admin)</a>
        			<div class="dropdown-menu" aria-labelledby="dropdown01">
-          		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/listeadmin">Le personnel</a>
-          		<a class="dropdown-item" href="${pageContext.request.contextPath}/matieres/liste">Les matières</a>
-         		<a class="dropdown-item" href="${pageContext.request.contextPath}/cours/liste">Les cours</a>
-          		<a class="dropdown-item" href="${pageContext.request.contextPath}/promotions/liste">Les promotions</a>
+          		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/gestionpersonnel">Le personnel</a>
+          		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/listemat">Les matières</a>
+         		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/listecours">Les cours</a>
+          		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/listepromo">Les promotions</a>
          		<a class="dropdown-item" href="${pageContext.request.contextPath}/aide">La page aide</a>
          		<a class="dropdown-item" href="#">Les absences</a>
        			</div>       			
@@ -38,29 +38,27 @@
       	
       <s:authorize access="hasAnyRole('ROLE_ENS')">
       		<li class="nav-item dropdown">
-        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consulter (ense)</a>
+        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consulter (ens)</a>
        			<div class="dropdown-menu" aria-labelledby="dropdown01">
-         		<a class="dropdown-item" href="${pageContext.request.contextPath}/cours/liste">Les cours</a>
+         		<a class="dropdown-item" href="${pageContext.request.contextPath}/ens/listecours">Les cours</a>
          		<a class="dropdown-item" href="#">Récapulatif des absences</a>
        			</div>
       		</li>
       		<li class="nav-item dropdown">
-        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer (ense)</a>
+        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer (ens)</a>
        			<div class="dropdown-menu" aria-labelledby="dropdown01">
-         		<a class="dropdown-item" href="#">Mes cours</a>
-         		<a class="dropdown-item" href="#">Les absences</a>
+         		<a class="dropdown-item" href="${pageContext.request.contextPath}/ens/mesCours">Mes cours</a>
+         		<a class="dropdown-item" href="">Les absences</a>
        			</div>
       		</li>
         </s:authorize>
       	
       	 <s:authorize access="hasAnyRole('ROLE_ETU')">
-      		<li class="nav-item"><a class="nav-link" href="#">Mes cours (etu)</a></li>
-      		<li class="nav-item"><a class="nav-link" href="#">Mes absences (etu)</a></li>
-<<<<<<< HEAD
-      	</c:if>
-=======
+      		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/etu/mesCours">Mes cours (etu)</a></li>
+      		<li class="nav-item"><a class="nav-link" href="">Mes absences (etu)</a></li>
+
       	</s:authorize>
->>>>>>> 5f495a2e81d6a970964b95bda2f8688c62c24ed3
+
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/emailForm">Contact</a></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/aide">Aide</a></li>
 		
