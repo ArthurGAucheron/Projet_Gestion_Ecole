@@ -48,7 +48,6 @@ public class PersonneValidator implements Validator {
 			String regex = "^(.+)@(.+)$";
 			Pattern pattern = Pattern.compile(regex);
 			Matcher matcher = pattern.matcher(personne.getEmail());
-			System.out.println(" le pattern est : " + matcher.matches());
 
 			if (matcher.matches() == false) {
 				errors.rejectValue("email", "pattern.email", "Le format de l'adresse email est incorrecte");

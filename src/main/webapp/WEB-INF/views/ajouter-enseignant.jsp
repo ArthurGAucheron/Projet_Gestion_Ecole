@@ -83,6 +83,12 @@
 			</div>
 		</div>
 		<div class="row-form">
+					<div class="form-group col-md-6">
+						<form:label path="actived">Activer le compte</form:label>
+						<form:checkbox path="actived"/>
+					</div>
+		</div>
+		<div class="row-form">
 			<div class="form-group col-md-6" >
 				<input type="submit" value="Ajouter" class="btn btn-primary mb-2">
 			</div>

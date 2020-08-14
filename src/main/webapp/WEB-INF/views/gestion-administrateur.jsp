@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -52,23 +53,26 @@
 	<div class="row col-12">
 	<table class="table">
 		<thead class="thead-dark">
-		<tr>
+		<tr >
 			<th scope="col">Identifiant</th>
 			<th scope="col">Nom</th>
 			<th scope="col">Prenom</th>
 			<th scope="col">Email</th>
 			<th scope="col">Adresse</th>
+			<th scope="col">Validité</th>
 			<th scope="col">Supprimer</th>
 			<th scope="col">Modifier</th>
+			
 		</tr>
 		</thead>
 		<c:forEach items="${attribut_liste_admin_bdd}" var="adminBDD">
-			<tr>
+			<tr >
 				<td>${adminBDD.identifiant}</td>
 				<td>${adminBDD.nom}</td>
 				<td>${adminBDD.prenom}</td>
 				<td>${adminBDD.email}</td>
 				<td>${adminBDD.adresse.rue} ${adminBDD.adresse.codePostal} ${adminBDD.adresse.ville}</td>
+				<td align="center"><input type="checkbox" class="form-check-input" disabled="disabled" checked="${adminBDD.actived}" /></td>
 				<td><a href="${pageContext.request.contextPath}/admin/supp/admin/${adminBDD.idPersonne}">Supprimer</a></td>
 				<td><a href="${pageContext.request.contextPath}/admin/formmodifadmin/${adminBDD.idPersonne}">Modifier</a></td>
 			</tr>

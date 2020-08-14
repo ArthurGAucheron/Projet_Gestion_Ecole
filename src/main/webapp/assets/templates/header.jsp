@@ -24,7 +24,7 @@
 		
 		<s:authorize access="hasAnyRole('ROLE_ADMIN')">
 			<li class="nav-item dropdown">
-        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer (admin)</a>
+        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer</a>
        			<div class="dropdown-menu" aria-labelledby="dropdown01">
           		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/listeadmin">Le personnel</a>
           		<a class="dropdown-item" href="${pageContext.request.contextPath}/matieres/liste">Les matières</a>
@@ -38,14 +38,14 @@
       	
       <s:authorize access="hasAnyRole('ROLE_ENS')">
       		<li class="nav-item dropdown">
-        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consulter (ense)</a>
+        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consulter</a>
        			<div class="dropdown-menu" aria-labelledby="dropdown01">
          		<a class="dropdown-item" href="${pageContext.request.contextPath}/cours/liste">Les cours</a>
          		<a class="dropdown-item" href="#">Récapulatif des absences</a>
        			</div>
       		</li>
       		<li class="nav-item dropdown">
-        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer (ense)</a>
+        		<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gérer</a>
        			<div class="dropdown-menu" aria-labelledby="dropdown01">
          		<a class="dropdown-item" href="#">Mes cours</a>
          		<a class="dropdown-item" href="#">Les absences</a>
@@ -54,8 +54,8 @@
         </s:authorize>
       	
       	 <s:authorize access="hasAnyRole('ROLE_ETU')">
-      		<li class="nav-item"><a class="nav-link" href="#">Mes cours (etu)</a></li>
-      		<li class="nav-item"><a class="nav-link" href="#">Mes absences (etu)</a></li>
+      		<li class="nav-item"><a class="nav-link" href="#">Mes cours</a></li>
+      		<li class="nav-item"><a class="nav-link" href="#">Mes absences</a></li>
       	</s:authorize>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/emailForm">Contact</a></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/aide">Aide</a></li>
@@ -73,12 +73,6 @@
 			</div>
       		</li>
 		</ul>
-		
-		<%-- access : une condition sur le role de l'utilisateur --%>
-		<s:authorize access="hasAnyRole('ens', 'admin', 'etu')">
-			<%-- déja connecté => bouton se déconnecter --%>
-			<a href="<c:url value='/logout'/>">Se déconnecter</a>
-		</s:authorize>
 		
 
 		

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -47,6 +48,8 @@ public class GestionAdministrateurController {
 	public void setPersonneValidator(PersonneValidator personneValidator) {
 		this.personneValidator = personneValidator;
 	}
+	
+	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 	@RequestMapping(value="/admin/listeadmin" , method=RequestMethod.GET)
 	public String recupererListAdmin(ModelMap model) {
@@ -84,6 +87,7 @@ public class GestionAdministrateurController {
 			return "ajouter-admin";
 			
 		}else {
+			pAdmin.setMotdePasse(passwordEncoder.encode(pAdmin.getMotdePasse()));
 			adminService.ajouter(pAdmin);
 			
 			return "redirect:/admin/listeadmin";

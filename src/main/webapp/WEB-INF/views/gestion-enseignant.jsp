@@ -61,6 +61,7 @@
 			<th scope="col">Prenom</th>
 			<th scope="col">Email</th>
 			<th scope="col">Adresse</th>
+			<th scope="col">Validité</th>
 			<th scope="col">Supprimer</th>
 			<th scope="col">Modifier</th>
 		</tr>
@@ -72,6 +73,7 @@
 				<td>${ensBDD.prenom}</td>
 				<td>${ensBDD.email}</td>
 				<td>${ensBDD.adresse.rue} ${ensBDD.adresse.codePostal} ${ensBDD.adresse.ville} </td>
+				<td align="center"><input type="checkbox" class="form-check-input" disabled="disabled" checked="${ensBDD.actived}" /></td>
 				<td><a href="${pageContext.request.contextPath}/admin/supp/ens/${ensBDD.idPersonne}">Supprimer</a></td>
 				<td><a href="${pageContext.request.contextPath}/admin/formmodifens/${ensBDD.idPersonne}">Modifier</a></td>
 			</tr>
