@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+
+	<!-- //////////////////////////////////////////////////// -->
+	<!-- 1. Authentifiacation avec un formulaire personnalisé -->
+	<!-- //////////////////////////////////////////////////// -->
+		
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- ++++++++++++++ 1.1 Strategie de sécurité +++++++++++++ -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- 
+		> ROLE_ANONYMOUS : rôle attribué à l'utilisateur qui n'est pas encore authentifié.
+	 -->
+	<sec:http auto-config="true" use-expressions="true">
+		
+		<sec:intercept-url pattern="/admin/**" access="hasRole('admin')"/>
+		<sec:intercept-url pattern="/cours/**" access="hasAnyRole('admin', 'ens')"/>
+		<sec:intercept-url pattern="/formadd/cours" access="hasAnyRole('admin', 'ens')"/>
+	
+		<!-- ================== Formulaire personnalisé ================= -->
+		<!-- 
+			> config de la balise form-login et ses ettributs :
+			
+				-> login-page : url qui affiche notre formulaire d'authentification	
+				
+				-> default-target-url : url vers laquelle le user est redirigé si l'authentification a réussi
+	 
+	 			-> authentication-failure-url : url vers laquelle le user est redirigé si l'authentification a échoué
+	 											redirection vers la page du formulaire avec passage d'un param nommé 'error=true'
+	 			
+	 			-> login-processing-url : url sur laquelle spring security attend des params d'authentification
+	 									  par défaut '/login'
+	 									  c'est l'url pointée dans l'attribut 'action' de la page login.jsp
+	 	
+	 			-> username-parameter / password-parameter : nom des params de la requete (attributs name)
+	 														 de la page login.jsp
+	 	-->
+		<sec:form-login login-page="/login.jsp"
+						default-target-url="/index.jsp"
+						authentication-failure-url="/login.jsp?error=true"
+						login-processing-url="/login"
+						username-parameter="identifiant"
+						password-parameter="password"/>
+						
+		
+		<!-- +++++++++++++++++++ Déconnection de l'utilisateur +++++++++++++++++++ -->
+		<!-- 
+			> par défaut, l'url de déconnection est '/logout' 
+			
+			> attributs de la balise 'logout' : 
+			
+				-> logout-success-url : url vers laquelle le user est redirigé après déconnection.
+										redirection vers la page 'login.jsp' avec passage d'un param
+										nommé 'logout_message=true'
+										
+				-> logout-url : url de déconnection
+				
+				-> invalidate-session : destruction de la session http 				
+		 -->
+		 <sec:logout logout-success-url="/login.jsp?logout_message=true"
+		 			 logout-url="/logout"
+		 			 invalidate-session="true"/>
+		
+		<!-- +++++++++++++++++++ Protection contre les attaques CSRF +++++++++++++++++++ -->
+		<!-- 
+				> CSRF : Cross Site Request Forgery
+				> par défaut, la protéction est activée
+				> activation / desactivation : => la balise csrf
+		 -->
+		<sec:csrf disabled="true"/>
+		
+	</sec:http>
+	
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- ++++++++++++++ 1.2. Définition des utilisateurs autorisés avec leurs rôles +++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	 
+	 <!-- ********************************************* -->
+	 <!-- ******** 1.2.1 Utilisation d'une bdd ******** -->
+	 <!-- ********************************************* -->
+	 	
+	
+	<!-- 
+	mdp admin : 123
+	mdp teacher : abc
+	mdp student : 789
+	 -->
+	
+	<sec:authentication-manager>
+		<sec:authentication-provider>
+			<sec:password-encoder hash="bcrypt"/>
+			<sec:user-service>
+				<sec:user name="admin" 
+						password="$2a$10$7AvBMWiQucCy8RR2gdX2Nu2lBwUxPuWt5jNy5GdYxfreOnRJoC1CC" 
+						authorities="admin"/>
+				<sec:user name="teacher" 
+						password="$2a$10$LSxkWRLQ1b75EJzn0GFwreoP.wP0.SkIFGfsBD7eHqPfPgEu2z5ae" 
+						authorities="ens"/>
+				<sec:user name="student" 
+						password="$2a$10$lsnbD460MMJcxB2nLxXwrec9lNr/vCOnaMyUk1JLLdTfylpIbP6zu" 
+						authorities="etu"/>
+			</sec:user-service>
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+	
+	
+	
+	<!-- 
+	<sec:authentication-manager>
+		<sec:authentication-provider>
+			<sec:password-encoder hash="bcrypt"/>
+			<sec:jdbc-user-service data-source-ref="datasourceBean" 
+								   users-by-username-query="SELECT type_personne, email, identifiant, mote_de_passe, nom, prenom FROM personnes WHERE identifiant =?"
+								   authorities-by-username-query="SELECT identifiant, type_personne FROM personnes WHERE identifiant =?"/>
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+	 -->
+	
+	
+	
+ 
+	
+</beans>
+
+
+
+
+
+
+
+
+
+
+
