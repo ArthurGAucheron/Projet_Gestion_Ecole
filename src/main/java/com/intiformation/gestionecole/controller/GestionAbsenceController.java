@@ -129,7 +129,7 @@ public class GestionAbsenceController {
 			}
 			
 			
-			
+		
 		}
 		
 		return "redirect:/ens/absence";

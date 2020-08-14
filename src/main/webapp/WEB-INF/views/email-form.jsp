@@ -38,7 +38,7 @@
 	<main role="main">
 		<div class="container" style="padding-top: 150 px;">
 		<br/><br/><br/><br/>
-            <h2>Formulaire d'envoie d'un mail</h2>
+            <h2>Formulaire d'envoi d'un mail</h2>
             <form id="sendEmailForm" method="post" action="sendEmail" enctype="multipart/form-data">
                 <table id="emailFormBeanTable" border="0" width="80%">
                     <tr>
