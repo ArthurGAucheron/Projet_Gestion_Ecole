@@ -19,7 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "enseignants")
-@DiscriminatorValue("ens")
+@DiscriminatorValue("ROLE_ENS")
 public class Enseignant extends Personne {
 	
 	@OneToOne(mappedBy="enseignant")

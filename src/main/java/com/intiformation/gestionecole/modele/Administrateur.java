@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="administrateurs")
-@DiscriminatorValue("admin")
+@DiscriminatorValue("ROLE_ADMIN")
 public class Administrateur extends Personne{
 
 	/*________________________________________________________ Propriétés _______________________________________________________*/
