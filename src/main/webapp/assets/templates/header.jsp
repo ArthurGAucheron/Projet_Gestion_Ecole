@@ -58,7 +58,7 @@
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/etu/absence">Mes
 					absences (etu)</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="${pageContext.request.contextPath}/emailFrom">Contact</a></li>
+				href="${pageContext.request.contextPath}/emailForm">Contact</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="${pageContext.request.contextPath}/aide">Aide</a></li>
 		</ul>

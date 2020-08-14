@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -58,7 +60,12 @@ public class GestionAbsenceController {
 		this.etudiantCoursService = etudiantCoursService;
 	}
 
-
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	public void setMailSender(JavaMailSender mailSender) {
+		this.mailSender = mailSender;
+	}
 
 
 	@RequestMapping(value="/ens/absence-form", method=RequestMethod.GET)
@@ -93,8 +100,36 @@ public class GestionAbsenceController {
 	public String enregistrerAbsence(@ModelAttribute("etudiantCoursAttribute") EtudiantCoursListContainer container) {
 		
 		List<EtudiantCours> etudiantCours = container.getEtudiantCours();
+		SimpleMailMessage message = new SimpleMailMessage();
+		String destinataire;
+		String objet;
+		String messageText;
+		
+		
 		for (EtudiantCours etuCours : etudiantCours) {
 			etudiantCoursService.modifier(etuCours);
+			
+			if (etuCours.isAbsence()==true) {
+				destinataire = "gestionecole.inti@gmail.com";  // email de l'étudiant pour la démo on utilise 'gestionecole.inti@gmail.com'
+				message.setTo(destinataire);
+			
+				Etudiant etudiantAbsent = etudiantService.findById(etuCours.getIdEtudiantsCours());
+				Cours coursAbsent = coursService.findById(etuCours.getCours().getIdCours());
+				
+				objet = "Absence au cours : " + coursAbsent.getLibelle();
+				message.setSubject(objet);
+				
+				messageText = "Bonjour " + etudiantAbsent.getNom() + " " + etudiantAbsent.getPrenom() + "\n" +
+							   "Nous vous informons que vous avez été absent pour le cours  '" +  coursAbsent.getLibelle() + "' à la date du " + 
+							   coursAbsent.getDate() + "\n Cordialement la direction de l'Université du Poitou";
+				
+				message.setText(messageText);
+				
+				this.mailSender.send(message);
+			}
+			
+			
+			
 		}
 		
 		return "redirect:/ens/absence";
