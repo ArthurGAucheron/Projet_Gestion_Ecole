@@ -3,6 +3,9 @@
     <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
     <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%-- taglibs s de spring security --%>
+	<%@taglib prefix="s" uri="http://www.springframework.org/security/tags" %>    
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,7 +37,7 @@
       <h2>Page Aide</h2>
       <div class="container" style="padding-top: 30px">
 	 <div class="row col-12">
-	
+	<s:authorize access="hasAnyRole('ROLE_ADMIN')">
 	<form:form modelAttribute="AttributAideAjout"  method="POST"  action="${pageContext.request.contextPath}/aide/admin/add" cssStyle="border : 1px solid black; padding : 5px" >
 		<form:errors path="*" cssClass="erreurs_validation" element="div" />
 	
@@ -50,6 +53,7 @@
 				<input type="submit" value="Ajouter une aide" class="btn btn-outline-dark">
 			</div>
 	  </form:form>
+	  </s:authorize>
 	  </div>
 	  <br></br>
 	  
@@ -59,16 +63,20 @@
 		<tr>
 			<th scope="col">Page</th>
 			<th scope="col">Aide</th>
+			<s:authorize access="hasAnyRole('ROLE_ADMIN')">
 			<th scope="col">Supprimer</th>
 			<th scope="col">Modifier</th>
+			</s:authorize>
 		</tr>
 		</thead>
 		<c:forEach items="${attributAide}"   var="aide">
 			<tr>
 				<td>${aide.pageLibelle}</td>
 				<td>${aide.contenu}</td>
+				<s:authorize access="hasAnyRole('ROLE_ADMIN')">
 				<td><a href="${pageContext.request.contextPath}/aide/admin/delete/${aide.idAide}">Supprimer</a></td>
 				<td><a href="${pageContext.request.contextPath}/aide/admin/update/${aide.idAide}">Modifier</a></td>
+				</s:authorize>
 			</tr>
 		</c:forEach>
 	</table>
