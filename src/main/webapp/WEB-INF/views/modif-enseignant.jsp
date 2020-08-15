@@ -45,7 +45,7 @@
 				<div class="row-form">
 					<div class="form-group col-md-6">
 						<form:label path="motdePasse">Mot de passe</form:label>
-						<form:password path="motdePasse" cssClass="form-control" />
+						<form:password path="motdePasse"  showPassword="true" cssClass="form-control" />
 
 					</div>
 				</div>

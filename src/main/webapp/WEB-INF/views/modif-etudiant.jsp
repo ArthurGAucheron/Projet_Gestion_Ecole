@@ -52,7 +52,7 @@
 					</tr>
 					<tr>
 						<td><form:label path="motdePasse">Mot de passe : </form:label></td>
-						<td><form:password path="motdePasse" /></td>
+						<td><form:password path="motdePasse" showPassword="true"/></td>
 					</tr>
 					<tr>
 						<td><form:label path="nom">Nom : </form:label></td>
