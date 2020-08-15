@@ -33,10 +33,13 @@
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
 	<main role="main" class="flex-shrink-0">
 	<div class="container-fluid" style="padding-top: 100px">
-		<h2>Mes cours (enseignant)</h2>
+		<h2>Mes cours</h2>
 	</div>
 
 	<div class="container" style="padding-top: 30px">
+	<a class="btn btn-outline-dark"
+			href="${pageContext.request.contextPath}/cours/formcours"
+			role="button">Ajouter un cours</a> <br></br>
 		<div class="row col-12">
 			<table class="table">
 				<thead class="thead-dark">
@@ -48,6 +51,8 @@
 						<th scope="col">Matière</th>
 						<th scope="col">Promotion</th>
 						<th scope="col"></th>
+						<th scope="col"></th>
+						<th scope="col"></th>
 					</tr>
 				</thead>
 				<c:forEach items="${attribut_liste_cours_bdd_ParEns}" var="coursBDD">
@@ -58,6 +63,10 @@
 						<td>${coursBDD.description}</td>
 						<td>${coursBDD.matiere.libelle}</td>
 						<td>${coursBDD.promotion.libelle}</td>
+							<td><a
+							href="${pageContext.request.contextPath}/cours/supp/${coursBDD.idCours}">Supprimer</a></td>
+						<td><a
+							href="${pageContext.request.contextPath}/cours/formmodifcours/${coursBDD.idCours}">Modifier</a></td>
 						<td><a href="${pageContext.request.contextPath}/ens/absence-form?idCours=${coursBDD.idCours}">Gérer les absences</a></td>
 					</tr>
 				</c:forEach>
