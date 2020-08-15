@@ -55,8 +55,8 @@
         </s:authorize>
       	
       	 <s:authorize access="hasAnyRole('ROLE_ETU')">
-      		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/etu/mesCours">Mes cours (etu)</a></li>
-      		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/etu/absence">Mes absences (etu)</a></li>
+      		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/etu/mesCours">Mes cours</a></li>
+      		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/etu/absence">Mes absences</a></li>
       	</s:authorize>
 
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/emailForm">Contact</a></li>

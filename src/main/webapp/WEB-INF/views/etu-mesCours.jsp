@@ -33,13 +33,10 @@
 	<%--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --%>
 	<main role="main" class="flex-shrink-0">
 	<div class="container-fluid" style="padding-top: 100px">
-		<h2>Mes cours (étudiant)</h2>
+		<h2>Mes cours</h2>
 	</div>
 
 	<div class="container" style="padding-top: 30px">
-		<a class="btn btn-outline-dark"
-			href="${pageContext.request.contextPath}/admin/formcours"
-			role="button">Ajouter un cours</a> <br></br>
 		<div class="row col-12">
 			<table class="table">
 				<thead class="thead-dark">
