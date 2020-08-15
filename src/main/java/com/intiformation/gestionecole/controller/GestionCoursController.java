@@ -200,7 +200,7 @@ public class GestionCoursController {
 	@GetMapping(value="/cours/supp/{coursId}")
 	public String supprimerCoursBdd(@PathVariable("coursId") Long pIdCours, ModelMap model) {
 
-		matiereService.supprimer(pIdCours);
+		coursService.supprimer(pIdCours);
 
 		List<Cours> listeCoursBDD = coursService.findAll();
 

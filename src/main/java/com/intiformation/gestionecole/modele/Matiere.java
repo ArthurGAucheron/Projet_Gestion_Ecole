@@ -36,7 +36,7 @@ public class Matiere {
 	private String libelle;
 	
 	@Column(name="liste_cours")
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="matiere", fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.DETACH, mappedBy="matiere", fetch=FetchType.EAGER)
 	private List<Cours> listeCours;
 
 	
