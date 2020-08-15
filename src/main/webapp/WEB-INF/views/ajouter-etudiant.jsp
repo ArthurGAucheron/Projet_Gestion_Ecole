@@ -43,10 +43,12 @@
 						<tr>
 							<td><form:label path="identifiant">Identifiant : </form:label></td>
 							<td><form:input path="identifiant" /></td>
+							<form:errors pahth="identifiant" cssClass="erreurs_validation" />
 						</tr>
 						<tr>
 							<td><form:label path="motdePasse">Mot de passe : </form:label></td>
-							<td><form:input path="motdePasse" /></td>
+							<td><form:password path="motdePasse" /></td>
+							<form:errors pahth="motdePasse" cssClass="erreurs_validation" />
 						</tr>
 						<tr>
 							<td><form:label path="nom">Nom : </form:label></td>
@@ -59,6 +61,7 @@
 						<tr>
 							<td><form:label path="email">Email : </form:label></td>
 							<td><form:input path="email" /></td>
+							<form:errors pahth="email" cssClass="erreurs_validation" />
 						</tr>
 						<tr>
 							<td><form:label path="adresse.rue">Rue : </form:label></td>
@@ -83,9 +86,13 @@
 						<tr>
 							<td><form:label path="promotion.idPromotion">Promotion :</form:label></td>
 							<td><form:select path="promotion.idPromotion">
-									<form:option value="" label="--- Promotion ---" />
+									<form:option value="1" label="--- Promotion ---" />
 									<form:options items="${promotionAttribute}" itemValue="idPromotion" itemLabel="libelle"/>
 								</form:select></td>
+						</tr>
+						<tr>
+						<td><form:label path="actived">Activer le compte</form:label></td>
+						<td><form:checkbox path="actived"/></td>
 						</tr>
 						<tr>
 							<td colspan="2"><input type="submit" value="Ajouter"></td>

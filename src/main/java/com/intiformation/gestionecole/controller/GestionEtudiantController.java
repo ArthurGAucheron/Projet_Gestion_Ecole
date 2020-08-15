@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +25,7 @@ import com.intiformation.gestionecole.service.AdresseServiceImpl;
 import com.intiformation.gestionecole.service.EtudiantServiceImpl;
 import com.intiformation.gestionecole.service.IEtudiantService;
 import com.intiformation.gestionecole.service.PromotionServiceImpl;
+import com.intiformation.gestionecole.validator.PersonneValidator;
 
 @Controller
 public class GestionEtudiantController {
@@ -48,6 +51,14 @@ public class GestionEtudiantController {
 		this.promotionService = promotionService;
 	}
 
+	@Autowired
+	private PersonneValidator personneValidator;
+	public void setPersonneValidator(PersonneValidator personneValidator) {
+		this.personneValidator = personneValidator;
+	}
+	
+	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	
 	/**
 	 * fonction lancé à l'affichage de la page des étudiants
 	 * @param modelMap
@@ -91,7 +102,10 @@ public class GestionEtudiantController {
 	 * @return
 	 */
 	@RequestMapping(value="/admin/addetu", method=RequestMethod.POST)
-	public String addEtudiant(@ModelAttribute("etudiantAttribute") Etudiant etudiant, @RequestParam("file") MultipartFile file) {
+	public String addEtudiant(@ModelAttribute("etudiantAttribute") Etudiant etudiant, @RequestParam("file") MultipartFile file,
+			BindingResult resultatValidation) {
+		
+		personneValidator.validate(etudiant, resultatValidation);
 		
 		if (!file.isEmpty()) {
 			try {
@@ -100,10 +114,18 @@ public class GestionEtudiantController {
 				e.printStackTrace();
 			}
 		}
-				
-		etudiantService.ajouter(etudiant);
 		
-		return "redirect:/admin/listeetudiant";
+		if (resultatValidation.hasErrors()) {
+			
+			return "ajouter-etudiant";
+		} else {
+
+			etudiant.setMotdePasse(passwordEncoder.encode(etudiant.getMotdePasse()));
+			etudiantService.ajouter(etudiant);
+			
+			return "redirect:/admin/listeetudiant";
+		}
+		
 		
 	}//end addEtudiant()
 	

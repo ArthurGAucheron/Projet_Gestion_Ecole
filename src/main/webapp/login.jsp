@@ -25,8 +25,8 @@
 	
 	<header>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-	<a href="${pageContext.request.contextPath}/index.jsp" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logo.jpg" style="max-width: 50px; margin-right: 15px" ></a>
-	<a class="navbar-brand"	href="${pageContext.request.contextPath}/index.jsp">Université du Poitou</a>
+	<a href="${pageContext.request.contextPath}/login.jsp" style="text-decoration: none"><img src="${pageContext.request.contextPath}/assets/images/logo.jpg" style="max-width: 50px; margin-right: 15px" ></a>
+	<a class="navbar-brand"	href="${pageContext.request.contextPath}/login.jsp">Université du Poitou</a>
 	</header>
 	
 	<c:url value="login" var="loginUrl"/>

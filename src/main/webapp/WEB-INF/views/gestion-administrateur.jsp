@@ -72,7 +72,16 @@
 				<td>${adminBDD.prenom}</td>
 				<td>${adminBDD.email}</td>
 				<td>${adminBDD.adresse.rue} ${adminBDD.adresse.codePostal} ${adminBDD.adresse.ville}</td>
-				<td align="center"><input type="checkbox" class="form-check-input" disabled="disabled" checked="${adminBDD.actived}" /></td>
+				<td align="center">
+				<c:choose>
+					<c:when test="${adminBDD.actived == true }">
+						<input type="checkbox" class="form-check-input" disabled="disabled" checked="checked" />
+					</c:when>
+					<c:otherwise>
+						<input type="checkbox" class="form-check-input" disabled="disabled"/>
+					</c:otherwise>
+				</c:choose>
+				</td>
 				<td><a href="${pageContext.request.contextPath}/admin/supp/admin/${adminBDD.idPersonne}">Supprimer</a></td>
 				<td><a href="${pageContext.request.contextPath}/admin/formmodifadmin/${adminBDD.idPersonne}">Modifier</a></td>
 			</tr>

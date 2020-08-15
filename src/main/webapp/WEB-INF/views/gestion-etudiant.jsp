@@ -56,7 +56,6 @@
 				<thead class="thead-dark">
 					<tr>
 						<th>Identifiant</th>
-						<th>Mot de passe</th>
 						<th>Nom</th>
 						<th>Prenom</th>
 						<th>Email</th>
@@ -64,6 +63,7 @@
 						<th>Photo</th>
 						<th>Date de naissance</th>
 						<th>Promotion</th>
+						<th>Validité</th>
 						<th>Supprimer</th>
 						<th>Modifier</th>
 					</tr>
@@ -71,7 +71,6 @@
 				<c:forEach items="${liste_etudiant_attribute}" var="etuBDD">
 					<tr>
 						<td>${etuBDD.identifiant}</td>
-						<td>${etuBDD.motdePasse}</td>
 						<td>${etuBDD.nom}</td>
 						<td>${etuBDD.prenom}</td>
 						<td>${etuBDD.email}</td>
@@ -81,6 +80,7 @@
 							height="100px" />
 						<td>${etuBDD.dateNaissance}</td>
 						<td>${etuBDD.promotion.libelle}</td>
+						<td align="center"><input type="checkbox" class="form-check-input" disabled="disabled" checked="${etuBDD.actived}" /></td>
 						<td><a
 							href="${pageContext.request.contextPath}/admin/supp/etu/${etuBDD.idPersonne}">supprimer</a>
 						</td>

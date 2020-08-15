@@ -52,7 +52,7 @@
 					</tr>
 					<tr>
 						<td><form:label path="motdePasse">Mot de passe : </form:label></td>
-						<td><form:input path="motdePasse" /></td>
+						<td><form:password path="motdePasse" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="nom">Nom : </form:label></td>
@@ -95,6 +95,12 @@
 									itemValue="idPromotion" itemLabel="libelle" />
 							</form:select></td>
 					</tr>
+					<tr>
+						<td><form:label path="actived">Activer le compte</form:label></td>
+						<td><form:checkbox path="actived"/></td>
+					</tr>
+					
+					
 					<tr>
 						<td colspan="2"><input type="submit" value="Modifier">
 						</td>
