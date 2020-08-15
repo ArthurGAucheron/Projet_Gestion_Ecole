@@ -32,14 +32,14 @@ public class Enseignant extends Personne {
 	public Enseignant() {
 	}
 
-	public Enseignant(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email,
+	public Enseignant(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email, boolean actived,
 			Adresse adresse) {
-		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresse);
+		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresse, actived);
 	
 	}
 
-	public Enseignant(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse) {
-		super(identifiant, motdePasse, nom, prenom, email, adresse);
+	public Enseignant(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse, boolean actived) {
+		super(identifiant, motdePasse, nom, prenom, email, adresse, actived);
 	}
 
 	public Matiere getMatiere() {

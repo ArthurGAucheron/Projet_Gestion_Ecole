@@ -70,8 +70,8 @@ public class Etudiant extends Personne {
 	 * @param idPromo
 	 */
 	public Etudiant(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email,
-			Adresse adresse, byte[] photo, Date dateNaissance, Promotion promotion) {
-		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresse);
+			Adresse adresse, byte[] photo, Date dateNaissance, Promotion promotion, boolean actived) {
+		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresse, actived);
 		this.photo = photo;
 		this.dateNaissance = dateNaissance;
 		this.promotion = promotion;
@@ -90,8 +90,8 @@ public class Etudiant extends Personne {
 	 * @param dateNaissance
 	 * @param idPromo
 	 */
-	public Etudiant(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse, byte[] photo, Date dateNaissance, Promotion promotion) {
-		super(identifiant, motdePasse, nom, prenom, email, adresse);
+	public Etudiant(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse, byte[] photo, Date dateNaissance, Promotion promotion, boolean actived ) {
+		super(identifiant, motdePasse, nom, prenom, email, adresse, actived);
 		this.photo = photo;
 		this.dateNaissance = dateNaissance;
 		this.promotion = promotion;

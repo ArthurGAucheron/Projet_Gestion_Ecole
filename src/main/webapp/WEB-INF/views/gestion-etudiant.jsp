@@ -80,7 +80,16 @@
 							height="100px" />
 						<td>${etuBDD.dateNaissance}</td>
 						<td>${etuBDD.promotion.libelle}</td>
-						<td align="center"><input type="checkbox" class="form-check-input" disabled="disabled" checked="${etuBDD.actived}" /></td>
+						<td align="center">
+				<c:choose>
+					<c:when test="${etuBDD.actived == true }">
+						<input type="checkbox" class="form-check-input" disabled="disabled" checked="checked" />
+					</c:when>
+					<c:otherwise>
+						<input type="checkbox" class="form-check-input" disabled="disabled"/>
+					</c:otherwise>
+				</c:choose>
+				</td>
 						<td><a
 							href="${pageContext.request.contextPath}/admin/supp/etu/${etuBDD.idPersonne}">supprimer</a>
 						</td>

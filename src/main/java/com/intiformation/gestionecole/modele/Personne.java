@@ -66,7 +66,6 @@ public abstract class Personne {
 	private Adresse adresse;
 	
 	@Column(name="actived")
-	@ColumnDefault("1")
 	private boolean actived;
 	/*
 	 * _____________________________________________________ Constructeurs
@@ -78,8 +77,10 @@ public abstract class Personne {
 
 	
 
+
+
 	public Personne(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom, String email,
-			Adresse adresse) {
+			Adresse adresse, boolean actived) {
 		super();
 		this.idPersonne = idPersonne;
 		this.identifiant = identifiant;
@@ -88,9 +89,15 @@ public abstract class Personne {
 		this.prenom = prenom;
 		this.email = email;
 		this.adresse = adresse;
+		this.actived = actived;
 	}
 
-	public Personne(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse) {
+
+
+
+
+	public Personne(String identifiant, String motdePasse, String nom, String prenom, String email, Adresse adresse,
+			boolean actived) {
 		super();
 		this.identifiant = identifiant;
 		this.motdePasse = motdePasse;
@@ -98,7 +105,10 @@ public abstract class Personne {
 		this.prenom = prenom;
 		this.email = email;
 		this.adresse = adresse;
+		this.actived = actived;
 	}
+
+
 
 
 
@@ -168,10 +178,9 @@ public abstract class Personne {
 
 
 
-	public boolean isActived() {
+	public boolean getActived() {
 		return actived;
 	}
-
 
 
 	public void setActived(boolean actived) {

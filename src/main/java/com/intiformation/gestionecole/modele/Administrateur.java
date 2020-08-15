@@ -22,13 +22,13 @@ public class Administrateur extends Personne{
 	}
 
 	public Administrateur(Long idPersonne, String identifiant, String motdePasse, String nom, String prenom,
-			String email, Adresse adresse) {
-		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresse);
+			String email, Adresse adresse, boolean actived ) {
+		super(idPersonne, identifiant, motdePasse, nom, prenom, email, adresse, actived);
 	}
 
 	public Administrateur(String identifiant, String motdePasse, String nom, String prenom, String email,
-			Adresse adresse) {
-		super(identifiant, motdePasse, nom, prenom, email, adresse);
+			Adresse adresse, boolean actived ) {
+		super(identifiant, motdePasse, nom, prenom, email, adresse, actived);
 	}
 
 }
