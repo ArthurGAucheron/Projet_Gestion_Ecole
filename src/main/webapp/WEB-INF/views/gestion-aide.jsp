@@ -34,6 +34,7 @@
       <h2>Page Aide</h2>
       <div class="container" style="padding-top: 30px">
 	 <div class="row col-12">
+	
 	<form:form modelAttribute="AttributAideAjout"  method="POST"  action="${pageContext.request.contextPath}/aide/admin/add" cssStyle="border : 1px solid black; padding : 5px" >
 		<form:errors path="*" cssClass="erreurs_validation" element="div" />
 	

@@ -41,7 +41,7 @@
 	 														 de la page login.jsp
 	 	-->
 		<sec:form-login login-page="/login.jsp"
-						default-target-url="/index.jsp"
+						default-target-url="/index"
 						authentication-failure-url="/login.jsp?error=true"
 						login-processing-url="/login"
 						username-parameter="identifiant"

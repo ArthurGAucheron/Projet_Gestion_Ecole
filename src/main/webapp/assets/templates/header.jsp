@@ -67,7 +67,8 @@
 		<ul class="navbar-nav mt-2 mt-md-2" style="align-content: right;" >
 			<li class="nav-item dropdown">
         		<div class="btn-group dropleft">
-  				<a style="color: white; font-weight: bold;" class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Identifiant</a>
+  				<a style="color: white; font-weight: bold;" class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  				Identifiant : <s:authentication property="name"/></a>
 			  <div class="dropdown-menu">
 			   	<a class="dropdown-item" href="#">Mon Compte</a>
           	    <a class="dropdown-item" href="<c:url value='/logout'/>">Se déconnecter</a>
