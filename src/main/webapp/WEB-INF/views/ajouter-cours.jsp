@@ -35,7 +35,7 @@
 	<div class="container-fluid" style="padding-top: 100px;">
 		<h1>Ajout d'un cours</h1>
 
-		<a href="${pageContext.request.contextPath}/gestion-cours.jsp">Retour à la liste des cours</a>
+		<a href="${pageContext.request.contextPath}/ens/listecours">Retour à la liste des cours</a>
 
 		<div class="container">
 

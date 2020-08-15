@@ -162,17 +162,25 @@ public class GestionCoursController {
 
 			model.addAttribute("attribut_liste_cours", coursService.findAll());
 
-			return "redirect:/cours/listecours";
+			return "redirect:/ens/listecours";
 
 		} // end else
 	}// end ajoutCours
 
 	@GetMapping(value = "/cours/formmodifcours/{coursId}")
-	public ModelAndView afficherFormulaireModification(@RequestParam("coursId") Long pCoursID) {
+	public ModelAndView afficherFormulaireModification(@PathVariable("coursId") Long pCoursID) {
 
 		Cours coursAModifier = coursService.findById(pCoursID);
+		
+		List<Matiere> matieresList = matiereService.findAll();
+		List<Promotion> promotionsList = promotionService.findAll();
 
-		return new ModelAndView("modif-cours", "coursModifCommand", coursAModifier);
+		Map<String, Object> donneesCommande = new HashMap<String, Object>();
+		donneesCommande.put("coursModifCommand", coursAModifier);
+		donneesCommande.put("attributMatiere", matieresList);
+		donneesCommande.put("attributPromotion", promotionsList);
+
+		return new ModelAndView("modif-cours", donneesCommande);
 
 	}// end afficherFormulaireModification()
 
@@ -185,11 +193,11 @@ public class GestionCoursController {
 
 		model.addAttribute("attribut_liste_cours", listeCoursBDD);
 
-		return "redirect:/cours/listecours";
+		return "redirect:/ens/listecours";
 
 	}// end modifierCoursBDD()
 
-	@GetMapping(value="/cours/supp/cours/{coursId}")
+	@GetMapping(value="/cours/supp/{coursId}")
 	public String supprimerCoursBdd(@PathVariable("coursId") Long pIdCours, ModelMap model) {
 
 		matiereService.supprimer(pIdCours);
@@ -198,7 +206,7 @@ public class GestionCoursController {
 
 		model.addAttribute("attribut_liste_cours", listeCoursBDD);
 
-		return "redirect:/cours/listecours";
+		return "redirect:/ens/listecours";
 
 	}// end supprimerCoursBdd()
 

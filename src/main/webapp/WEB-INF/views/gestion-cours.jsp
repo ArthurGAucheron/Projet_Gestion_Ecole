@@ -38,7 +38,7 @@
 	</div>
 	<div class="container" style="padding-top: 30px">
 		<a class="btn btn-outline-dark"
-			href="${pageContext.request.contextPath}/admin/formcours"
+			href="${pageContext.request.contextPath}/cours/formcours"
 			role="button">Ajouter un cours</a> <br></br>
 		<div class="row col-12">
 			<table class="table">
@@ -64,9 +64,9 @@
 						<td>${coursBDD.matiere.libelle}</td>
 						<td>${coursBDD.promotion.libelle}</td>
 						<td><a
-							href="${pageContext.request.contextPath}/cours/supp/cours/${coursBDD.idCours}">Supprimer</a></td>
+							href="${pageContext.request.contextPath}/cours/supp/${coursBDD.idCours}">Supprimer</a></td>
 						<td><a
-							href="${pageContext.request.contextPath}/cours/formodifcours/${coursBDD.idCours}">Modifier</a></td>
+							href="${pageContext.request.contextPath}/cours/formmodifcours/${coursBDD.idCours}">Modifier</a></td>
 						<td><a href="${pageContext.request.contextPath}/ens/absence-form?idCours=${coursBDD.idCours}">Gérer les absences</a></td>
 					</tr>
 				</c:forEach>

@@ -32,7 +32,7 @@
 
 	<div class=container-fluid style="padding-top: 100px;">
 		<h1>Modification d'un cours</h1>
-		<a href="${pageContext.request.contextPath}/gestion-cours.jsp">Retour
+		<a href="${pageContext.request.contextPath}/ens/listecours">Retour
 			à la liste des cours</a> <br></br>
 
 		<div class="container">
@@ -40,7 +40,7 @@
 
 
 			<form:form modelAttribute="coursModifCommand" method="POST"
-				action="${pageContext.request.contextPath}/updatecours">
+				action="${pageContext.request.contextPath}/cours/updatecours">
 
 				<table width="60%">
 					<!-- recup de l'id dans un champ caché -->
@@ -69,6 +69,7 @@
 					<tr>
 						<td><form:label path="matiere.idMatiere">Matiere :</form:label></td>
 						<td><form:select path="matiere.idMatiere">
+								<form:option value="" label="--- Matiere ---" />
 								<form:options items="${attributMatiere}" itemValue="idMatiere"
 									itemLabel="libelle" />
 							</form:select></td>
@@ -77,6 +78,7 @@
 					<tr>
 						<td><form:label path="promotion.idPromotion">Promotion :</form:label></td>
 						<td><form:select path="promotion.idPromotion">
+								<form:option value="" label="--- Promotion ---" />
 								<form:options items="${attributPromotion}"
 									itemValue="idPromotion" itemLabel="libelle" />
 							</form:select></td>
