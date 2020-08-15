@@ -72,7 +72,7 @@ public class GestionMatiereController {
 	}
 
 	@GetMapping(value = "/admin/formodifmat/{idMatiere}")
-	public ModelAndView afficherFormulaireModification(@RequestParam("idMatiere") Long pMatiereID) {
+	public ModelAndView afficherFormulaireModification(@PathVariable("idMatiere") Long pMatiereID) {
 
 		Matiere matiereAModifier = matiereService.findById(pMatiereID);
 		List<Enseignant> listeEnseignant = enseignantService.findAll();

@@ -36,7 +36,7 @@
  	 <div class="container-fluid" style="padding-top: 100px">
       <h2>Gestion des matières</h2>
       <div class="container" style="padding-top: 30px">
-	  <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/admin/formmatiere" role="button">Ajouter une matière</a>	
+	  <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/admin/formatiere" role="button">Ajouter une matière</a>	
 	  <br></br>
 	  
 	<div class="row col-12">
@@ -61,8 +61,8 @@
 					</ul>			
 				</td>
 				<td>${matiereBDD.enseignant.prenom} ${matiereBDD.enseignant.nom}</td>
-				<td><a href="${pageContext.request.contextPath}admin/supp/mat/${matiereBDD.idMatiere}">Supprimer</a></td>
-				<td><a href="${pageContext.request.contextPath}/admin/formmodifmat/${matiereBDD.idMatiere}">Modifier</a></td>
+				<td><a href="${pageContext.request.contextPath}/admin/supp/mat/${matiereBDD.idMatiere}">Supprimer</a></td>
+				<td><a href="${pageContext.request.contextPath}/admin/formodifmat/${matiereBDD.idMatiere}">Modifier</a></td>
 			</tr>
 		</c:forEach>
 	</table>

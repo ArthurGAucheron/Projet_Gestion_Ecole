@@ -39,7 +39,7 @@
 	<a href="${pageContext.request.contextPath}/admin/listemat">Retour à la liste des matières</a>
 	
 	<div class="container">
-	<form:form  modelAttribute="attributMatiere" method="POST" action="${pageContext.request.contextPath}/admin/addmat">
+	<form:form  modelAttribute="attributMatiere" method="POST" action="${pageContext.request.contextPath}/admin/addmatiere">
 		<div class="row-form">
 			<div class="form-group col-md-6">	
 				<form:label path="libelle">libelle</form:label>
