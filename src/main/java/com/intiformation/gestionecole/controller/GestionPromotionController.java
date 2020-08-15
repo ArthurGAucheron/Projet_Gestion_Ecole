@@ -53,12 +53,12 @@ public class GestionPromotionController {
 		return "redirect:/admin/listepromo";
 	}
 
-	@GetMapping(value = "/admin/formodifpromo/{idPromotion}")
-	public ModelAndView afficherFormulaireModification(@RequestParam("idPromotion") Long pPromotionID) {
+	@GetMapping(value = "/admin/formmodifpromo/{idPromotion}")
+	public ModelAndView afficherFormulaireModification(@PathVariable("idPromotion") Long pPromotionID) {
 
 		Promotion promotionAModifier = promotionService.findById(pPromotionID);
 
-		return new ModelAndView("modifier-promotion", "promotionModifCommand", promotionAModifier);
+		return new ModelAndView("modif-promotion", "promotionModifCommand", promotionAModifier);
 
 	}// end afficherFormulaireModification()
 
