@@ -22,6 +22,10 @@
 	<property name="basenames">
 		<list>
 			<value>/WEB-INF/bundle/validation</value>
+			<value>/WEB-INF/message</value>
+			<value>/WEB-INF/message_fr</value>
+			<value>/WEB-INF/message_en</value>
+			<value>/WEB-INF/message_es</value>
 		</list>
 	</property>
 
@@ -52,6 +56,30 @@
 	<property name="maxUploadSize" value="20971520"/>
 	<property name="maxInMemorySize" value="1048576"/>
 </bean>
-
-
+	
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- ++++++++++++++++++++++++++++ Bean pour l'internationalisation  +++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	
+	<!-- For reading the properties files -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="/WEB-INF/message" />
+    </bean>
+ 
+    <!-- Locale Change Interceptor to achieve internationalization. -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/init" />
+            <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+                <property name="paramName" value="lang"></property>
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+ 
+    <!-- Cookie Resolver -->
+    <bean id="localeResolver"
+        class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+    </bean>
+    
+    
 </beans>

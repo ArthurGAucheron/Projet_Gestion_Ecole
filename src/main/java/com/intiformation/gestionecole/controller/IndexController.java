@@ -20,4 +20,11 @@ public class IndexController {
 		
 	}// end class
 	
+    @RequestMapping(value= "/init", method= RequestMethod.GET)
+	public String initView() {
+		
+	
+		return "index";
+	}
+	
 }
