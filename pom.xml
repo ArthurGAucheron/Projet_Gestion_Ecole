@@ -37,7 +37,7 @@
 		<jsp.version>2.3.1</jsp.version>
 		
 		<!-- version hibernate -->
-		<hibernate.version>5.2.11.Final</hibernate.version>
+		<hibernate.version>5.4.24.Final</hibernate.version>
 		
 		<!-- version pilote jdbc de mysql-->
 		<mysql.driver.version>5.1.47</mysql.driver.version>
